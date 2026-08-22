@@ -3329,6 +3329,10 @@ msgstr "يجري النسخ..."
 msgid "Could not classify the merge — try again."
 msgstr "تعذّر تصنيف الدمج — حاول مرة أخرى."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "تعذّرت ترجمة الإطار السلكي."
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "تعذّر إتمام الحذف"
@@ -3803,7 +3807,7 @@ msgstr "تعذّرت إعادة تسمية القالب: {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "تعذّر عرض الإطار السلكي."
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "المعاينة غير متاحة: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "المعاينة غير متاحة."
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "معروض"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "جارٍ عرض الإطار السلكي"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "عنوان قسم صغير."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "بعض المحتويات غير مدعومة بعد ولا تُعرض."
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "نتائج بحث المصدر"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "المصدر دون تغيير."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "يحتاج الرمز إلى نطاقي repo وread:user."
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "لم يُحمَّل عارض الإطار السلكي. المصدر سليم."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "يعني هذا عادةً أحد الأمور التالية:"
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "لا تستطيع هذه النافذة تخزين رمز — افتح الإعدادات من نافذة التطبيق الرئيسية."
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "مصدر هذا الإطار السلكي كبير جدًا بحيث لا يمكن معاينته. المصدر دون تغيير."
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "نافذة"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "معاينة الإطار السلكي"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "فشلت معاينة الإطار السلكي. المصدر دون تغيير."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "معاينة الإطار السلكي جاهزة."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "عُرض الإطار السلكي مع حذف بعض الأجزاء."
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

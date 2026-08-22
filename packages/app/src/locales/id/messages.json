@@ -51,7 +51,7 @@
     ],
     "-slrNR": ["Menyalakan atau mematikan daftar tugas."],
     "-uaQnI": ["Tidak ada worktree atau cabang yang cocok."],
-    "-vtSLb": ["The wireframe renderer didn't load. Source is intact."],
+    "-vtSLb": ["Perender wireframe tidak dimuat. Sumber tetap utuh."],
     "-yOx8u": ["Menyimpan perubahan…"],
     "-yPBXI": ["Pilih berkas"],
     "-ySLQJ": ["Git & PR"],
@@ -616,7 +616,7 @@
     "7wogIQ": [["0", "plural", { "other": ["Plugin"] }]],
     "80c4-P": ["Kode disalin ke papan klip"],
     "81H_23": ["Tambahkan properti"],
-    "8508_n": ["Wireframe preview failed. Source is unchanged."],
+    "8508_n": ["Pratinjau wireframe gagal. Sumber tidak berubah."],
     "851WA-": ["Ini bisa diatur di Pengaturan > Alat AI & CLI"],
     "87GMKe": ["Ekspos proyek ini ke jaringan?"],
     "881Uwh": ["Hapus tabel terpilih"],
@@ -794,7 +794,7 @@
     "AVW-K9": ["Gagal memuat halaman yatim"],
     "AWOSPo": ["Perbesar"],
     "AYoYhU": ["Pembaruan gagal: ", ["0"]],
-    "Aa4fhV": ["Wireframe rendered with omissions."],
+    "Aa4fhV": ["Wireframe dirender dengan beberapa bagian dilewati."],
     "AaaESH": [
       "Sinkronisasi otomatis mati untuk worktree ini, diwarisi dari ",
       ["project"],
@@ -970,7 +970,7 @@
     "DKYW1G": [
       "Pengaturan ini berlaku per komputer dan tidak dibagikan dengan kolaborator. Ia memerlukan kunci API (setel di bawah) kecuali endpoint Anda adalah server lokal yang tidak memerlukannya."
     ],
-    "DKwLOA": ["Some content isn't supported yet and isn't shown."],
+    "DKwLOA": ["Beberapa konten belum didukung dan tidak ditampilkan."],
     "DLIljL": [
       "Beberapa tema tersimpan tidak ditampilkan karena folder tema melewati batas pemindaian."
     ],
@@ -1427,7 +1427,7 @@
     "J6N5MX": ["URL berbagi tidak bisa disusun. Tekan Selesai lalu bagikan ulang."],
     "J6mxC1": ["Masalah jaringan atau gangguan GitHub menghentikan proses kloning."],
     "J7nMqi": ["Copot OpenKnowledge"],
-    "J81SGS": ["Preview unavailable."],
+    "J81SGS": ["Pratinjau tidak tersedia."],
     "J86siq": ["Pasang dari ", ["plugin"]],
     "JAQ09e": ["Merenungkan…"],
     "JCxGEX": [
@@ -2148,6 +2148,7 @@
     ],
     "T-654M": ["Memuat PDF"],
     "T0OVm7": ["Cabang bawaannya terlindungi — push memerlukan pull request."],
+    "T0bFFW": ["Tidak dapat mengompilasi wireframe."],
     "T2fvhw": ["Hapus tanda semua komentar di ", ["0"]],
     "T3Mld1": ["Jendela"],
     "T3j-7o": ["mis. Berpindah proyek saat sinkronisasi sedang berjalan"],
@@ -2550,7 +2551,7 @@
     "YSFv5w": ["Tidak ada repositori git — berbagi konfigurasi tidak berlaku di sini."],
     "YTLmTM": ["Hapus folder <0>.git</0> induknya"],
     "YW7Q86": ["Pengaturan pencarian belum dimuat — coba lagi sebentar"],
-    "YXicq3": ["Source is unchanged."],
+    "YXicq3": ["Sumber tidak berubah."],
     "Y_GpJd": ["Permintaan unduhan ", ["0"], " kehabisan waktu."],
     "Y_ZQ6l": ["Memasang ", ["agentName"], "…"],
     "Y_iImT": ["File ", ["identity"], " tidak dapat ditentukan. Buka referensi."],
@@ -3561,7 +3562,7 @@
     ],
     "kSiB3X": ["Tidak dapat memindahkan ke ", ["trashNoun"]],
     "kUn-CN": ["Sinkronisasi mati"],
-    "kV1UEu": ["Rendering wireframe"],
+    "kV1UEu": ["Merender wireframe"],
     "kV2YZv": [
       "Tidak melihat <0>Keterampilan</0>? Aktifkan dulu <1>Pengaturan <2/> Kemampuan <3/> Eksekusi kode dan pembuatan berkas</1>."
     ],
@@ -4053,6 +4054,7 @@
     "qpQwGC": ["Jelaskan apa yang sedang Anda kerjakan dan agennya akan menyiapkannya untuk Anda."],
     "qribBG": ["skema ", ["deleteTarget"]],
     "qtnmEX": ["Masukkan nama tema yang valid."],
+    "qvIx5M": ["Pratinjau wireframe"],
     "qvWGzP": ["Ciutkan semua"],
     "qyLmWw": ["Panel pencarian penyunting sumber"],
     "r-OJYm": ["Masukkan nama cabang yang valid (tanpa spasi, tanpa titik di awal, tanpa \"..\")."],
@@ -4162,7 +4164,7 @@
     "sR0I-f": ["Ciutkan semua berkas"],
     "sSRndh": ["Mulai pertahankan index.md"],
     "sW5OjU": ["wajib"],
-    "sWMDCf": ["Wireframe preview ready."],
+    "sWMDCf": ["Pratinjau wireframe siap."],
     "sZ2IOu": [
       ["targetNoun"],
       " ini dibagikan dari cabang <0>",
@@ -4490,6 +4492,7 @@
     "wlwXUk": [
       "Anda memilih ~/Downloads. Berkas di sana biasanya sementara — pertimbangkan folder yang lebih tetap."
     ],
+    "wndbw5": ["Sumber wireframe ini terlalu besar untuk dipratinjau. Sumber tidak berubah."],
     "wndeIl": ["Halaman tingkat proyek yang tidak punya sisi graf masuk maupun keluar."],
     "wqD3pI": [["failed"], " dari ", ["0"], " komentar tidak dapat diperbarui."],
     "ws5o1F": ["Diperiksa oleh: ", ["0"]],
@@ -4665,7 +4668,7 @@
       "Menyimpan berkasnya ke <0>~/Downloads/openknowledge.skill</0> dan membuka aplikasi Claude Desktop. Memerlukan Node.js atau Bun di PATH Anda."
     ],
     "z9NwEu": ["Klik untuk membuka"],
-    "z9p3HY": ["Couldn't render wireframe."],
+    "z9p3HY": ["Tidak dapat merender wireframe."],
     "zA9zRL": [
       "Tidak satu pun masalah ini punya perbaikan otomatis. Coba Perbaiki semua dengan AI."
     ],

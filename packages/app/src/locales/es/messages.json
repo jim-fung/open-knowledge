@@ -67,7 +67,7 @@
     ],
     "-slrNR": ["Activa o desactiva una lista de tareas."],
     "-uaQnI": ["Ningún worktree ni rama coincide."],
-    "-vtSLb": ["The wireframe renderer didn't load. Source is intact."],
+    "-vtSLb": ["El renderizador de wireframes no se cargó. El código está intacto."],
     "-yOx8u": ["Guardando cambios…"],
     "-yPBXI": ["Elegir archivo"],
     "-ySLQJ": ["Git y PR"],
@@ -716,7 +716,7 @@
     ],
     "80c4-P": ["Código copiado al portapapeles"],
     "81H_23": ["Añadir propiedades"],
-    "8508_n": ["Wireframe preview failed. Source is unchanged."],
+    "8508_n": ["La vista previa del wireframe falló. El código no se ha modificado."],
     "851WA-": ["Esto se puede configurar en Ajustes > Herramientas de IA y CLI"],
     "87GMKe": ["¿Exponer este proyecto a la red?"],
     "881Uwh": ["Eliminar la tabla seleccionada"],
@@ -926,7 +926,7 @@
     "AVW-K9": ["No se pudieron cargar las páginas huérfanas"],
     "AWOSPo": ["Acercar"],
     "AYoYhU": ["Falló la actualización: ", ["0"]],
-    "Aa4fhV": ["Wireframe rendered with omissions."],
+    "Aa4fhV": ["Wireframe renderizado con omisiones."],
     "AaaESH": [
       "La sincronización automática está desactivada en este worktree, heredado de ",
       ["project"],
@@ -1150,7 +1150,7 @@
     "DKYW1G": [
       "Este ajuste es de cada equipo y no se comparte con tus colaboradores. Necesita una clave de API (defínela abajo) salvo que tu endpoint sea un servidor local que no la requiera."
     ],
-    "DKwLOA": ["Some content isn't supported yet and isn't shown."],
+    "DKwLOA": ["Algunos contenidos aún no son compatibles y no se muestran."],
     "DLIljL": [
       "Algunos temas guardados no se muestran porque la carpeta de temas supera el límite de análisis."
     ],
@@ -1663,7 +1663,7 @@
     "J6N5MX": ["No se pudo construir la URL para compartir. Pulsa Listo y vuelve a compartir."],
     "J6mxC1": ["Un problema de red o una caída de GitHub interrumpió la clonación."],
     "J7nMqi": ["Desinstalar OpenKnowledge"],
-    "J81SGS": ["Preview unavailable."],
+    "J81SGS": ["Vista previa no disponible."],
     "J86siq": ["Instalar desde ", ["plugin"]],
     "JAQ09e": ["Reflexionando…"],
     "JCxGEX": [
@@ -2466,6 +2466,7 @@
     ],
     "T-654M": ["Cargando el PDF"],
     "T0OVm7": ["La rama por defecto está protegida: los push requieren una pull request."],
+    "T0bFFW": ["No se pudo compilar el wireframe."],
     "T2fvhw": ["Desmarcar todos los comentarios de ", ["0"]],
     "T3Mld1": ["Ventana"],
     "T3j-7o": ["p. ej. Cambiar de proyecto mientras se sincronizaba"],
@@ -2948,7 +2949,7 @@
     "YSFv5w": ["No hay repositorio de git: compartir configuración no aplica aquí."],
     "YTLmTM": ["Eliminar la carpeta <0>.git</0> superior"],
     "YW7Q86": ["Los ajustes de búsqueda aún no se han cargado; inténtalo de nuevo en un momento"],
-    "YXicq3": ["Source is unchanged."],
+    "YXicq3": ["El código no se ha modificado."],
     "Y_GpJd": ["Se agotó el tiempo de la solicitud de descarga de ", ["0"], "."],
     "Y_ZQ6l": ["Instalando ", ["agentName"], "…"],
     "Y_iImT": ["No se puede resolver el archivo ", ["identity"], ". Ir a la referencia."],
@@ -4093,7 +4094,7 @@
     ],
     "kSiB3X": ["No se pudo mover a la ", ["trashNoun"]],
     "kUn-CN": ["Sincronización desactivada"],
-    "kV1UEu": ["Rendering wireframe"],
+    "kV1UEu": ["Renderizando wireframe"],
     "kV2YZv": [
       "¿No ves <0>Habilidades</0>? Activa antes <1>Ajustes <2/> Capacidades <3/> Ejecución de código y creación de archivos</1>."
     ],
@@ -4666,6 +4667,7 @@
     "qpQwGC": ["Describe en qué estás trabajando y el agente te lo prepara."],
     "qribBG": ["esquema ", ["deleteTarget"]],
     "qtnmEX": ["Introduce un nombre de tema válido."],
+    "qvIx5M": ["Vista previa del wireframe"],
     "qvWGzP": ["Contraer todo"],
     "qyLmWw": ["Panel de búsqueda del editor de código"],
     "r-OJYm": ["Escribe un nombre de rama válido (sin espacios, sin punto inicial, sin \"..\")."],
@@ -4779,7 +4781,7 @@
     "sR0I-f": ["Contraer todos los archivos"],
     "sSRndh": ["Comience a mantener index.md"],
     "sW5OjU": ["obligatorio"],
-    "sWMDCf": ["Wireframe preview ready."],
+    "sWMDCf": ["Vista previa del wireframe lista."],
     "sZ2IOu": [
       "Este ",
       ["targetNoun"],
@@ -5165,6 +5167,9 @@
     "wlwXUk": [
       "Elegiste ~/Downloads. Los archivos de ahí suelen ser pasajeros; plantéate una carpeta más estable."
     ],
+    "wndbw5": [
+      "El código de este wireframe es demasiado grande para previsualizarlo. El código no se ha modificado."
+    ],
     "wndeIl": ["Páginas de todo el proyecto sin aristas entrantes ni salientes en el grafo."],
     "wqD3pI": ["No se pudieron actualizar ", ["failed"], " de ", ["0"], " comentarios."],
     "ws5o1F": ["Comprobado por: ", ["0"]],
@@ -5372,7 +5377,7 @@
       "Guarda el archivo en <0>~/Downloads/openknowledge.skill</0> y abre la aplicación Claude Desktop. Requiere Node.js o Bun en tu PATH."
     ],
     "z9NwEu": ["Haz clic para expandir"],
-    "z9p3HY": ["Couldn't render wireframe."],
+    "z9p3HY": ["No se pudo renderizar el wireframe."],
     "zA9zRL": [
       "Ninguno de estos problemas tiene arreglo automático. Prueba Arreglarlo todo con IA."
     ],

@@ -71,7 +71,7 @@ test.describe('Wiremd user-flow snapshots', () => {
     await page.waitForSelector('.ProseMirror:not(.composer-prosemirror)');
 
     const editor = page.locator('.ProseMirror:not(.composer-prosemirror)');
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Sign in')).toBeVisible();
 
     // Whole-editor capture: prose + promoted block + plain js code block.
@@ -118,7 +118,7 @@ test.describe('Wiremd user-flow snapshots', () => {
     await waitForProvider(page);
     await page.waitForSelector('.ProseMirror:not(.composer-prosemirror)');
 
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Continue')).toBeVisible();
 
     // Open the fullscreen source modal via the block chrome pencil.
@@ -191,7 +191,7 @@ test.describe('Wiremd user-flow snapshots', () => {
 
     const fence = page.locator('.jsx-component-wrapper[data-component-type="wiremdfence"]');
     await expect(fence.getByText('Wireframe rendered with omissions.')).toBeVisible();
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Still renders')).toBeVisible();
 
     await expect(fence).toHaveScreenshot('wiremd-07-partial-render-warning.png', {

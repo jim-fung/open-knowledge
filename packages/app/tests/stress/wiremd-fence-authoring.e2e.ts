@@ -46,7 +46,7 @@ test.describe('Wiremd fence authoring', () => {
     await expect(fence).toHaveCount(1);
 
     // …and its lazy renderer mounted the sandboxed preview iframe.
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.locator('.ok-wiremd-root')).toHaveCount(1);
 
     // The wireframe's actual content rendered inside the frame — the
@@ -100,6 +100,6 @@ test.describe('Wiremd fence authoring', () => {
     // click target with a clear CTA label.
     await expect(page.getByText('Add a wiremd wireframe')).toBeVisible();
     // No preview iframe mounted for an empty source.
-    await expect(page.locator('iframe[title="Wiremd wireframe preview"]')).toHaveCount(0);
+    await expect(page.locator('iframe[title="Wireframe preview"]')).toHaveCount(0);
   });
 });

@@ -3329,6 +3329,10 @@ msgstr "Copie en cours…"
 msgid "Could not classify the merge — try again."
 msgstr "Impossible de classer la fusion. Réessayez."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "Impossible de compiler le wireframe."
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "Impossible de terminer la suppression"
@@ -3803,7 +3807,7 @@ msgstr "Impossible de renommer le modèle : {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "Impossible de rendre le wireframe."
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "Aperçu indisponible : {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "Aperçu indisponible."
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "Rendu"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "Rendu du wireframe en cours"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "Petit titre de section."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "Certains contenus ne sont pas encore pris en charge et ne sont pas affichés."
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "Résultats de recherche dans la source"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "La source reste inchangée."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "Le jeton doit avoir les portées repo et read:user."
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "Le moteur de rendu du wireframe ne s'est pas chargé. La source est intacte."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "Cela signifie généralement l'une de ces choses :"
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "Cette fenêtre ne peut pas stocker de jeton — ouvrez les Paramètres depuis la fenêtre principale de l'application."
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "La source de ce wireframe est trop grande pour être prévisualisée. La source reste inchangée."
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "Fenêtre"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "Aperçu du wireframe"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "Échec de l'aperçu du wireframe. La source reste inchangée."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "Aperçu du wireframe prêt."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "Wireframe rendu avec des omissions."
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

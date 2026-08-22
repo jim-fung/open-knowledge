@@ -2137,6 +2137,7 @@
     ],
     "T-654M": ["Loading PDF"],
     "T0OVm7": ["The default branch is protected — pushes need a pull request."],
+    "T0bFFW": ["Could not compile the wireframe."],
     "T2fvhw": ["Unmark every comment in ", ["0"]],
     "T3Mld1": ["Window"],
     "T3j-7o": ["e.g. Switching projects while a sync was running"],
@@ -4027,6 +4028,7 @@
     "qpQwGC": ["Describe what you're working on and the agent sets it up for you."],
     "qribBG": ["schema ", ["deleteTarget"]],
     "qtnmEX": ["Enter a valid theme name."],
+    "qvIx5M": ["Wireframe preview"],
     "qvWGzP": ["Collapse all"],
     "qyLmWw": ["Source editor search panel"],
     "r-OJYm": ["Enter a valid branch name (no spaces, no leading dot, no \"..\")."],
@@ -4467,6 +4469,7 @@
     "wlwXUk": [
       "You picked ~/Downloads. Files there are usually transient — consider a stable folder instead."
     ],
+    "wndbw5": ["This wireframe source is too large to preview. Source is unchanged."],
     "wndeIl": ["Project-level pages with neither incoming nor outgoing graph edges."],
     "wqD3pI": [["failed"], " of ", ["0"], " comments could not be updated."],
     "ws5o1F": ["Checked by: ", ["0"]],

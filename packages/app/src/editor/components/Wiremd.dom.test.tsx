@@ -85,7 +85,7 @@ vi.doMock('wiremd/embed', () => ({
   renderToPreview: () => control.previewResult(),
 }));
 
-const { WiremdView } = await import('./Wiremd.tsx');
+const { WiremdView, MAX_WIREMD_SOURCE_LENGTH } = await import('./Wiremd.tsx');
 
 const DEBOUNCE_MS = 300;
 
@@ -96,7 +96,7 @@ async function advance(ms: number) {
 }
 
 function previewFrame(): HTMLIFrameElement {
-  return screen.getByTitle('Wiremd wireframe preview') as HTMLIFrameElement;
+  return screen.getByTitle('Wireframe preview') as HTMLIFrameElement;
 }
 
 beforeEach(() => {
@@ -157,7 +157,7 @@ describe('WiremdView — recoverable states (V1/V2)', () => {
     expect(alert.textContent).toContain('Source is unchanged.');
     // The source stays visible under the error — never blanked.
     expect(screen.getByText('[Outer] [ [Inner] ]')).toBeTruthy();
-    expect(screen.queryByTitle('Wiremd wireframe preview')).toBeNull();
+    expect(screen.queryByTitle('Wireframe preview')).toBeNull();
   });
 
   test('compile-stage warnings surface the omissions banner over a live preview', async () => {
@@ -202,5 +202,92 @@ describe('WiremdView — recoverable states (V1/V2)', () => {
 
     expect(previewFrame()).toBeTruthy();
     expect(screen.getByText('Wireframe rendered with omissions.')).toBeTruthy();
+  });
+});
+
+describe('WiremdView — fatal diagnostics beside a surviving document', () => {
+  test('validator error with a non-null document is fatal, not a ready preview', async () => {
+    // The embed contract permits a non-null document alongside error
+    // diagnostics (e.g. `##` parses to a document and fails validation).
+    // A ready-looking frame for an incomplete document would hide the bug.
+    control.compileResult = () => ({
+      document: { type: 'document', version: '0.1', meta: {}, children: [] },
+      diagnostics: [
+        {
+          severity: 'error',
+          code: 'wmd-invalid-wiremd-ast',
+          message: 'Empty heading is not allowed (EMPTY_HEADING)',
+          source: 'validator',
+        },
+      ],
+      syntaxVersion: '0.1',
+    });
+
+    render(<WiremdView source="##" />);
+    await advance(DEBOUNCE_MS + 100);
+
+    const alert = screen.getByRole('alert');
+    expect(alert.textContent).toContain('EMPTY_HEADING');
+    expect(screen.queryByTitle('Wireframe preview')).toBeNull();
+    expect(screen.getByText('##')).toBeTruthy();
+  });
+
+  test('preview-stage error diagnostic is fatal too, never a ready frame', async () => {
+    control.previewResult = () => ({
+      html: '<div>half-baked</div>',
+      css: '.x {}',
+      classPrefix: 'ok-wiremd-',
+      diagnostics: [
+        {
+          severity: 'error',
+          code: 'wmd-preview-render-failed',
+          message: 'Style CSS unexpectedly contained scriptable elements.',
+          source: 'renderer',
+        },
+      ],
+    });
+
+    render(<WiremdView source="# fine source" />);
+    await advance(DEBOUNCE_MS + 100);
+
+    expect(screen.getByRole('alert')).toBeTruthy();
+    expect(screen.queryByTitle('Wireframe preview')).toBeNull();
+    expect(screen.getByText('# fine source')).toBeTruthy();
+  });
+});
+
+describe('WiremdView — oversized-source guard (main-thread compile bound)', () => {
+  // Tests above replace control.compileResult / control.previewResult with
+  // hostile stubs and nothing resets them between suites — restore the
+  // originals captured before any override ran.
+  const healthyCompile = control.compileResult;
+  const healthyPreview = control.previewResult;
+  beforeEach(() => {
+    control.compileResult = healthyCompile;
+    control.previewResult = healthyPreview;
+  });
+
+  test('a source beyond the cap is refused before compiling', async () => {
+    // Single line: RTL text normalization would collapse a newline anyway.
+    const oversized = `${'# big '.repeat(3)}${'y'.repeat(MAX_WIREMD_SOURCE_LENGTH)}`;
+    render(<WiremdView source={oversized} />);
+    await advance(DEBOUNCE_MS + 100);
+
+    // Never compiles — the guard precedes the embed boundary.
+    expect(control.compileCalls).toEqual([]);
+    expect(screen.getByRole('alert').textContent).toMatch(/too large/i);
+    expect(screen.queryByTitle('Wireframe preview')).toBeNull();
+    // The authoritative source stays visible under the error.
+    expect(document.querySelector('pre.wiremd-source')?.textContent).toBe(oversized);
+  });
+
+  test('a source just under the cap still compiles and renders', async () => {
+    control.compileResult = healthyCompile;
+    const fitting = `# ok ${'y'.repeat(MAX_WIREMD_SOURCE_LENGTH - 10)}`;
+    render(<WiremdView source={fitting} />);
+    await advance(DEBOUNCE_MS + 100);
+
+    expect(control.compileCalls).toEqual([fitting]);
+    expect(previewFrame()).toBeTruthy();
   });
 });

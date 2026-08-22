@@ -3329,6 +3329,10 @@ msgstr "正在複製…"
 msgid "Could not classify the merge — try again."
 msgstr "無法對合併進行分類，請再試一次。"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "無法編譯線框圖。"
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "無法完成刪除"
@@ -3803,7 +3807,7 @@ msgstr "無法重新命名範本：{0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "無法渲染線框圖。"
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "無法預覽：{errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "無法預覽。"
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "已顯示"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "正在渲染線框圖"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "小型章節標題。"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "部分內容尚不支援，因此不會顯示。"
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "原始碼尋找結果"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "原始碼保持不變。"
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "這個權杖需要 repo 和 read:user 權限範圍。"
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "線框圖渲染器無法載入。原始碼完好無損。"
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "這通常代表下列其中之一："
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "這個視窗無法儲存權杖——請從應用程式主視窗開啟「設定」。"
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "此線框圖的原始碼過大，無法預覽。原始碼保持不變。"
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "視窗"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "線框圖預覽"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "線框圖預覽失敗。原始碼保持不變。"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "線框圖預覽已就緒。"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "線框圖已渲染，但部分內容被省略。"
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

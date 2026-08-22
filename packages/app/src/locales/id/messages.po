@@ -3325,6 +3325,10 @@ msgstr "Menyalin..."
 msgid "Could not classify the merge — try again."
 msgstr "Penggabungan tidak dapat diklasifikasikan — coba lagi."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "Tidak dapat mengompilasi wireframe."
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "Penghapusan tidak dapat diselesaikan"
@@ -3799,7 +3803,7 @@ msgstr "Templat tidak bisa diganti namanya: {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "Tidak dapat merender wireframe."
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9800,7 +9804,7 @@ msgstr "Pratinjau tidak tersedia: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "Pratinjau tidak tersedia."
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10431,7 +10435,7 @@ msgstr "Dirender"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "Merender wireframe"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11910,7 +11914,7 @@ msgstr "Judul bagian kecil."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "Beberapa konten belum didukung dan tidak ditampilkan."
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -11996,7 +12000,7 @@ msgstr "Hasil pencarian sumber"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "Sumber tidak berubah."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12868,7 +12872,7 @@ msgstr "Token itu memerlukan cakupan repo dan read:user."
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "Perender wireframe tidak dimuat. Sumber tetap utuh."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13346,6 +13350,10 @@ msgstr "Biasanya ini berarti salah satu dari:"
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "Jendela ini tidak bisa menyimpan token — buka Pengaturan dari jendela utama aplikasi."
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "Sumber wireframe ini terlalu besar untuk dipratinjau. Sumber tidak berubah."
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14311,16 +14319,20 @@ msgid "Window"
 msgstr "Jendela"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "Pratinjau wireframe"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "Pratinjau wireframe gagal. Sumber tidak berubah."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "Pratinjau wireframe siap."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "Wireframe dirender dengan beberapa bagian dilewati."
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

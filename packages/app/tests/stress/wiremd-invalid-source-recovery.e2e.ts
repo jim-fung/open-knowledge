@@ -45,7 +45,7 @@ test.describe('Wiremd invalid-source recovery', () => {
     await expect(fence.getByText('Wireframe rendered with omissions.')).toBeVisible();
 
     // The surviving subset rendered inside the frame…
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Still renders')).toBeVisible();
     await expect(previewFrame.getByText('Button works')).toBeVisible();
 

@@ -53,7 +53,7 @@ test.describe('Wiremd source editing', () => {
     await page.waitForSelector('.ProseMirror:not(.composer-prosemirror)');
 
     // Initial preview rendered the original button label.
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Continue')).toBeVisible();
 
     const { cmContent } = await openSourceModal(page);
@@ -114,7 +114,7 @@ test.describe('Wiremd source editing', () => {
     await waitForActiveProviderSynced(page);
     await page.waitForSelector('.ProseMirror:not(.composer-prosemirror)');
 
-    const previewFrame = page.frameLocator('iframe[title="Wiremd wireframe preview"]');
+    const previewFrame = page.frameLocator('iframe[title="Wireframe preview"]');
     await expect(previewFrame.getByText('Continue')).toBeVisible();
 
     const { cmContent } = await openSourceModal(page);

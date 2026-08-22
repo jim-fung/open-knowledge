@@ -3325,6 +3325,10 @@ msgstr ""
 msgid "Could not classify the merge — try again."
 msgstr ""
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr ""
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr ""
@@ -13347,6 +13351,10 @@ msgstr ""
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr ""
 
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr ""
+
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
 msgstr ""
@@ -14308,6 +14316,10 @@ msgstr ""
 #: src/components/AppMenubar.tsx
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
 msgstr ""
 
 #: src/editor/components/Wiremd.tsx

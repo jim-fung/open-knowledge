@@ -3329,6 +3329,10 @@ msgstr "نقل کیا جا رہا ہے..."
 msgid "Could not classify the merge — try again."
 msgstr "ضم کی درجہ بندی نہیں ہو سکی — دوبارہ کوشش کریں۔"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "وائر فریم کمپائل نہیں ہو سکا۔"
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "حذف مکمل نہیں ہو سکا"
@@ -3803,7 +3807,7 @@ msgstr "ٹیمپلیٹ کا نام نہیں بدلا جا سکا: {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "وائر فریم رینڈر نہیں ہو سکا۔"
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "پیش منظر دستیاب نہیں: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "پیش منظر دستیاب نہیں۔"
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "رینڈر شدہ"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "وائر فریم رینڈر ہو رہا ہے"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "چھوٹا سیکشن عنوان۔"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "کچھ مواد ابھی سپورٹڈ نہیں اور نہیں دکھایا جاتا۔"
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "سورس کے تلاش نتائج"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "سورس میں کوئی تبدیلی نہیں۔"
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "ٹوکن کو repo اور read:user دائرہ کار درکار ہیں�
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "وائر فریم رینڈرر لوڈ نہیں ہوا۔ سورس محفوظ ہے۔"
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "اس کا عام طور پر مطلب ان میں سے کوئی ایک �
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "یہ ونڈو ٹوکن محفوظ نہیں کر سکتی — ایپ کی مرکزی ونڈو سے ترتیبات کھولیں۔"
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "اس وائر فریم کا سورس پیش منظر کے لیے بہت بڑا ہے۔ سورس میں کوئی تبدیلی نہیں۔"
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "ونڈو"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "وائر فریم پیش منظر"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "وائر فریم پیش منظر ناکام رہا۔ سورس میں کوئی تبدیلی نہیں۔"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "وائر فریم پیش منظر تیار ہے۔"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "وائر فریم کچھ حصے چھوڑ کر رینڈر ہوا۔"
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

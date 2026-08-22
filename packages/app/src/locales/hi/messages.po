@@ -3325,6 +3325,10 @@ msgstr "कॉपी किया जा रहा है…"
 msgid "Could not classify the merge — try again."
 msgstr "मर्ज को वर्गीकृत नहीं किया जा सका — फिर से कोशिश करें।"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "वायरफ़्रेम कंपाइल नहीं हो सका।"
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "विलोपन पूरा नहीं हो सका"
@@ -3799,7 +3803,7 @@ msgstr "टेम्पलेट का नाम नहीं बदला ज�
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "वायरफ़्रेम रेंडर नहीं हो सका।"
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9800,7 +9804,7 @@ msgstr "पूर्वावलोकन अनुपलब्ध: {errorDetail
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "पूर्वावलोकन अनुपलब्ध।"
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10431,7 +10435,7 @@ msgstr "रेंडर किया गया"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "वायरफ़्रेम रेंडर हो रहा है"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11910,7 +11914,7 @@ msgstr "छोटा अनुभाग शीर्षक।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "कुछ सामग्री अभी समर्थित नहीं है और नहीं दिखाई जाती।"
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -11996,7 +12000,7 @@ msgstr "स्रोत खोज के परिणाम"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "स्रोत अपरिवर्तित है।"
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12868,7 +12872,7 @@ msgstr "टोकन को repo और read:user स्कोप चाहि�
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "वायरफ़्रेम रेंडरर लोड नहीं हुआ। स्रोत सुरक्षित है।"
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13346,6 +13350,10 @@ msgstr "इसका आमतौर पर मतलब इनमें से 
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "यह विंडो कोई टोकन नहीं सहेज सकती — मुख्य ऐप विंडो से Settings खोलें।"
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "इस वायरफ़्रेम का स्रोत पूर्वावलोकन के लिए बहुत बड़ा है। स्रोत अपरिवर्तित है।"
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14311,16 +14319,20 @@ msgid "Window"
 msgstr "विंडो"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "वायरफ़्रेम पूर्वावलोकन"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "वायरफ़्रेम पूर्वावलोकन विफल। स्रोत अपरिवर्तित है।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "वायरफ़्रेम पूर्वावलोकन तैयार।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "वायरफ़्रेम कुछ हिस्से छोड़कर रेंडर हुआ।"
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

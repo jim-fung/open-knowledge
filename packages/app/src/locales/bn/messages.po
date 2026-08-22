@@ -3325,6 +3325,10 @@ msgstr "কপি করা হচ্ছে…"
 msgid "Could not classify the merge — try again."
 msgstr "মার্জটি শ্রেণিবদ্ধ করা যায়নি — আবার চেষ্টা করুন।"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "ওয়্যারফ্রেম কম্পাইল করা যায়নি।"
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "মুছে ফেলা সম্পূর্ণ করা যায়নি"
@@ -3799,7 +3803,7 @@ msgstr "টেমপ্লেটের নাম বদলানো যায়
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "ওয়্যারফ্রেম রেন্ডার করা যায়নি।"
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9800,7 +9804,7 @@ msgstr "প্রাকদর্শন অনুপলব্ধ: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "প্রাকদর্শন অনুপলব্ধ।"
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10431,7 +10435,7 @@ msgstr "রেন্ডার করা"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "ওয়্যারফ্রেম রেন্ডার হচ্ছে"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11910,7 +11914,7 @@ msgstr "ছোট বিভাগ শিরোনাম।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "কিছু সামগ্রী এখনও সমর্থিত নয় এবং দেখানো হয় না।"
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -11996,7 +12000,7 @@ msgstr "সোর্স খোঁজার ফলাফল"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "সোর্স অপরিবর্তিত।"
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12868,7 +12872,7 @@ msgstr "টোকেনটির repo ও read:user স্কোপ দরকা
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "ওয়্যারফ্রেম রেন্ডারার লোড হয়নি। সোর্স অক্ষত।"
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13346,6 +13350,10 @@ msgstr "এর সাধারণত অর্থ এগুলোর একট�
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "এই জানালাটি কোনো টোকেন সংরক্ষণ করতে পারে না — মূল অ্যাপ জানালা থেকে Settings খুলুন।"
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "এই ওয়্যারফ্রেমের সোর্স প্রাকদর্শনের জন্য অতিরিক্ত বড়। সোর্স অপরিবর্তিত।"
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14311,16 +14319,20 @@ msgid "Window"
 msgstr "জানালা"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "ওয়্যারফ্রেম প্রাকদর্শন"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "ওয়্যারফ্রেম প্রাকদর্শন ব্যর্থ। সোর্স অপরিবর্তিত।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "ওয়্যারফ্রেম প্রাকদর্শন প্রস্তুত।"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "কিছু অংশ বাদ দিয়ে ওয়্যারফ্রেম রেন্ডার করা হয়েছে।"
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

@@ -3329,6 +3329,10 @@ msgstr "복사 중…"
 msgid "Could not classify the merge — try again."
 msgstr "병합을 분류할 수 없습니다. 다시 시도하세요."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "와이어프레임을 컴파일할 수 없습니다."
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "삭제를 완료하지 못했습니다"
@@ -3803,7 +3807,7 @@ msgstr "템플릿 이름을 바꾸지 못했습니다: {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "와이어프레임을 렌더링할 수 없습니다."
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "미리보기를 사용할 수 없음: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "미리보기를 사용할 수 없음."
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "렌더링됨"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "와이어프레임 렌더링 중"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "작은 섹션 제목입니다."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "일부 콘텐츠는 아직 지원되지 않아 표시되지 않습니다."
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "소스 찾기 결과"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "소스는 변경되지 않았습니다."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "토큰에 repo 및 read:user 범위가 필요합니다."
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "와이어프레임 렌더러를 불러오지 못했습니다. 소스는 그대로입니다."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "일반적으로 다음 중 하나입니다:"
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "이 창에는 토큰을 저장할 수 없습니다. 기본 앱 창에서 설정을 여세요."
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "이 와이어프레임 소스는 너무 커서 미리볼 수 없습니다. 소스는 변경되지 않았습니다."
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "창"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "와이어프레임 미리보기"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "와이어프레임 미리보기에 실패했습니다. 소스는 변경되지 않았습니다."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "와이어프레임 미리보기 준비됨"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "일부 내용이 생략된 상태로 와이어프레임이 렌더링됨"
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

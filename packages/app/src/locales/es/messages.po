@@ -3329,6 +3329,10 @@ msgstr "Copiando..."
 msgid "Could not classify the merge — try again."
 msgstr "No se pudo clasificar la fusión. Inténtalo de nuevo."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Could not compile the wireframe."
+msgstr "No se pudo compilar el wireframe."
+
 #: src/components/FileTree.tsx
 msgid "Could not complete delete"
 msgstr "No se pudo completar la eliminación"
@@ -3803,7 +3807,7 @@ msgstr "No se pudo renombrar la plantilla: {0}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
-msgstr ""
+msgstr "No se pudo renderizar el wireframe."
 
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
@@ -9804,7 +9808,7 @@ msgstr "Vista previa no disponible: {errorDetail}"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
-msgstr ""
+msgstr "Vista previa no disponible."
 
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10435,7 +10439,7 @@ msgstr "Renderizado"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
-msgstr ""
+msgstr "Renderizando wireframe"
 
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
@@ -11914,7 +11918,7 @@ msgstr "Encabezado de sección pequeño."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Some content isn't supported yet and isn't shown."
-msgstr ""
+msgstr "Algunos contenidos aún no son compatibles y no se muestran."
 
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -12000,7 +12004,7 @@ msgstr "Resultados de búsqueda en el código"
 
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
-msgstr ""
+msgstr "El código no se ha modificado."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12872,7 +12876,7 @@ msgstr "El token necesita los ámbitos repo y read:user."
 
 #: src/editor/components/Wiremd.tsx
 msgid "The wireframe renderer didn't load. Source is intact."
-msgstr ""
+msgstr "El renderizador de wireframes no se cargó. El código está intacto."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -13350,6 +13354,10 @@ msgstr "Esto suele significar una de estas cosas:"
 #: src/components/AuthModal.tsx
 msgid "This window can't store a token — open Settings from the main app window."
 msgstr "Esta ventana no puede guardar un token: abre Ajustes desde la ventana principal de la aplicación."
+
+#: src/editor/components/Wiremd.tsx
+msgid "This wireframe source is too large to preview. Source is unchanged."
+msgstr "El código de este wireframe es demasiado grande para previsualizarlo. El código no se ha modificado."
 
 #: src/components/acp/working-status.ts
 msgid "Tidying up…"
@@ -14315,16 +14323,20 @@ msgid "Window"
 msgstr "Ventana"
 
 #: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview"
+msgstr "Vista previa del wireframe"
+
+#: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview failed. Source is unchanged."
-msgstr ""
+msgstr "La vista previa del wireframe falló. El código no se ha modificado."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe preview ready."
-msgstr ""
+msgstr "Vista previa del wireframe lista."
 
 #: src/editor/components/Wiremd.tsx
 msgid "Wireframe rendered with omissions."
-msgstr ""
+msgstr "Wireframe renderizado con omisiones."
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"
