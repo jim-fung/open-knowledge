@@ -3801,6 +3801,10 @@ msgstr "\"{0}\"의 이름을 바꾸지 못했습니다: {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "템플릿 이름을 바꾸지 못했습니다: {0}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Couldn't render wireframe."
+msgstr ""
+
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
 msgstr "댓글 다시 열기에 실패했습니다."
@@ -9798,6 +9802,10 @@ msgstr "탭 미리보기"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "미리보기를 사용할 수 없음: {errorDetail}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Preview unavailable."
+msgstr ""
+
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
 msgstr "이 프로젝트의 다른 문서 링크 미리보기는 항상 켜져 있으며 로컬 인덱스에서 읽습니다. 해당 링크 정보는 컴퓨터 밖으로 나가지 않습니다."
@@ -10425,6 +10433,10 @@ msgstr "렌더링 오류"
 msgid "Rendered"
 msgstr "렌더링됨"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Rendering wireframe"
+msgstr ""
+
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
 msgstr "다시 열기"
@@ -10737,6 +10749,7 @@ msgstr "가져오는 중…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "다시 시도"
 
@@ -11899,6 +11912,10 @@ msgstr "Slidev 시작 시간이 초과되었습니다. 다시 시도하세요."
 msgid "Small section heading."
 msgstr "작은 섹션 제목입니다."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Some content isn't supported yet and isn't shown."
+msgstr ""
+
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
 msgstr "테마 폴더가 스캔 한도를 초과해 일부 저장된 테마가 나타나지 않습니다."
@@ -11980,6 +11997,10 @@ msgstr "소스 편집기 검색 패널"
 #: src/lib/keyboard-shortcuts.ts
 msgid "Source find results"
 msgstr "소스 찾기 결과"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Source is unchanged."
+msgstr ""
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12848,6 +12869,10 @@ msgstr "터미널 예기치 않게 중지됨."
 #: src/components/AuthModal.tsx
 msgid "The token needs the repo and read:user scopes."
 msgstr "토큰에 repo 및 read:user 범위가 필요합니다."
+
+#: src/editor/components/Wiremd.tsx
+msgid "The wireframe renderer didn't load. Source is intact."
+msgstr ""
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -14288,6 +14313,18 @@ msgstr "<0>{sanitized}</0>으로 저장됩니다."
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
 msgstr "창"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview failed. Source is unchanged."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview ready."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe rendered with omissions."
+msgstr ""
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

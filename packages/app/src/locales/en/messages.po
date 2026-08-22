@@ -3801,6 +3801,10 @@ msgstr "Couldn't rename \"{0}\": {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "Couldn't rename template: {0}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Couldn't render wireframe."
+msgstr "Couldn't render wireframe."
+
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
 msgstr "Couldn't reopen that comment."
@@ -9798,6 +9802,10 @@ msgstr "Preview tabs"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "Preview unavailable: {errorDetail}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Preview unavailable."
+msgstr "Preview unavailable."
+
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
 msgstr "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
@@ -10425,6 +10433,10 @@ msgstr "render error"
 msgid "Rendered"
 msgstr "Rendered"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Rendering wireframe"
+msgstr "Rendering wireframe"
+
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
 msgstr "Reopen"
@@ -10737,6 +10749,7 @@ msgstr "Retrieving…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "Retry"
 
@@ -11899,6 +11912,10 @@ msgstr "Slidev timed out while starting. Try again."
 msgid "Small section heading."
 msgstr "Small section heading."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Some content isn't supported yet and isn't shown."
+msgstr "Some content isn't supported yet and isn't shown."
+
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
 msgstr "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
@@ -11980,6 +11997,10 @@ msgstr "Source editor search panel"
 #: src/lib/keyboard-shortcuts.ts
 msgid "Source find results"
 msgstr "Source find results"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Source is unchanged."
+msgstr "Source is unchanged."
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12848,6 +12869,10 @@ msgstr "The terminal stopped unexpectedly."
 #: src/components/AuthModal.tsx
 msgid "The token needs the repo and read:user scopes."
 msgstr "The token needs the repo and read:user scopes."
+
+#: src/editor/components/Wiremd.tsx
+msgid "The wireframe renderer didn't load. Source is intact."
+msgstr "The wireframe renderer didn't load. Source is intact."
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -14288,6 +14313,18 @@ msgstr "Will be saved as <0>{sanitized}</0>."
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
 msgstr "Window"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview failed. Source is unchanged."
+msgstr "Wireframe preview failed. Source is unchanged."
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview ready."
+msgstr "Wireframe preview ready."
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe rendered with omissions."
+msgstr "Wireframe rendered with omissions."
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

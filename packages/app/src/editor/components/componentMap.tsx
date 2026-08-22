@@ -56,6 +56,7 @@ import { Pdf } from './Pdf.tsx';
 import { Tab } from './Tab.tsx';
 import { Tabs } from './Tabs.tsx';
 import { Video } from './Video.tsx';
+import { WiremdView } from './Wiremd.tsx';
 
 function UnregisteredBadgeRender(props: { children?: React.ReactNode }) {
   return <div className="prose-no-margin">{props.children}</div>;
@@ -104,6 +105,11 @@ export const componentMap: Record<string, React.ComponentType<any>> = {
   // `<Mermaid chart="…" />` JSX content falls through to the wildcard
   // `'*'` (raw-mdx editable source block) — fence-only authoring.
   MermaidFence: MermaidView,
+  // Same fence-only mechanism as MermaidFence: `WiremdFence` is promoted
+  // from ` ```wiremd ` code fences by the core `wiremd-promoter`, and the
+  // unregistered `Wiremd` name keeps direct JSX authoring on the wildcard.
+  // Renders via the browser-safe `wiremd/embed` boundary (lazy chunk).
+  WiremdFence: WiremdView,
   // Master/copy block transclusion. `MirrorSource` is the editable
   // source-of-truth wrapper; `Mirror` is the read-only consumer that
   // resolves a `<MirrorSource id="…">` from another doc via the shared

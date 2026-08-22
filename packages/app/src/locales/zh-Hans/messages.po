@@ -3801,6 +3801,10 @@ msgstr "无法重命名 \"{0}\"：{1}"
 msgid "Couldn't rename template: {0}"
 msgstr "无法重命名模板：{0}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Couldn't render wireframe."
+msgstr ""
+
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
 msgstr "无法重新打开那条评论。"
@@ -9798,6 +9802,10 @@ msgstr "预览标签页"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "无法预览：{errorDetail}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Preview unavailable."
+msgstr ""
+
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
 msgstr "指向本项目其他文档的链接预览始终开启，并从本地索引读取——这类预览不会有任何内容离开你的电脑。"
@@ -10425,6 +10433,10 @@ msgstr "渲染错误"
 msgid "Rendered"
 msgstr "已渲染"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Rendering wireframe"
+msgstr ""
+
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
 msgstr "重新打开"
@@ -10737,6 +10749,7 @@ msgstr "正在检索…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "重试"
 
@@ -11899,6 +11912,10 @@ msgstr "Slidev 启动超时。请重试。"
 msgid "Small section heading."
 msgstr "小号章节标题。"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Some content isn't supported yet and isn't shown."
+msgstr ""
+
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
 msgstr "因为主题文件夹超出扫描限制，部分已保存的主题未显示。"
@@ -11980,6 +11997,10 @@ msgstr "源码编辑器搜索面板"
 #: src/lib/keyboard-shortcuts.ts
 msgid "Source find results"
 msgstr "源码查找结果"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Source is unchanged."
+msgstr ""
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12848,6 +12869,10 @@ msgstr "终端意外停止了。"
 #: src/components/AuthModal.tsx
 msgid "The token needs the repo and read:user scopes."
 msgstr "这个令牌需要 repo 和 read:user 权限范围。"
+
+#: src/editor/components/Wiremd.tsx
+msgid "The wireframe renderer didn't load. Source is intact."
+msgstr ""
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -14288,6 +14313,18 @@ msgstr "将保存为 <0>{sanitized}</0>。"
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
 msgstr "窗口"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview failed. Source is unchanged."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview ready."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe rendered with omissions."
+msgstr ""
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

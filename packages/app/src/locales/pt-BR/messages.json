@@ -67,6 +67,7 @@
     ],
     "-slrNR": ["Liga ou desliga uma lista de tarefas."],
     "-uaQnI": ["Nenhum worktree ou ramo corresponde."],
+    "-vtSLb": ["The wireframe renderer didn't load. Source is intact."],
     "-yOx8u": ["Salvando alterações…"],
     "-yPBXI": ["Escolher arquivo"],
     "-ySLQJ": ["Git e PRs"],
@@ -705,6 +706,7 @@
     "7wogIQ": [["0", "plural", { "one": ["Plugin"], "many": ["Plugins"], "other": ["Plugins"] }]],
     "80c4-P": ["Código copiado para a área de transferência"],
     "81H_23": ["Adicionar propriedades"],
+    "8508_n": ["Wireframe preview failed. Source is unchanged."],
     "851WA-": ["Isto pode ser configurado em Configurações > Ferramentas de IA e CLI"],
     "87GMKe": ["Expor este projeto à rede?"],
     "881Uwh": ["Excluir a tabela selecionada"],
@@ -912,6 +914,7 @@
     "AVW-K9": ["Falha ao carregar as páginas órfãs"],
     "AWOSPo": ["Aproximar"],
     "AYoYhU": ["Falha na atualização: ", ["0"]],
+    "Aa4fhV": ["Wireframe rendered with omissions."],
     "AaaESH": [
       "A sincronização automática está desligada neste worktree, herdada de ",
       ["project"],
@@ -1129,6 +1132,7 @@
     "DKYW1G": [
       "Esta configuração é de cada computador e não é compartilhada com os colaboradores. Ela precisa de uma chave de API (defina abaixo), a menos que seu endpoint seja um servidor local que não exija uma."
     ],
+    "DKwLOA": ["Some content isn't supported yet and isn't shown."],
     "DLIljL": [
       "Alguns temas salvos não são exibidos porque a pasta de temas excede o limite de verificação."
     ],
@@ -1635,6 +1639,7 @@
     ],
     "J6mxC1": ["Um problema de rede ou uma queda do GitHub interrompeu a clonagem."],
     "J7nMqi": ["Desinstalar o OpenKnowledge"],
+    "J81SGS": ["Preview unavailable."],
     "J86siq": ["Instalar a partir de ", ["plugin"]],
     "JAQ09e": ["Refletindo…"],
     "JCxGEX": [
@@ -2884,6 +2889,7 @@
     "YSFv5w": ["Sem repositório git — o compartilhamento de configuração não se aplica aqui."],
     "YTLmTM": ["Excluir a pasta <0>.git</0> acima"],
     "YW7Q86": ["As configurações de busca ainda não carregaram — tente de novo em instantes"],
+    "YXicq3": ["Source is unchanged."],
     "Y_GpJd": ["A requisição de download de ", ["0"], " expirou."],
     "Y_ZQ6l": ["Instalando ", ["agentName"], "…"],
     "Y_iImT": ["Não foi possível resolver o arquivo ", ["identity"], ". Ir para a referência."],
@@ -4003,6 +4009,7 @@
     ],
     "kSiB3X": ["Não foi possível mover para ", ["trashNoun"]],
     "kUn-CN": ["Sincronização desligada"],
+    "kV1UEu": ["Rendering wireframe"],
     "kV2YZv": [
       "Não vê <0>Habilidades</0>? Ative antes <1>Configurações <2/> Recursos <3/> Execução de código e criação de arquivos</1>."
     ],
@@ -4676,6 +4683,7 @@
     "sR0I-f": ["Recolher todos os arquivos"],
     "sSRndh": ["Comece a manter index.md"],
     "sW5OjU": ["obrigatório"],
+    "sWMDCf": ["Wireframe preview ready."],
     "sZ2IOu": [
       "Este ",
       ["targetNoun"],
@@ -5234,6 +5242,7 @@
       "Salva o arquivo em <0>~/Downloads/openknowledge.skill</0> e abre o app Claude Desktop. Requer Node.js ou Bun no seu PATH."
     ],
     "z9NwEu": ["Clique para expandir"],
+    "z9p3HY": ["Couldn't render wireframe."],
     "zA9zRL": ["Nenhum destes problemas tem correção automática. Tente Corrigir tudo com IA."],
     "zAJzIg": ["Problemas em ", ["0"]],
     "zAsDLY": ["Visualização em grafo dos links entre documentos"],

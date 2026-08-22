@@ -3797,6 +3797,10 @@ msgstr "\"{0}\" का नाम नहीं बदला जा सका: {1}
 msgid "Couldn't rename template: {0}"
 msgstr "टेम्पलेट का नाम नहीं बदला जा सका: {0}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Couldn't render wireframe."
+msgstr ""
+
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
 msgstr "उस टिप्पणी को फिर से नहीं खोला जा सका।"
@@ -9794,6 +9798,10 @@ msgstr "पूर्वावलोकन टैब"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "पूर्वावलोकन अनुपलब्ध: {errorDetail}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Preview unavailable."
+msgstr ""
+
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
 msgstr "इस प्रोजेक्ट के अन्य दस्तावेज़ों के लिंक का पूर्वावलोकन हमेशा चालू रहता है और स्थानीय अनुक्रमणिका से पढ़ा जाता है — उनके लिए कुछ भी आपके कंप्यूटर से बाहर नहीं जाता।"
@@ -10421,6 +10429,10 @@ msgstr "रेंडर त्रुटि"
 msgid "Rendered"
 msgstr "रेंडर किया गया"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Rendering wireframe"
+msgstr ""
+
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
 msgstr "फिर से खोलें"
@@ -10733,6 +10745,7 @@ msgstr "लाया जा रहा है…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "फिर कोशिश करें"
 
@@ -11895,6 +11908,10 @@ msgstr "Slidev शुरू होने में बहुत समय लग
 msgid "Small section heading."
 msgstr "छोटा अनुभाग शीर्षक।"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Some content isn't supported yet and isn't shown."
+msgstr ""
+
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
 msgstr "कुछ सहेजी गई थीम नहीं दिखाई जा रही हैं क्योंकि थीम फ़ोल्डर स्कैन सीमा से बड़ा है।"
@@ -11976,6 +11993,10 @@ msgstr "स्रोत संपादक का खोज पैनल"
 #: src/lib/keyboard-shortcuts.ts
 msgid "Source find results"
 msgstr "स्रोत खोज के परिणाम"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Source is unchanged."
+msgstr ""
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12844,6 +12865,10 @@ msgstr "टर्मिनल अप्रत्याशित रूप से
 #: src/components/AuthModal.tsx
 msgid "The token needs the repo and read:user scopes."
 msgstr "टोकन को repo और read:user स्कोप चाहिए।"
+
+#: src/editor/components/Wiremd.tsx
+msgid "The wireframe renderer didn't load. Source is intact."
+msgstr ""
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -14284,6 +14309,18 @@ msgstr "<0>{sanitized}</0> के रूप में सहेजा जाए�
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
 msgstr "विंडो"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview failed. Source is unchanged."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview ready."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe rendered with omissions."
+msgstr ""
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

@@ -55,6 +55,7 @@
     ],
     "-slrNR": ["Toggle a task list."],
     "-uaQnI": ["No matching worktrees or branches."],
+    "-vtSLb": ["The wireframe renderer didn't load. Source is intact."],
     "-yOx8u": ["Saving changes…"],
     "-yPBXI": ["Choose file"],
     "-ySLQJ": ["Git & PRs"],
@@ -603,6 +604,7 @@
     "7wogIQ": [["0", "plural", { "one": ["Plugin"], "other": ["Plugins"] }]],
     "80c4-P": ["Code copied to clipboard"],
     "81H_23": ["Add properties"],
+    "8508_n": ["Wireframe preview failed. Source is unchanged."],
     "851WA-": ["This can be configured in Settings > AI tools & CLI"],
     "87GMKe": ["Expose this project to the network?"],
     "881Uwh": ["Delete selected table"],
@@ -789,6 +791,7 @@
     "AVW-K9": ["Failed to load orphan pages"],
     "AWOSPo": ["Zoom in"],
     "AYoYhU": ["Update failed: ", ["0"]],
+    "Aa4fhV": ["Wireframe rendered with omissions."],
     "AaaESH": [
       "Auto-sync is off for this worktree, inherited from ",
       ["project"],
@@ -978,6 +981,7 @@
     "DKYW1G": [
       "This setting is per-machine and isn't shared with collaborators. It needs an API key (set below) unless your endpoint is a local server that doesn't require one."
     ],
+    "DKwLOA": ["Some content isn't supported yet and isn't shown."],
     "DLIljL": ["Some saved themes aren’t shown because the theme folder exceeds the scan limit."],
     "DMLE5q": ["MCP auto-repair failed"],
     "DMeaxi": ["Downloading ", ["0"], " ", ["1"], "…"],
@@ -1412,6 +1416,7 @@
     "J6N5MX": ["Couldn't construct the share URL. Try Done and re-share."],
     "J6mxC1": ["A network problem or GitHub outage interrupted the clone."],
     "J7nMqi": ["Uninstall OpenKnowledge"],
+    "J81SGS": ["Preview unavailable."],
     "J86siq": ["Install from ", ["plugin"]],
     "JAQ09e": ["Reflecting…"],
     "JCxGEX": [
@@ -2524,6 +2529,7 @@
     "YSFv5w": ["No git repository — config sharing does not apply here."],
     "YTLmTM": ["Remove the parent <0>.git</0> folder"],
     "YW7Q86": ["Search settings not yet loaded — try again in a moment"],
+    "YXicq3": ["Source is unchanged."],
     "Y_GpJd": ["The ", ["0"], " download request timed out."],
     "Y_ZQ6l": ["Installing ", ["agentName"], "…"],
     "Y_iImT": ["Unresolvable file ", ["identity"], ". Go to reference."],
@@ -3516,6 +3522,7 @@
     ],
     "kSiB3X": ["Couldn't move to ", ["trashNoun"]],
     "kUn-CN": ["Sync off"],
+    "kV1UEu": ["Rendering wireframe"],
     "kV2YZv": [
       "Don't see <0>Skills</0>? Enable <1>Settings <2/> Capabilities <3/> Code execution and file creation</1> first."
     ],
@@ -4127,6 +4134,7 @@
     "sR0I-f": ["Collapse all files"],
     "sSRndh": ["Start maintaining index.md"],
     "sW5OjU": ["required"],
+    "sWMDCf": ["Wireframe preview ready."],
     "sZ2IOu": [
       "This ",
       ["targetNoun"],
@@ -4638,6 +4646,7 @@
       "Saves the file to <0>~/Downloads/openknowledge.skill</0> and opens the Claude Desktop App. Requires Node.js or Bun on your PATH."
     ],
     "z9NwEu": ["Click to expand"],
+    "z9p3HY": ["Couldn't render wireframe."],
     "zA9zRL": ["None of these problems have an automatic fix. Try Fix all with AI."],
     "zAJzIg": ["Problems in ", ["0"]],
     "zAsDLY": ["Graph visualization of document links"],

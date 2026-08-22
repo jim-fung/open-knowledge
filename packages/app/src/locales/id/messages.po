@@ -3797,6 +3797,10 @@ msgstr "\"{0}\" tidak bisa diganti namanya: {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "Templat tidak bisa diganti namanya: {0}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Couldn't render wireframe."
+msgstr ""
+
 #: src/comments/store.ts
 msgid "Couldn't reopen that comment."
 msgstr "Komentar itu tidak bisa dibuka kembali."
@@ -9794,6 +9798,10 @@ msgstr "Tab pratinjau"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "Pratinjau tidak tersedia: {errorDetail}"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Preview unavailable."
+msgstr ""
+
 #: src/components/settings/LinkPreviewsSection.tsx
 msgid "Previews of links to other documents in this project are always on and read from the local index — nothing leaves your computer for those."
 msgstr "Pratinjau tautan ke dokumen lain di proyek ini selalu aktif dan dibaca dari indeks lokal — untuk yang itu, tidak ada yang keluar dari komputer Anda."
@@ -10421,6 +10429,10 @@ msgstr "galat render"
 msgid "Rendered"
 msgstr "Dirender"
 
+#: src/editor/components/Wiremd.tsx
+msgid "Rendering wireframe"
+msgstr ""
+
 #: src/comments/ThreadCard.tsx
 msgid "Reopen"
 msgstr "Buka lagi"
@@ -10733,6 +10745,7 @@ msgstr "Mengambil…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "Coba lagi"
 
@@ -11895,6 +11908,10 @@ msgstr "Slidev terlalu lama saat memulai. Coba lagi."
 msgid "Small section heading."
 msgstr "Judul bagian kecil."
 
+#: src/editor/components/Wiremd.tsx
+msgid "Some content isn't supported yet and isn't shown."
+msgstr ""
+
 #: src/components/settings/SavedThemesTiles.tsx
 msgid "Some saved themes aren’t shown because the theme folder exceeds the scan limit."
 msgstr "Beberapa tema tersimpan tidak ditampilkan karena folder tema melewati batas pemindaian."
@@ -11976,6 +11993,10 @@ msgstr "Panel pencarian penyunting sumber"
 #: src/lib/keyboard-shortcuts.ts
 msgid "Source find results"
 msgstr "Hasil pencarian sumber"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Source is unchanged."
+msgstr ""
 
 #: src/components/EditorModeToggle.tsx
 msgid "Source mode requires a live connection — your edits are saved and will appear when you reconnect."
@@ -12844,6 +12865,10 @@ msgstr "Terminal berhenti tak terduga."
 #: src/components/AuthModal.tsx
 msgid "The token needs the repo and read:user scopes."
 msgstr "Token itu memerlukan cakupan repo dan read:user."
+
+#: src/editor/components/Wiremd.tsx
+msgid "The wireframe renderer didn't load. Source is intact."
+msgstr ""
 
 #: src/lib/tab-session-restore-recovery-notice.ts
 msgid "The workspace opened without it so the app could start."
@@ -14284,6 +14309,18 @@ msgstr "Akan disimpan sebagai <0>{sanitized}</0>."
 #: src/lib/native-menu-catalog.ts
 msgid "Window"
 msgstr "Jendela"
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview failed. Source is unchanged."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe preview ready."
+msgstr ""
+
+#: src/editor/components/Wiremd.tsx
+msgid "Wireframe rendered with omissions."
+msgstr ""
 
 #: src/components/settings/settings-fields.ts
 msgid "Word wrap"

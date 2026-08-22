@@ -49,6 +49,7 @@
     ],
     "-slrNR": ["작업 목록을 전환합니다."],
     "-uaQnI": ["일치하는 워크트리 또는 브랜치 없음."],
+    "-vtSLb": ["The wireframe renderer didn't load. Source is intact."],
     "-yOx8u": ["변경사항 저장 중…"],
     "-yPBXI": ["파일 선택"],
     "-ySLQJ": ["Git 및 PR"],
@@ -591,6 +592,7 @@
     "7wogIQ": [["0", "plural", { "other": ["플러그인"] }]],
     "80c4-P": ["코드가 클립보드에 복사되었습니다."],
     "81H_23": ["속성 추가"],
+    "8508_n": ["Wireframe preview failed. Source is unchanged."],
     "851WA-": ["Settings > AI tools & CLI에서 설정 가능"],
     "87GMKe": ["이 프로젝트를 네트워크에 노출할까요?"],
     "881Uwh": ["선택한 표 삭제"],
@@ -761,6 +763,7 @@
     "AVW-K9": ["고아 페이지 불러오기 실패"],
     "AWOSPo": ["확대"],
     "AYoYhU": ["업데이트 실패: ", ["0"]],
+    "Aa4fhV": ["Wireframe rendered with omissions."],
     "AaaESH": [
       "이 워크트리의 자동 동기화가 꺼져 있습니다. ",
       ["project"],
@@ -934,6 +937,7 @@
     "DKYW1G": [
       "이 설정은 컴퓨터별로 적용되며 공동 작업자와 공유되지 않습니다. 엔드포인트가 키를 요구하지 않는 로컬 서버가 아니면 API 키(아래에서 설정)가 필요합니다."
     ],
+    "DKwLOA": ["Some content isn't supported yet and isn't shown."],
     "DLIljL": ["테마 폴더가 스캔 한도를 초과해 일부 저장된 테마가 나타나지 않습니다."],
     "DMLE5q": ["MCP 자동 복구 실패"],
     "DMeaxi": [["0"], " ", ["1"], " 다운로드 중…"],
@@ -1364,6 +1368,7 @@
     "J6N5MX": ["공유 URL을 만들 수 없습니다. 완료를 누른 후 다시 공유하세요."],
     "J6mxC1": ["네트워크 문제 또는 GitHub 장애로 클론이 중단되었습니다."],
     "J7nMqi": ["OpenKnowledge 제거"],
+    "J81SGS": ["Preview unavailable."],
     "J86siq": [["plugin"], "에서 설치"],
     "JAQ09e": ["검토 중…"],
     "JCxGEX": [
@@ -2438,6 +2443,7 @@
     "YSFv5w": ["git 저장소 없음, 여기에는 config 공유가 적용되지 않습니다."],
     "YTLmTM": ["상위 <0>.git</0> 폴더 제거"],
     "YW7Q86": ["검색 설정을 아직 불러오지 못했습니다. 잠시 후 다시 시도합니다."],
+    "YXicq3": ["Source is unchanged."],
     "Y_GpJd": [["0"], " 다운로드 요청 시간 초과."],
     "Y_ZQ6l": [["agentName"], " 설치 중…"],
     "Y_iImT": ["해결할 수 없는 파일 ", ["identity"], ". 참조로 이동합니다."],
@@ -3397,6 +3403,7 @@
     ],
     "kSiB3X": [["trashNoun"], "으로 이동하지 못했습니다"],
     "kUn-CN": ["동기화 끔"],
+    "kV1UEu": ["Rendering wireframe"],
     "kV2YZv": [
       "<0>Skills</0> 미표시? 먼저 <1>설정 <2/> 기능 <3/> 코드 실행 및 파일 생성</1> 활성화."
     ],
@@ -3965,6 +3972,7 @@
     "sR0I-f": ["모든 파일 접기"],
     "sSRndh": ["index.md 유지 관리 시작"],
     "sW5OjU": ["필수"],
+    "sWMDCf": ["Wireframe preview ready."],
     "sZ2IOu": [
       "<0>",
       ["shareBranch"],
@@ -4438,6 +4446,7 @@
       "<0>~/Downloads/openknowledge.skill</0>에 저장 후 Claude Desktop App 열기. PATH에 Node.js 또는 Bun 필요."
     ],
     "z9NwEu": ["클릭하여 펼치기"],
+    "z9p3HY": ["Couldn't render wireframe."],
     "zA9zRL": ["이 문제들에는 자동 수정이 없습니다. AI로 모두 수정을 시도하세요."],
     "zAJzIg": [["0"], "의 문제"],
     "zAsDLY": ["문서 링크 그래프 시각화"],

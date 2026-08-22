@@ -63,6 +63,7 @@ describe('getComponentItems (slash menu)', () => {
         'Tabs',
         'Toggle',
         'Video',
+        'WireMD',
       ].sort(),
     );
   });
@@ -275,7 +276,7 @@ describe('agent-surface ↔ slash-menu filter parity', () => {
     const broad = broadCanonicalSet();
     const agent = agentCanonicalSet();
     const divergence = new Set([...broad].filter((name) => !agent.has(name)));
-    expect(divergence).toEqual(new Set(['MermaidFence', 'HtmlAlignBlock']));
+    expect(divergence).toEqual(new Set(['MermaidFence', 'WiremdFence', 'HtmlAlignBlock']));
   });
 
   test('broad set minus slash-menu set === SLASH_HIDDEN_CANONICALS exactly', () => {
