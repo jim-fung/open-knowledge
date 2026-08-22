@@ -44,6 +44,7 @@ import { remarkTags } from './tag-to-markdown.ts';
 import { underlinePromoterPlugin } from './underline-promoter.ts';
 import { voidBrPromoterPlugin } from './void-br-promoter.ts';
 import { remarkWikiLink } from './wiki-link-micromark.ts';
+import { wiremdPromoterPlugin } from './wiremd-promoter.ts';
 import { pruneZeroEmissionBlocks } from './zero-emission-blocks.ts';
 
 interface PipelineOptions {
@@ -100,6 +101,7 @@ export const ACTIVE_MDAST_PLUGINS = [
   { name: 'highlight-promoter', plugin: highlightPromoterPlugin },
   { name: 'underline-promoter', plugin: underlinePromoterPlugin },
   { name: 'mermaid-promoter', plugin: mermaidPromoterPlugin },
+  { name: 'wiremd-promoter', plugin: wiremdPromoterPlugin },
   { name: 'comment-promoter', plugin: commentPromoterPlugin },
   { name: 'merged-post-parse-walker', plugin: mergedPostParseWalkerPlugin },
   { name: 'empty-task-item-unmint', plugin: emptyTaskItemUnmintPlugin },

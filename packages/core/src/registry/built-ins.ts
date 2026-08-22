@@ -956,6 +956,30 @@ const mermaidProps: PropDef[] = [
   },
 ];
 
+// Fence-only authoring: `source` carries the complete wiremd fence body;
+// `style` selects one of the seven wiremd visual styles. The canonical
+// descriptor is named `WiremdFence` (not `Wiremd`) — same mechanism as
+// MermaidFence: `<Wiremd />` is not registered, so direct JSX authoring
+// falls through to the wildcard and fence-only authoring stays enforced.
+const wiremdProps: PropDef[] = [
+  {
+    name: 'source',
+    type: 'string',
+    required: true,
+    hidden: true,
+    description:
+      'wiremd wireframe source (headings, buttons, inputs, containers — authored as a ```wiremd fenced code block)',
+  },
+  {
+    name: 'style',
+    type: 'string',
+    required: false,
+    hidden: true,
+    description:
+      'Visual style for the rendered wireframe preview: sketch | clean | wireframe | none | tailwind | material | brutal',
+  },
+];
+
 // WikiEmbedFile compat — `![[archive.zip]]` / `![[handbook.docx]]` /
 // `![[doc.pdf]]` / etc. for any attachment extension. Single `alias`
 // slot for `![[file|title]]` override syntax — the canonical `File`
@@ -1424,6 +1448,54 @@ export const builtInComponents: JsxComponentMeta[] = [
         lang: 'mermaid',
         meta: null,
         value: p?.chart ?? '',
+      };
+    },
+  },
+  {
+    // Fence-only authoring, mirroring MermaidFence (see its comment): the
+    // descriptor name `WiremdFence` keeps `<Wiremd />` JSX unregistered so
+    // direct JSX authoring falls through to the wildcard. Slash-menu
+    // authors see "WireMD" via `displayName`; only the AST node name and
+    // componentMap key differ.
+    name: 'WiremdFence',
+    surface: 'canonical',
+    hasChildren: false,
+    isSelfClosing: true,
+    props: wiremdProps,
+    icon: 'Frame',
+    category: 'content',
+    displayName: 'WireMD',
+    // Every prop is hidden (source is authored in the fullscreen edit
+    // modal), so — as with MermaidFence — this placeholder label drives the
+    // explicit empty-state card for an empty fence instead of a zero-height
+    // stub.
+    placeholder: { label: 'Add a wiremd wireframe' },
+    description:
+      'UI wireframe rendered from wiremd source (headings, buttons, inputs, nav, tabs). Authored exclusively as ` ```wiremd ` fenced code.',
+    exampleBody: '# Sign in\nEmail\n[you@example.com___]\n[Continue]*',
+    searchTerms: [
+      'wiremd',
+      'wireframe',
+      'mockup',
+      'wireframe preview',
+      'ui sketch',
+      'form mockup',
+      'diagram',
+      'wireframe block',
+    ],
+    // Fence-only serialize: emits a `code` mdast node with `lang: 'wiremd'`
+    // so remark-stringify produces ` ```wiremd …``` ` on dirty save. The
+    // parse-side `wiremd-promoter` walks `code{lang:'wiremd'}` mdast →
+    // `mdxJsxFlowElement(WiremdFence, {source})`, so the round-trip is
+    // fence → JSX (in-memory) → fence (on disk). Pristine bytes are
+    // preserved by the position-slice walker.
+    serialize: (node) => {
+      const p = node.attrs.props as { source?: string } | undefined;
+      return {
+        type: 'code' as const,
+        lang: 'wiremd',
+        meta: null,
+        value: p?.source ?? '',
       };
     },
   },

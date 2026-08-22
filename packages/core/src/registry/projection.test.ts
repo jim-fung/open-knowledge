@@ -24,9 +24,9 @@ const PARSE_EXTENSIONS = [mdx()];
 const PARSE_MDAST_EXTENSIONS = [mdxFromMarkdown()];
 
 describe('getCanonicalDescriptors (broad filter)', () => {
-  test('returns 16 canonicals (matches built-ins snapshot)', () => {
+  test('returns 17 canonicals (matches built-ins snapshot)', () => {
     const canonicals = getCanonicalDescriptors();
-    expect(canonicals.length).toBe(16);
+    expect(canonicals.length).toBe(17);
   });
 
   test('excludes compat surfaces', () => {
@@ -45,6 +45,11 @@ describe('getCanonicalDescriptors (broad filter)', () => {
     const names = new Set(getCanonicalDescriptors().map((d) => d.name));
     expect(names.has('MermaidFence')).toBe(true);
   });
+
+  test('WiremdFence is in the broad set (it is canonical for the parse pipeline)', () => {
+    const names = new Set(getCanonicalDescriptors().map((d) => d.name));
+    expect(names.has('WiremdFence')).toBe(true);
+  });
 });
 
 describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
@@ -55,6 +60,11 @@ describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
   test('excludes MermaidFence (no JSX form exists; agents author the fence directly)', () => {
     const names = new Set(getAgentCanonicalDescriptors().map((d) => d.name));
     expect(names.has('MermaidFence')).toBe(false);
+  });
+
+  test('excludes WiremdFence (no JSX form exists; agents author the fence directly)', () => {
+    const names = new Set(getAgentCanonicalDescriptors().map((d) => d.name));
+    expect(names.has('WiremdFence')).toBe(false);
   });
 
   test('every entry is jsx-block or jsx-void — no fence-kind leaks through', () => {
@@ -68,7 +78,7 @@ describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
     const broad = new Set(getCanonicalDescriptors().map((d) => d.name));
     const agent = new Set(getAgentCanonicalDescriptors().map((d) => d.name));
     const divergence = new Set([...broad].filter((name) => !agent.has(name)));
-    expect(divergence).toEqual(new Set(['MermaidFence', 'HtmlAlignBlock']));
+    expect(divergence).toEqual(new Set(['MermaidFence', 'WiremdFence', 'HtmlAlignBlock']));
   });
 });
 
@@ -83,11 +93,10 @@ describe('projectLite — 4 fields per entry', () => {
     }
   });
 
-  test('MermaidFence is the one fence-kind canonical in the broad set (but excluded from the agent surface)', () => {
+  test('fence-kind canonicals are exactly MermaidFence and WiremdFence (both excluded from the agent surface)', () => {
     const lite = getCanonicalDescriptors().map(projectLite);
-    const fences = lite.filter((entry) => entry.kind === 'fence');
-    expect(fences.length).toBe(1);
-    expect(fences[0].id).toBe('MermaidFence');
+    const fences = lite.filter((entry) => entry.kind === 'fence').map((entry) => entry.id);
+    expect(fences.sort()).toEqual(['MermaidFence', 'WiremdFence']);
   });
 });
 
@@ -110,7 +119,9 @@ describe('projectFull — example + form-aware params (FR-11)', () => {
       const first = tree.children[0];
       if (full.kind === 'fence') {
         expect(first.type).toBe('code');
-        expect((first as { lang?: string }).lang).toBe('mermaid');
+        const lang = (first as { lang?: string }).lang;
+        // Each fence-kind canonical round-trips to its own fence language.
+        expect(lang).toBe(d.name === 'MermaidFence' ? 'mermaid' : 'wiremd');
       } else {
         expect(first.type).toBe('mdxJsxFlowElement');
         expect((first as { name?: string }).name).toBe(d.name);
@@ -149,6 +160,13 @@ describe('projectFull — example + form-aware params (FR-11)', () => {
     expect(mermaid).toBeDefined();
     const full = projectFull(mermaid as Parameters<typeof projectFull>[0]);
     expect(full.example.startsWith('```mermaid')).toBe(true);
+  });
+
+  test('WiremdFence example synthesis still works (defensive — caller could project it directly)', () => {
+    const wiremd = getCanonicalDescriptors().find((d) => d.name === 'WiremdFence');
+    expect(wiremd).toBeDefined();
+    const full = projectFull(wiremd as Parameters<typeof projectFull>[0]);
+    expect(full.example.startsWith('```wiremd')).toBe(true);
   });
 
   test('example for Tabs nests the compositional `<Tab>` children from exampleBody', () => {

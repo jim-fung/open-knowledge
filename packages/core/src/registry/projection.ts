@@ -39,7 +39,7 @@ const TO_MARKDOWN_MDX_EXT = mdxToMarkdown();
  *
  * - `jsx-block` — block-form JSX with children (`<Callout>…</Callout>`).
  * - `jsx-void` — self-closing JSX with no body (`<img src="" />`).
- * - `fence` — fenced code block (`MermaidFence`, the one fence-kind canonical).
+ * - `fence` — fenced code block (`MermaidFence`, `WiremdFence`).
  */
 export type ComponentKind = 'jsx-block' | 'jsx-void' | 'fence' | 'html';
 
@@ -89,12 +89,13 @@ export function getCanonicalDescriptors(): JsxComponentMeta[] {
 
 /**
  * Agent-facing canonical filter — `surface: 'canonical'`, not wildcard, and
- * not fence-kind. Fence-kind canonicals (today: `MermaidFence`) are excluded
- * because there is no JSX authoring form for them — the canonical shape is a
- * fenced code block (```mermaid ... ```), which every agent already authors
- * via baseline markdown. Listing fence-kind in the inventory makes agents
- * guess at a JSX tag that doesn't exist (e.g. `<Mermaid />`). The descriptor
- * stays in the registry because it's load-bearing for the parse pipeline.
+ * not fence-kind. Fence-kind canonicals (`MermaidFence`, `WiremdFence`) are
+ * excluded because there is no JSX authoring form for them — the canonical
+ * shape is a fenced code block (```mermaid ... ``` / ```wiremd ... ```),
+ * which every agent already authors via baseline markdown. Listing
+ * fence-kind in the inventory makes agents guess at a JSX tag that doesn't
+ * exist (e.g. `<Mermaid />`). The descriptor stays in the registry because
+ * it's load-bearing for the parse pipeline.
  */
 export function getAgentCanonicalDescriptors(): JsxComponentMeta[] {
   return getCanonicalDescriptors().filter((d) => {
@@ -106,16 +107,16 @@ export function getAgentCanonicalDescriptors(): JsxComponentMeta[] {
 /**
  * Resolve the kind discriminator for a descriptor.
  *
- * Today `MermaidFence` is the only fence-kind canonical, so the check is
- * name-based. There is no structural `fenceKind?: boolean` on
- * `JsxComponentMetaBase` because adding a new fence-kind canonical is rare
- * enough that an explicit branch here is preferable to a property the
- * descriptor authors would have to remember to set. If a second fence-kind
- * canonical is added, extend this branch (and the divergence-set assertion
- * in projection.test.ts) at the same time.
+ * Fence-kind canonicals (`MermaidFence`, `WiremdFence`) are name-based:
+ * there is no structural `fenceKind?: boolean` on `JsxComponentMetaBase`
+ * because adding a new fence-kind canonical is rare enough that an explicit
+ * branch here is preferable to a property the descriptor authors would have
+ * to remember to set.
  */
 function resolveKind(descriptor: JsxComponentMeta): ComponentKind {
-  if (descriptor.name === 'MermaidFence') return 'fence';
+  if (descriptor.name === 'MermaidFence' || descriptor.name === 'WiremdFence') {
+    return 'fence';
+  }
   // html-kind: the authoring form is raw HTML (`<div align>` / `<center>`),
   // so advertising a `<HtmlAlignBlock>` JSX form to agents would teach them
   // markup that renders in OK but nowhere else (same exclusion rationale as
@@ -233,7 +234,10 @@ function synthesizeExample(descriptor: JsxComponentMeta): string {
       descriptor.exampleBody && descriptor.exampleBody.trim().length > 0
         ? descriptor.exampleBody
         : PLACEHOLDER_MERMAID_FENCE_BODY;
-    node = { type: 'code', lang: 'mermaid', meta: null, value: body };
+    // Each fence-kind canonical serializes back to its own fence language;
+    // examples must teach the language agents actually author.
+    const fenceLang = descriptor.name === 'WiremdFence' ? 'wiremd' : 'mermaid';
+    node = { type: 'code', lang: fenceLang, meta: null, value: body };
   } else {
     const attributes = buildAttributes(descriptor);
     const children: MdxJsxFlowElement['children'] =

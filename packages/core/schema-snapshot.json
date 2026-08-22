@@ -970,6 +970,11 @@
       "hasOptions": false
     },
     {
+      "name": "wiremd-promoter",
+      "version": null,
+      "hasOptions": false
+    },
+    {
       "name": "comment-promoter",
       "version": null,
       "hasOptions": false
