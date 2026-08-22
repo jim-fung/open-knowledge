@@ -1,5 +1,9 @@
 node_modules/
 dist/
+# Vendored wiremd build output IS committed — clean standalone clones need it
+# to install (see packages/wiremd/README.md). Re-include the directory so the
+# global dist/ rule above does not swallow it.
+!packages/wiremd/dist/
 packages/desktop/out/
 packages/desktop/dist-desktop/
 packages/desktop/dev-app-update.yml

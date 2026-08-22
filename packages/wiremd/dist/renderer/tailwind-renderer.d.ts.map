@@ -1,0 +1,1 @@
+{"version":3,"file":"tailwind-renderer.d.ts","sourceRoot":"","sources":["../../src/renderer/tailwind-renderer.ts"],"names":[],"mappings":"AAAA;;;;;;;GAOG;AAEH,OAAO,KAAK,EAAE,UAAU,EAAE,MAAM,aAAa,CAAC;AAE9C,MAAM,WAAW,qBAAqB;IACpC,MAAM,EAAE,OAAO,CAAC;CACjB;AAED;;GAEG;AACH,wBAAgB,UAAU,CAAC,IAAI,EAAE,UAAU,EAAE,OAAO,EAAE,qBAAqB,GAAG,MAAM,CAgGnF"}
