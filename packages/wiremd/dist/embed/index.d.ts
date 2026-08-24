@@ -1,10 +1,10 @@
-import { DocumentNode } from '../types.js';
+import { WIREMD_STYLES, DocumentNode, WiremdStyle } from '../types.js';
 import { WiremdDiagnostic } from '../diagnostics.js';
 import { PreviewResult } from '../renderer/preview-renderer.js';
 
-/** Ordered style identifiers accepted by compile/preview options. */
-export declare const WIREMD_STYLES: readonly ["sketch", "clean", "wireframe", "none", "tailwind", "material", "brutal"];
-export type WiremdStyle = (typeof WIREMD_STYLES)[number];
+/** @deprecated use the canonical export from 'wiremd' root — kept for back-compat. */
+export { WIREMD_STYLES };
+export type { WiremdStyle };
 export interface CompileWiremdOptions {
     /** Visual style recorded for downstream preview rendering. */
     style?: WiremdStyle;

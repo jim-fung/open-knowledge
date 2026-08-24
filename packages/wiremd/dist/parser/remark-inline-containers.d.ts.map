@@ -1,1 +1,1 @@
-{"version":3,"file":"remark-inline-containers.d.ts","sourceRoot":"","sources":["../../src/parser/remark-inline-containers.ts"],"names":[],"mappings":"AAAA;;;;;;;;GAQG;AAEH,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AAetC,eAAO,MAAM,4BAA4B,EAAE,MAgD1C,CAAC"}
+{"version":3,"file":"remark-inline-containers.d.ts","sourceRoot":"","sources":["../../src/parser/remark-inline-containers.ts"],"names":[],"mappings":"AAAA;;;;;;;;GAQG;AAEH,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AAsBtC,eAAO,MAAM,4BAA4B,EAAE,MAgD1C,CAAC"}

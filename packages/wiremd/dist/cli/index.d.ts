@@ -1,17 +1,14 @@
-#!/usr/bin/env node
-/**
- * wiremd CLI Tool
- * Generate wireframes from markdown files
- *
- * Copyright (c) 2025 wiremd
- * Licensed under MIT License
- * https://github.com/akonan/wiremd/blob/main/LICENSE
- */
+import { WiremdStyle } from '../types.js';
+
+export declare function warnIfDeprecatedStyle(style: string, log: {
+    style(msg: string): void;
+}): void;
 export interface CLIOptions {
     input: string;
     output?: string;
     format?: 'html' | 'json';
-    style?: 'sketch' | 'clean' | 'wireframe' | 'none';
+    style?: WiremdStyle;
+    codegen?: 'html' | 'jsx';
     watch?: boolean;
     serve?: number;
     pretty?: boolean;

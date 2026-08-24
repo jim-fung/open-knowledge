@@ -10,7 +10,7 @@
  * https://github.com/akonan/wiremd/blob/main/LICENSE
  */
 /** Package version — keep in sync with package.json (asserted by test). */
-export declare const VERSION = "0.1.7";
+export declare const VERSION = "0.1.8";
 /** Syntax version — the host-side cache/invalidation gauge. */
 export declare const SYNTAX_VERSION = "0.1";
 //# sourceMappingURL=version.d.ts.map

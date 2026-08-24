@@ -1,32 +1,15 @@
 #!/usr/bin/env node
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "fs";
-import { dirname, resolve, join, relative, basename } from "path";
+import { readFileSync, existsSync, readdirSync, statSync, writeFileSync } from "fs";
+import { dirname, join, relative, resolve, basename } from "path";
 import { pathToFileURL } from "url";
-import { p as parse } from "../index-DeBR6CIj.js";
-import { renderToJSON, renderToHTML } from "../renderer.js";
+import { p as parse, V as VERSION } from "../index-D4Jwduto.js";
+import { resolveIncludes } from "../parser/includes.js";
+import { b as renderToJSON, a as renderToHTML } from "../index-Jiz3Q08s.js";
+import { W as WIREMD_STYLES } from "../types-HXY8TWaA.js";
 import { createServer } from "http";
 import { createHash } from "crypto";
 import chokidar from "chokidar";
 import chalk from "chalk";
-const INCLUDE_PATTERN = /!\[\[\s*([^\]]+?\.md)\s*\]\]/g;
-function resolveIncludes(markdown, basePath) {
-  const dir = dirname(resolve(basePath));
-  const parts = markdown.split(/(```[\s\S]*?```|`[^`\n]+`)/g);
-  return parts.map((part, i) => {
-    if (i % 2 === 1) return part;
-    return part.replace(INCLUDE_PATTERN, (_match, relPath) => {
-      const targetPath = resolve(dir, relPath.trim());
-      if (!existsSync(targetPath)) {
-        return `> ⚠️ Could not include: ${relPath}`;
-      }
-      try {
-        return readFileSync(targetPath, "utf-8");
-      } catch {
-        return `> ⚠️ Could not include: ${relPath}`;
-      }
-    });
-  }).join("");
-}
 const liveReloadScript = `
 <style>
   /* Wiremd Live Preview UI */
@@ -319,7 +302,11 @@ const liveReloadScript = `
     }
 
     function connect() {
-      ws = new WebSocket('ws://localhost:__PORT__/__ws');
+      // Derive host from the page location so LAN IP / container / tunnel
+      // access connects to the right server instead of always localhost.
+      ws = new WebSocket(
+        (location.protocol === 'https:' ? 'wss://' : 'ws://') + location.host + '/__ws'
+      );
 
       ws.onopen = () => {
         console.log('[wiremd] Connected to live-reload server');
@@ -367,14 +354,27 @@ const liveReloadScript = `
   })();
 <\/script>
 `;
-const wsClients = /* @__PURE__ */ new Set();
-function buildTree(dir, base) {
+let activeWsClients = /* @__PURE__ */ new Set();
+function buildTree(dir, base, depth = 0) {
   const node = { dirs: {}, files: [] };
-  for (const entry of readdirSync(dir).sort()) {
-    if (entry.startsWith("_") || entry.startsWith(".")) continue;
+  if (depth > 32) return node;
+  let entries;
+  try {
+    entries = readdirSync(dir);
+  } catch {
+    return node;
+  }
+  for (const entry of entries.sort()) {
+    if (entry.startsWith("_") || entry.startsWith(".") || entry === "node_modules") continue;
     const full = join(dir, entry);
-    if (statSync(full).isDirectory()) {
-      node.dirs[entry] = buildTree(full, base);
+    let stat;
+    try {
+      stat = statSync(full);
+    } catch {
+      continue;
+    }
+    if (stat.isDirectory()) {
+      node.dirs[entry] = buildTree(full, base, depth + 1);
     } else if (entry.endsWith(".md")) {
       node.files.push(relative(base, full));
     }
@@ -385,7 +385,8 @@ function renderTree(node, depth = 0) {
   const parts = [];
   for (const file of node.files) {
     const name = file.split("/").pop();
-    parts.push(`<li class="file"><a href="/${file}">${name}</a></li>`);
+    const href = file.split("/").map(encodeURIComponent).join("/");
+    parts.push(`<li class="file"><a href="/${href}">${name}</a></li>`);
   }
   for (const [dirName, child] of Object.entries(node.dirs)) {
     const inner = renderTree(child, depth + 1);
@@ -420,10 +421,12 @@ a:hover{background:#f0f0f0}
 function startServer(options) {
   const { port, outputPath, renderFile, inputFile } = options;
   const rootDir = options.rootDir || (outputPath ? dirname(outputPath) : process.cwd());
+  const wsClients = /* @__PURE__ */ new Set();
+  activeWsClients = wsClients;
   const injectScript = (html) => {
-    const script = liveReloadScript.replace("__PORT__", String(port));
-    return html.replace("</body>", `${script}
-</body>`);
+    const idx = html.lastIndexOf("</body>");
+    if (idx === -1) return html + liveReloadScript;
+    return html.slice(0, idx) + liveReloadScript + "\n</body>" + html.slice(idx + "</body>".length);
   };
   const server = createServer((req, res) => {
     if (req.url === "/__ws") {
@@ -440,7 +443,13 @@ function startServer(options) {
         return;
       }
       if (!outputPath) {
-        html = renderIndex(rootDir);
+        try {
+          html = renderIndex(rootDir);
+        } catch (err) {
+          res.writeHead(500, { "Content-Type": "text/plain" });
+          res.end(`Error listing ${rootDir}: ${err.message}`);
+          return;
+        }
         res.writeHead(200, { "Content-Type": "text/html", "Cache-Control": "no-cache, no-store, must-revalidate" });
         res.end(injectScript(html));
         return;
@@ -453,7 +462,14 @@ function startServer(options) {
         return;
       }
     } else if (renderFile) {
-      const requestedFile = urlPath.replace(/^\//, "");
+      let requestedFile;
+      try {
+        requestedFile = decodeURIComponent(urlPath.replace(/^\//, ""));
+      } catch {
+        res.writeHead(400, { "Content-Type": "text/plain" });
+        res.end(`Bad request: malformed URL encoding in ${urlPath}`);
+        return;
+      }
       const targetPath = join(rootDir, requestedFile);
       if (targetPath.endsWith(".md") && existsSync(targetPath)) {
         try {
@@ -480,6 +496,17 @@ function startServer(options) {
               res.end(`Error rendering ${mdPath}: ${err.message}`);
               return;
             }
+          }
+        }
+      } else {
+        const dirIndex = join(rootDir, requestedFile, "index.md");
+        if (existsSync(dirIndex)) {
+          try {
+            html = renderFile(dirIndex);
+          } catch (err) {
+            res.writeHead(500, { "Content-Type": "text/plain" });
+            res.end(`Error rendering ${dirIndex}: ${err.message}`);
+            return;
           }
         }
       }
@@ -511,6 +538,15 @@ Sec-WebSocket-Accept: ${hash}\r
       socket.on("error", () => {
         wsClients.delete(socket);
       });
+    } else {
+      socket.destroy();
+    }
+  });
+  server.on("error", (err) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(`❌ Port ${port} is already in use. Stop the other process or choose another port: wiremd --serve <port>`);
+    } else {
+      console.error(`❌ Dev server error: ${err.message}`);
     }
   });
   server.listen(port, () => {
@@ -527,17 +563,36 @@ function notifyError(errorMessage) {
   sendMessageToClients(`error:${errorMessage}`);
 }
 function sendMessageToClients(message) {
-  wsClients.forEach((socket) => {
+  const payload = Buffer.from(message, "utf-8");
+  const len = payload.length;
+  let header;
+  if (len <= 125) {
+    header = Buffer.from([129, len]);
+  } else if (len <= 65535) {
+    header = Buffer.alloc(4);
+    header[0] = 129;
+    header[1] = 126;
+    header.writeUInt16BE(len, 2);
+  } else {
+    header = Buffer.alloc(10);
+    header[0] = 129;
+    header[1] = 127;
+    header.writeBigUInt64BE(BigInt(len), 2);
+  }
+  const frame = Buffer.concat([header, payload]);
+  activeWsClients.forEach((socket) => {
     try {
-      const buffer = Buffer.alloc(2 + message.length);
-      buffer[0] = 129;
-      buffer[1] = message.length;
-      buffer.write(message, 2);
-      socket.write(buffer);
-    } catch (error) {
-      wsClients.delete(socket);
+      socket.write(frame);
+    } catch {
+      activeWsClients.delete(socket);
     }
   });
+}
+const DEPRECATED_STYLES = ["sketch", "clean", "wireframe", "none", "tailwind", "material", "brutal"];
+function warnIfDeprecatedStyle(style, log) {
+  if (DEPRECATED_STYLES.includes(style)) {
+    log.style(`Style '${style}' is deprecated and will be removed in the next major release — use --style coss`);
+  }
 }
 function showHelp() {
   console.log(`
@@ -552,7 +607,8 @@ USAGE:
 OPTIONS:
   -o, --output <file>        Output file path (default: <input>.html)
   -f, --format <format>      Output format: html, json (default: html)
-  -s, --style <style>        Visual style: sketch, clean, wireframe, none, tailwind, material, brutal (default: sketch)
+  -s, --style <style>        Visual style: coss (default), or deprecated: sketch, clean, wireframe, none, tailwind, material, brutal
+  --codegen <format>         Code format for coss demo code panes: html, jsx (default: html)
   -w, --watch                Watch for changes and regenerate
   --serve <port>             Start dev server with live-reload (default: 3000)
   --watch-pattern <pattern>  Glob pattern for files to watch (e.g., "**/*.md")
@@ -562,14 +618,14 @@ OPTIONS:
   -v, --version              Show version number
 
 EXAMPLES:
-  # Generate HTML with default Balsamiq-style
+  # Generate HTML with the default coss style
   wiremd wireframe.md
 
   # Output to specific file
   wiremd wireframe.md -o output.html
 
-  # Use alternative style
-  wiremd wireframe.md --style clean
+  # Use a deprecated legacy style (warns; removed next major)
+  wiremd wireframe.md --style sketch
 
   # Watch mode with live-reload
   wiremd wireframe.md --watch --serve 3000
@@ -581,7 +637,9 @@ EXAMPLES:
   wiremd wireframe.md --format json
 
 STYLES:
-  sketch     - Balsamiq-inspired hand-drawn look (default)
+  coss       - Cal.com-inspired neutral design system (default)
+  Deprecated (removed next major):
+  sketch     - Balsamiq-inspired hand-drawn look
   clean      - Modern minimal design
   wireframe  - Traditional grayscale with hatching
   none       - Unstyled semantic HTML
@@ -599,14 +657,22 @@ function showVersion() {
     const pkg = JSON.parse(readFileSync(pkgPath, "utf-8"));
     console.log(`wiremd v${pkg.version}`);
   } catch {
-    console.log("wiremd v0.1.2");
+    console.log(`wiremd v${VERSION}`);
   }
+}
+function readFlagValue(args, i, flag) {
+  const value = args[i + 1];
+  if (value === void 0 || value.startsWith("-")) {
+    console.error(`Error: ${flag} requires a value`);
+    process.exit(1);
+  }
+  return { value, next: i + 1 };
 }
 function parseArgs(args) {
   const options = {
     input: "",
     format: "html",
-    style: "sketch",
+    style: "coss",
     pretty: true
   };
   for (let i = 0; i < args.length; i++) {
@@ -621,12 +687,15 @@ function parseArgs(args) {
         showVersion();
         return null;
       case "-o":
-      case "--output":
-        options.output = args[++i];
+      case "--output": {
+        const { value, next } = readFlagValue(args, i, arg);
+        options.output = value;
+        i = next;
         break;
+      }
       case "-f":
       case "--format": {
-        const format = args[++i];
+        const { value: format } = readFlagValue(args, i, arg);
         if (format !== "html" && format !== "json") {
           console.error(`Error: Invalid format "${format}". Must be html or json.`);
           process.exit(1);
@@ -636,31 +705,50 @@ function parseArgs(args) {
       }
       case "-s":
       case "--style": {
-        const style = args[++i];
-        if (!["sketch", "clean", "wireframe", "none", "tailwind", "material", "brutal"].includes(style)) {
-          console.error(`Error: Invalid style "${style}". Must be sketch, clean, wireframe, none, tailwind, material, or brutal.`);
+        const { value: style } = readFlagValue(args, i, arg);
+        if (!WIREMD_STYLES.includes(style)) {
+          console.error(`Error: Invalid style "${style}". Must be one of: ${WIREMD_STYLES.join(", ")}.`);
           process.exit(1);
         }
         options.style = style;
+        break;
+      }
+      case "--codegen": {
+        const { value: codegen, next } = readFlagValue(args, i, arg);
+        if (codegen !== "html" && codegen !== "jsx") {
+          console.error(`Error: Invalid codegen "${codegen}". Must be html or jsx.`);
+          process.exit(1);
+        }
+        options.codegen = codegen;
+        i = next;
         break;
       }
       case "-w":
       case "--watch":
         options.watch = true;
         break;
-      case "--serve":
-        options.serve = parseInt(args[++i], 10);
-        if (isNaN(options.serve)) {
-          console.error("Error: --serve requires a numeric port");
+      case "--serve": {
+        const { value } = readFlagValue(args, i, arg);
+        const port = parseInt(value, 10);
+        if (isNaN(port) || !Number.isInteger(port) || port < 1 || port > 65535) {
+          console.error("Error: --serve requires a port between 1 and 65535");
           process.exit(1);
         }
+        options.serve = port;
         break;
-      case "--watch-pattern":
-        options.watchPattern = args[++i];
+      }
+      case "--watch-pattern": {
+        const { value, next } = readFlagValue(args, i, arg);
+        options.watchPattern = value;
+        i = next;
         break;
-      case "--ignore":
-        options.ignorePattern = args[++i];
+      }
+      case "--ignore": {
+        const { value, next } = readFlagValue(args, i, arg);
+        options.ignorePattern = value;
+        i = next;
         break;
+      }
       case "-p":
       case "--pretty":
         options.pretty = true;
@@ -704,7 +792,7 @@ function checkFileSize(filePath) {
   }
 }
 function generateOutput(options) {
-  const { input, format, style, pretty } = options;
+  const { input, format, style, pretty, codegen } = options;
   if (!existsSync(input)) {
     throw new Error(`File not found: ${input}`);
   }
@@ -715,7 +803,15 @@ function generateOutput(options) {
   if (format === "json") {
     return renderToJSON(ast, { pretty });
   } else {
-    return renderToHTML(ast, { style, pretty, inlineStyles: true });
+    const renderOptions = {
+      style,
+      pretty,
+      inlineStyles: true
+    };
+    if (codegen !== void 0) {
+      renderOptions.codegen = codegen;
+    }
+    return renderToHTML(ast, renderOptions);
   }
 }
 function main() {
@@ -728,6 +824,9 @@ function main() {
   const options = parseArgs(args);
   if (!options) {
     process.exit(0);
+  }
+  if (options.style) {
+    warnIfDeprecatedStyle(options.style, logger);
   }
   const inputIsDir = existsSync(options.input) && statSync(options.input).isDirectory();
   if (inputIsDir) {
@@ -884,6 +983,9 @@ function main() {
       logger.warning(`File removed: ${chalk.dim(relativePath)}`);
       if (path === options.input) {
         logger.warning("Main input file deleted. Waiting for restoration...");
+        if (options.serve) {
+          notifyError(`Input file removed: ${relativePath}`);
+        }
       }
     }).on("error", (error) => {
       logger.error(`Watcher error: ${error.message}`);
@@ -917,7 +1019,7 @@ function main() {
     process.exit(1);
   }
 }
-const isMainModule = import.meta.url === pathToFileURL(process.argv[1]).href;
+const isMainModule = process.argv[1] !== void 0 && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
   main();
 }
@@ -927,6 +1029,6 @@ export {
   main,
   parseArgs,
   showHelp,
-  showVersion
+  showVersion,
+  warnIfDeprecatedStyle
 };
-//# sourceMappingURL=index.js.map

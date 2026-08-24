@@ -1,4 +1,4 @@
-import { DocumentNode, WiremdNode } from '../types.js';
+import { DocumentNode, WiremdNode, WiremdStyle } from '../types.js';
 import { WiremdDiagnostic } from '../diagnostics.js';
 
 export interface PreviewRenderContext {
@@ -16,7 +16,7 @@ export interface PreviewResult {
     diagnostics: WiremdDiagnostic[];
 }
 export interface PreviewRenderOptions {
-    style?: 'sketch' | 'clean' | 'wireframe' | 'none' | 'tailwind' | 'material' | 'brutal';
+    style?: WiremdStyle;
     classPrefix: string;
 }
 /**

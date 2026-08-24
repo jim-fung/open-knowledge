@@ -12,7 +12,7 @@ import { DiagnosticSink } from '../diagnostics.js';
  *
  * @example
  * ```ts
- * import { parse } from 'markdown-mockup/parser';
+ * import { parse } from 'wiremd/parser';
  *
  * const ast = parse(`
  *   ## Contact Form
@@ -29,5 +29,7 @@ export declare function parse(input: string, options?: ParseOptions, sink?: Diag
  * @param ast - wiremd AST to validate
  * @returns Array of validation errors (empty if valid)
  */
-export declare function validate(ast: DocumentNode): ValidationError[];
+export declare function validate(ast: DocumentNode, options?: {
+    attachNodes?: boolean;
+}): ValidationError[];
 //# sourceMappingURL=index.d.ts.map

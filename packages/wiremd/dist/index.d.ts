@@ -13,4 +13,6 @@ export * from './diagnostics.js';
 export * from './parser/index.js';
 export * from './renderer/index.js';
 export { VERSION, SYNTAX_VERSION } from './version.js';
+export { generateCode } from './codegen/coss/index.js';
+export type { CodegenFormat, CodegenInput, CodegenOptions } from './codegen/coss/types.js';
 //# sourceMappingURL=index.d.ts.map

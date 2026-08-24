@@ -1,6 +1,6 @@
 {
   "name": "wiremd",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Vendored build of the wiremd text-first UI wireframing tool (upstream: github.com/akonan/wiremd, MIT). See README.md before updating.",
   "license": "MIT",
   "private": true,

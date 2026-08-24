@@ -9,11 +9,11 @@ import { DocumentNode, RenderOptions } from '../types.js';
  *
  * @example
  * ```ts
- * import { parse } from 'markdown-mockup/parser';
- * import { renderToHTML } from 'markdown-mockup/renderer';
+ * import { parse } from 'wiremd/parser';
+ * import { renderToHTML } from 'wiremd/renderer';
  *
  * const ast = parse('## Title\n[Button]*');
- * const html = renderToHTML(ast, { style: 'sketch' });
+ * const html = renderToHTML(ast, { style: 'coss' });
  * ```
  */
 export declare function renderToHTML(ast: DocumentNode, options?: RenderOptions): string;

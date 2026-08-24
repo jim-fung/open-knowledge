@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const parser = require("./index-DQI4IyyM.cjs");
-const styles = require("./styles-710ZpS1G.cjs");
+const types = require("./types-bdisTnhv.cjs");
+const parser = require("./index-DKyF7GVt.cjs");
+const styles = require("./styles-O5hnORUn.cjs");
 function renderPreview(documentNode, options) {
-  const style = options.style ?? "sketch";
+  const style = options.style ?? "coss";
   const classPrefix = options.classPrefix;
   if (!CLASS_PREFIX_PATTERN.test(classPrefix)) {
     throw new TypeError(
@@ -201,6 +202,84 @@ function renderPreviewNode(node, context) {
       return renderBreadcrumbs(node, context);
     case "demo":
       return renderDemo(node, context);
+    case "toast":
+      return renderToast(node, context);
+    case "skeleton":
+      return renderSkeleton(node, context);
+    case "spinner":
+      return renderSpinner(node, context);
+    case "kbd":
+      return renderKbd(node, context);
+    case "progress":
+      return renderProgress(node, context);
+    case "meter":
+      return renderMeter(node, context);
+    case "dialog":
+      return renderDialog(node, context);
+    case "alert-dialog":
+      return renderAlertDialog(node, context);
+    case "sheet":
+      return renderSheet(node, context);
+    case "drawer":
+      return renderDrawer(node, context);
+    case "popover":
+      return renderPopover(node, context);
+    case "tooltip":
+      return renderTooltip(node, context);
+    case "preview-card":
+      return renderPreviewCard(node, context);
+    case "pagination":
+      return renderPagination(node, context);
+    case "segmented-control":
+      return renderSegmentedControl(node, context);
+    case "scroll-area":
+      return renderScrollArea(node, context);
+    case "sidebar":
+      return renderSidebarNav(node, context);
+    case "menubar":
+      return renderMenubar(node, context);
+    case "form":
+      return renderForm(node, context);
+    case "field":
+      return renderField(node, context);
+    case "fieldset":
+      return renderFieldset(node, context);
+    case "label":
+      return renderLabel(node, context);
+    case "input-group":
+      return renderInputGroup(node, context);
+    case "otp-field":
+      return renderOtpField(node, context);
+    case "number-field":
+      return renderNumberField(node, context);
+    case "autocomplete":
+      return renderAutocomplete(node, context);
+    case "combobox":
+      return renderCombobox(node, context);
+    case "command":
+      return renderCommand(node, context);
+    case "checkbox-group":
+      return renderCheckboxGroup(node, context);
+    case "toggle-group":
+      return renderToggleGroup(node, context);
+    case "switch":
+      return renderSwitch(node, context);
+    case "slider":
+      return renderSlider(node, context);
+    case "toggle":
+      return renderToggle(node, context);
+    case "avatar":
+      return renderAvatar(node, context);
+    case "frame":
+      return renderFrame(node, context);
+    case "group":
+      return renderGroup(node, context);
+    case "empty":
+      return renderEmpty(node, context);
+    case "calendar":
+      return renderCalendar(node, context);
+    case "date-picker":
+      return renderDatePicker(node, context);
     default:
       return `<!-- Unknown node type: ${node.type} -->`;
   }
@@ -532,7 +611,7 @@ function renderParagraph(node, context) {
 }
 function renderInlineRichText(content, context) {
   let result = "";
-  let remaining = content;
+  const remaining = content;
   const pattern = /<(strong|em|code)>([\s\S]*?)<\/\1>|<a href="([^"]*)">([\s\S]*?)<\/a>/g;
   let match;
   let lastIndex = 0;
@@ -695,15 +774,571 @@ function renderDemo(node, context) {
   <div class="${prefix}demo-preview">${previewHTML}</div>
 </div>`;
 }
-const WIREMD_STYLES = [
-  "sketch",
-  "clean",
-  "wireframe",
-  "none",
-  "tailwind",
-  "material",
-  "brutal"
-];
+const CSS_LENGTH_PATTERN = /^[0-9]*\.?[0-9]+(?:px|em|rem|ch|ex|vh|vw|%)?$/;
+function cssLength(value, context) {
+  if (typeof value === "number" && Number.isFinite(value)) return `${value}px`;
+  if (typeof value === "string" && CSS_LENGTH_PATTERN.test(value.trim())) return value.trim();
+  if (value !== void 0) {
+    context.diagnostics.push({
+      severity: "warning",
+      code: "wmd-style-sanitized",
+      message: `Inline style length ${JSON.stringify(value)} is not a safe CSS length and was omitted from the preview.`,
+      source: "renderer"
+    });
+  }
+  return void 0;
+}
+function renderToast(node, context) {
+  var _a, _b;
+  const toastType = (_a = node.props) == null ? void 0 : _a.toastType;
+  const variantClass = toastType && toastType !== "loading" ? toastType : void 0;
+  const extraClasses = (((_b = node.props) == null ? void 0 : _b.classes) || []).filter(
+    (c) => c !== variantClass
+  );
+  const cls = buildClasses(context, "toast", { ...node.props, classes: extraClasses });
+  const variantHTML = variantClass ? ` data-variant="${escapeHtml(variantClass)}"` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${cls}" role="status"${variantHTML}>
+  ${childrenHTML}
+</div>`;
+}
+function renderSkeleton(node, context) {
+  var _a, _b;
+  const cls = buildClasses(context, "skeleton", node.props);
+  const width = cssLength((_a = node.props) == null ? void 0 : _a.width, context);
+  const height = cssLength((_b = node.props) == null ? void 0 : _b.height, context);
+  const styleAttr = width !== void 0 || height !== void 0 ? ` style="${[
+    width !== void 0 ? `width:${width}` : "",
+    height !== void 0 ? `height:${height}` : ""
+  ].filter(Boolean).join(";")}"` : "";
+  return `<div class="${cls}"${styleAttr}></div>`;
+}
+function renderSpinner(node, context) {
+  var _a;
+  const size = ((_a = node.props) == null ? void 0 : _a.size) || "medium";
+  const sizeClass = size === "small" ? "spinner-sm" : size === "large" ? "spinner-lg" : "spinner-md";
+  const cls = buildClasses(context, "spinner", { ...node.props, classes: [sizeClass] });
+  return `<div class="${cls}" role="status" aria-label="Loading"></div>`;
+}
+function renderKbd(node, context) {
+  const cls = buildClasses(context, "kbd", node.props);
+  return `<kbd class="${cls}">${escapeHtml(node.content ?? "")}</kbd>`;
+}
+function renderProgress(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const cls = buildClasses(context, "progress", node.props);
+  const value = Math.max(0, Math.min(100, Number(node.value ?? 0)));
+  const indeterminate = !!node.indeterminate;
+  const labelText = (_a = node.props) == null ? void 0 : _a.label;
+  const labelHTML = labelText ? `  <p class="${prefix}progress-label">${escapeHtml(labelText)}</p>
+` : "";
+  const trackWidth = indeterminate ? 100 : value;
+  const indicatorStyle = ` style="width:${trackWidth}%"`;
+  const trackHTML = `  <div class="${prefix}progress-track">
+    <div class="${prefix}progress-indicator"${indicatorStyle}></div>
+  </div>`;
+  const valueHTML = !indeterminate ? `
+  <p class="${prefix}progress-value">${value}%</p>` : "";
+  return `<div class="${cls}" role="progressbar" aria-valuenow="${value}"${indeterminate ? "" : ` aria-valuemin="0" aria-valuemax="100"`}${indeterminate ? ' data-indeterminate="true"' : ""}>
+${labelHTML}${trackHTML}${valueHTML}
+</div>`;
+}
+function renderMeter(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const cls = buildClasses(context, "meter", node.props);
+  const value = Number(node.value ?? 0);
+  const min = Number(node.min ?? 0);
+  const max = Number(node.max ?? 100);
+  const range = max - min || 1;
+  const pct = Math.max(0, Math.min(100, (value - min) / range * 100));
+  const labelText = (_a = node.props) == null ? void 0 : _a.label;
+  const labelHTML = labelText ? `  <p class="${prefix}meter-label">${escapeHtml(labelText)}</p>
+` : "";
+  const indicatorStyle = ` style="width:${pct}%"`;
+  const trackHTML = `  <div class="${prefix}meter-track">
+    <div class="${prefix}meter-indicator"${indicatorStyle}></div>
+  </div>`;
+  const valueHTML = `
+  <p class="${prefix}meter-value">${value} / ${max}</p>`;
+  return `<div class="${cls}" role="meter" aria-valuenow="${value}" aria-valuemin="${min}" aria-valuemax="${max}">
+${labelHTML}${trackHTML}${valueHTML}
+</div>`;
+}
+function overlayShell(context, kind, props, inner, role = "dialog", ariaLabel, dataAttrs = "") {
+  const { classPrefix: prefix } = context;
+  const cleanedProps = { ...props };
+  delete cleanedProps.title;
+  delete cleanedProps.description;
+  delete cleanedProps.showClose;
+  delete cleanedProps.cancelText;
+  delete cleanedProps.actionText;
+  delete cleanedProps.actionVariant;
+  delete cleanedProps.content;
+  delete cleanedProps.trigger;
+  const cls = buildClasses(context, kind, cleanedProps);
+  const title = typeof props.title === "string" ? props.title : void 0;
+  const desc = typeof props.description === "string" ? props.description : void 0;
+  const showClose = props.showClose !== false;
+  const titleHTML = title ? `  <h2 class="${prefix}${kind}-title">${escapeHtml(title)}</h2>
+` : "";
+  const descHTML = desc ? `  <p class="${prefix}${kind}-description">${escapeHtml(desc)}</p>
+` : "";
+  const closeHTML = showClose && kind === "dialog" ? `  <button type="button" class="${prefix}${kind}-close" aria-label="Close">×</button>
+` : "";
+  const ariaLabelAttr = "";
+  return `<div class="${cls}" role="${role}"${ariaLabelAttr}${dataAttrs}>
+${titleHTML}${descHTML}${inner}${closeHTML}</div>`;
+}
+function renderDialog(node, context) {
+  const inner = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return overlayShell(context, "dialog", node.props || {}, inner, "dialog");
+}
+function renderAlertDialog(node, context) {
+  var _a, _b, _c;
+  const { classPrefix: prefix } = context;
+  const inner = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const actionVariant = ((_a = node.props) == null ? void 0 : _a.actionVariant) || "danger";
+  const actionText = ((_b = node.props) == null ? void 0 : _b.actionText) || "Confirm";
+  const cancelText = ((_c = node.props) == null ? void 0 : _c.cancelText) || "Cancel";
+  const actionsHTML = `
+  <div class="${prefix}alert-dialog-actions">
+    <button type="button" class="${prefix}button ${prefix}${actionVariant}">${escapeHtml(cancelText)}</button>
+    <button type="button" class="${prefix}button ${prefix}${actionVariant === "danger" ? "primary" : "danger"}">${escapeHtml(actionText)}</button>
+  </div>`;
+  return overlayShell(context, "alert-dialog", node.props || {}, inner + actionsHTML, "alertdialog");
+}
+function renderSheet(node, context) {
+  const inner = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const side = node.side || "right";
+  return overlayShell(
+    context,
+    "sheet",
+    node.props || {},
+    inner,
+    "dialog",
+    void 0,
+    ` data-side="${escapeHtml(side)}"`
+  );
+}
+function renderDrawer(node, context) {
+  const inner = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const side = node.side || "left";
+  return overlayShell(
+    context,
+    "drawer",
+    node.props || {},
+    inner,
+    "dialog",
+    void 0,
+    ` data-side="${escapeHtml(side)}"`
+  );
+}
+function renderPopover(node, context) {
+  const inner = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return overlayShell(context, "popover", node.props || {}, inner, "dialog");
+}
+function renderTooltip(node, context) {
+  var _a, _b;
+  const cleanedProps = { ...node.props || {} };
+  delete cleanedProps.content;
+  delete cleanedProps.side;
+  const cls = buildClasses(context, "tooltip", cleanedProps);
+  const content = ((_a = node.props) == null ? void 0 : _a.content) || "";
+  const side = ((_b = node.props) == null ? void 0 : _b.side) || "top";
+  const childHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const inner = childHTML || content;
+  return `<span class="${cls}" role="tooltip" data-side="${escapeHtml(side)}">${escapeHtml(inner)}</span>`;
+}
+function renderPreviewCard(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const cls = buildClasses(context, "preview-card", node.props || {});
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const href = (_a = node.props) == null ? void 0 : _a.href;
+  const wrap = (inner) => {
+    if (!href) return inner;
+    const hrefResult = safeUrl(href, context, "link");
+    return `<a class="${prefix}preview-card-link" href="${escapeHtml(hrefResult.url)}">${inner}</a>`;
+  };
+  return wrap(`<div class="${cls}">
+  ${childrenHTML}
+</div>`);
+}
+function flattenGroupItems(raw) {
+  const items = [];
+  for (const child of raw) {
+    if (child.type === "container" && child.containerType === "button-group") {
+      items.push(...child.children || []);
+    } else {
+      items.push(child);
+    }
+  }
+  return items;
+}
+function renderPagination(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const label = ((_a = node.props) == null ? void 0 : _a.label) || "pagination";
+  const items = flattenGroupItems(node.children || []);
+  const linksHTML = items.filter((item) => item.type === "button" || item.type === "nav-item" || item.type === "text").map((item) => {
+    var _a2, _b;
+    const isCurrent = (((_a2 = item.props) == null ? void 0 : _a2.classes) || []).includes("active") || ((_b = item.props) == null ? void 0 : _b.variant) === "primary";
+    const text = item.content ?? "";
+    const linkCls = `${prefix}pagination-link${isCurrent ? ` ${prefix}pagination-active` : ""}`;
+    const currentAttr = isCurrent ? ' aria-current="page"' : "";
+    return `      <li class="${prefix}pagination-item"><a class="${linkCls}" href="#"${currentAttr}>${escapeHtml(text)}</a></li>`;
+  }).join("\n");
+  return `<nav class="${prefix}pagination" aria-label="${escapeHtml(label)}" role="navigation">
+    <ul class="${prefix}pagination-content">
+${linksHTML}
+    </ul>
+</nav>`;
+}
+function renderSegmentedControl(node, context) {
+  const { classPrefix: prefix } = context;
+  const items = flattenGroupItems(node.children || []);
+  const buttonsHTML = items.filter((item) => item.type === "button" || item.type === "nav-item").map((item) => {
+    var _a, _b;
+    const isActive = (((_a = item.props) == null ? void 0 : _a.classes) || []).includes("active") || ((_b = item.props) == null ? void 0 : _b.variant) === "primary";
+    const text = item.content ?? "";
+    const btnCls = `${prefix}segmented-item${isActive ? ` ${prefix}segmented-active` : ""}`;
+    const activeAttr = isActive ? ' aria-pressed="true"' : ' aria-pressed="false"';
+    return `  <button type="button" class="${btnCls}"${activeAttr}>${escapeHtml(text)}</button>`;
+  }).join("\n");
+  return `<div class="${prefix}segmented-control" role="group">
+${buttonsHTML}
+</div>`;
+}
+function renderScrollArea(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const cleaned = { ...node.props || {} };
+  delete cleaned.maxHeight;
+  const cls = buildClasses(context, "scroll-area", cleaned);
+  const maxHeight = cssLength((_a = node.props) == null ? void 0 : _a.maxHeight, context);
+  const styleAttr = maxHeight !== void 0 ? ` style="max-height:${maxHeight}"` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n    ");
+  return `<div class="${cls}"${styleAttr}>
+  <div class="${prefix}scroll-area-viewport">
+    ${childrenHTML}
+  </div>
+</div>`;
+}
+function renderSidebarNav(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const cleaned = { ...node.props || {} };
+  delete cleaned.title;
+  const cls = buildClasses(context, "sidebar-nav", cleaned);
+  const title = (_a = node.props) == null ? void 0 : _a.title;
+  const titleHTML = title ? `  <div class="${prefix}sidebar-header">${escapeHtml(title)}</div>
+` : "";
+  const childrenHTML = (node.children || []).map((c) => {
+    if (c.type === "list") {
+      const itemsHTML = (c.children || []).map((li) => {
+        var _a2;
+        const liClasses = ((_a2 = li.props) == null ? void 0 : _a2.classes) || [];
+        const isActive = liClasses.includes("active");
+        const itemCls = `${prefix}sidebar-item${isActive ? ` ${prefix}sidebar-item-active` : ""}`;
+        const text = (li.content ?? "").replace(/\s*:::\s*$/, "").trim();
+        return `    <a class="${itemCls}" href="#">${escapeHtml(text)}</a>`;
+      }).join("\n");
+      return `  <nav class="${prefix}sidebar-menu">
+${itemsHTML}
+  </nav>`;
+    }
+    return renderPreviewNode(c, context).split("\n").map((l) => l ? `  ${l}` : l).join("\n");
+  }).join("\n");
+  return `<aside class="${cls}">
+${titleHTML}${childrenHTML}
+</aside>`;
+}
+function renderMenubar(node, context) {
+  const cls = buildClasses(context, "menubar", node.props || {});
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${cls}" role="menubar">
+  ${childrenHTML}
+</div>`;
+}
+function renderForm(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const actionAttr = ((_a = node.props) == null ? void 0 : _a.action) ? ` action="${escapeHtml(safeUrl(node.props.action, context, "link").url)}"` : "";
+  const method = (_b = node.props) == null ? void 0 : _b.method;
+  const methodAttr = method ? ` method="${escapeHtml(method)}"` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<form class="${prefix}form"${actionAttr}${methodAttr}>
+  ${childrenHTML}
+</form>`;
+}
+function renderField(node, context) {
+  var _a, _b, _c;
+  const { classPrefix: prefix } = context;
+  const label = (_a = node.props) == null ? void 0 : _a.label;
+  const desc = (_b = node.props) == null ? void 0 : _b.description;
+  const error = (_c = node.props) == null ? void 0 : _c.error;
+  const labelHTML = label ? `  <label class="${prefix}field-label">${escapeHtml(label)}</label>
+` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const descHTML = desc ? `
+  <p class="${prefix}field-description">${escapeHtml(desc)}</p>` : "";
+  const errorHTML = error ? `
+  <p class="${prefix}field-error" role="alert">${escapeHtml(error)}</p>` : "";
+  return `<div class="${prefix}field">
+${labelHTML}  ${childrenHTML}${descHTML}${errorHTML}
+</div>`;
+}
+function renderFieldset(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const legend = (_a = node.props) == null ? void 0 : _a.legend;
+  const desc = (_b = node.props) == null ? void 0 : _b.description;
+  const legendHTML = legend ? `  <legend class="${prefix}fieldset-legend">${escapeHtml(legend)}</legend>
+` : "";
+  const descHTML = desc ? `  <p class="${prefix}fieldset-description">${escapeHtml(desc)}</p>
+` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<fieldset class="${prefix}fieldset">
+${legendHTML}${descHTML}  ${childrenHTML}
+</fieldset>`;
+}
+function renderLabel(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const htmlFor = (_a = node.props) == null ? void 0 : _a.htmlFor;
+  const forAttr = htmlFor ? ` for="${escapeHtml(htmlFor)}"` : "";
+  return `<label class="${prefix}label"${forAttr}>${escapeHtml(node.content ?? "")}</label>`;
+}
+function renderInputGroup(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const start = (_a = node.props) == null ? void 0 : _a.addonStart;
+  const end = (_b = node.props) == null ? void 0 : _b.addonEnd;
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  const startHTML = start ? `  <span class="${prefix}input-group-addon">${escapeHtml(start)}</span>
+` : "";
+  const endHTML = end ? `
+  <span class="${prefix}input-group-addon">${escapeHtml(end)}</span>` : "";
+  return `<div class="${prefix}input-group">
+${startHTML}  ${childrenHTML}${endHTML}
+</div>`;
+}
+function renderOtpField(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const length = Number(((_a = node.props) == null ? void 0 : _a.length) ?? 6);
+  const maxLength = Number(((_b = node.props) == null ? void 0 : _b.maxLength) ?? 1);
+  const slots = Array.from(
+    { length },
+    () => `<input class="${prefix}otp-slot" type="text" inputmode="numeric" maxlength="${maxLength}" aria-label="digit" readonly>`
+  ).join("\n  ");
+  return `<div class="${prefix}otp-field" role="group" aria-label="Verification code">
+  ${slots}
+</div>`;
+}
+function renderNumberField(node, context) {
+  const { classPrefix: prefix } = context;
+  const p = node.props || {};
+  const numAttrs = (name) => p[name] !== void 0 ? ` ${name}="${escapeHtml(String(p[name]))}"` : "";
+  const valueAttr = p.value !== void 0 ? ` value="${escapeHtml(String(p.value))}"` : "";
+  const placeholderAttr = p.placeholder ? ` placeholder="${escapeHtml(p.placeholder)}"` : "";
+  const btnCls = `${prefix}number-stepper`;
+  return `<div class="${prefix}number-field">
+  <button type="button" class="${btnCls}" aria-label="Decrease">−</button>
+  <input class="${prefix}number-input" type="number"${numAttrs("min")}${numAttrs("max")}${numAttrs("step")}${valueAttr}${placeholderAttr} readonly>
+  <button type="button" class="${btnCls}" aria-label="Increase">+</button>
+</div>`;
+}
+function renderAutocomplete(node, context) {
+  const { classPrefix: prefix } = context;
+  const p = node.props || {};
+  const placeholderAttr = p.placeholder ? ` placeholder="${escapeHtml(p.placeholder)}"` : "";
+  const suggestions = p.suggestions || [];
+  const listItems = suggestions.map((s) => `    <li class="${prefix}autocomplete-option" role="option">${escapeHtml(s)}</li>`).join("\n");
+  const listHTML = suggestions.length > 0 ? `
+  <ul class="${prefix}autocomplete-list" role="listbox">
+${listItems}
+  </ul>` : "";
+  return `<div class="${prefix}autocomplete">
+  <input class="${prefix}autocomplete-input" type="text" role="combobox" aria-expanded="false" aria-autocomplete="list"${placeholderAttr} readonly>${listHTML}
+</div>`;
+}
+function renderCombobox(node, context) {
+  const { classPrefix: prefix } = context;
+  const p = node.props || {};
+  const placeholderAttr = p.placeholder ? ` placeholder="${escapeHtml(p.placeholder)}"` : "";
+  const options = p.options || [];
+  const listItems = options.map((o) => `    <li class="${prefix}combobox-option" role="option">${escapeHtml(o)}</li>`).join("\n");
+  const listHTML = options.length > 0 ? `
+  <ul class="${prefix}combobox-list" role="listbox">
+${listItems}
+  </ul>` : "";
+  return `<div class="${prefix}combobox">
+  <input class="${prefix}combobox-input" type="text" role="combobox" aria-expanded="false" aria-autocomplete="list"${placeholderAttr} readonly>
+  <span class="${prefix}combobox-caret" aria-hidden="true">▾</span>${listHTML}
+</div>`;
+}
+function renderCommand(node, context) {
+  const { classPrefix: prefix } = context;
+  const p = node.props || {};
+  const placeholderAttr = p.placeholder ? ` placeholder="${escapeHtml(p.placeholder)}"` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${prefix}command" role="dialog" aria-label="Command menu">
+  <input class="${prefix}command-input" type="text"${placeholderAttr} readonly>
+  ${childrenHTML}
+</div>`;
+}
+function renderCheckboxGroup(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const label = (_a = node.props) == null ? void 0 : _a.label;
+  const desc = (_b = node.props) == null ? void 0 : _b.description;
+  const labelHTML = label ? `  <p class="${prefix}checkbox-group-label">${escapeHtml(label)}</p>
+` : "";
+  const descHTML = desc ? `  <p class="${prefix}checkbox-group-description">${escapeHtml(desc)}</p>
+` : "";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${prefix}checkbox-group" role="group">
+${labelHTML}${descHTML}  ${childrenHTML}
+</div>`;
+}
+function renderToggleGroup(node, context) {
+  const { classPrefix: prefix } = context;
+  const items = flattenGroupItems(node.children || []);
+  const buttonsHTML = items.filter((item) => item.type === "button" || item.type === "nav-item").map((item) => {
+    var _a, _b;
+    const isPressed = (((_a = item.props) == null ? void 0 : _a.classes) || []).includes("active") || ((_b = item.props) == null ? void 0 : _b.variant) === "primary";
+    const text = item.content ?? "";
+    const btnCls = `${prefix}toggle${isPressed ? ` ${prefix}toggle-pressed` : ""}`;
+    const pressedAttr = isPressed ? ' aria-pressed="true"' : ' aria-pressed="false"';
+    return `  <button type="button" class="${btnCls}"${pressedAttr}>${escapeHtml(text)}</button>`;
+  }).join("\n");
+  return `<div class="${prefix}toggle-group" role="group">
+${buttonsHTML}
+</div>`;
+}
+function renderSwitch(node, context) {
+  const { classPrefix: prefix } = context;
+  const checked = !!node.checked;
+  const p = node.props || {};
+  const trackCls = `${prefix}switch${checked ? ` ${prefix}switch-on` : ""}`;
+  const disabledAttr = p.disabled ? " disabled" : "";
+  const labelHTML = p.label ? `  <span class="${prefix}switch-label">${escapeHtml(p.label)}</span>` : "";
+  const descHTML = p.description ? `
+  <span class="${prefix}switch-description">${escapeHtml(p.description)}</span>` : "";
+  const control = `  <button type="button" class="${trackCls}" role="switch" aria-checked="${checked}"${disabledAttr}>
+    <span class="${prefix}switch-thumb"></span>
+  </button>`;
+  const layout = labelHTML || descHTML ? `<div class="${prefix}switch-row">
+${control}${labelHTML}${descHTML}
+</div>` : control;
+  return layout;
+}
+function renderSlider(node, context) {
+  const { classPrefix: prefix } = context;
+  const p = node.props || {};
+  const value = Number(node.value ?? 50);
+  const min = Number(p.min ?? 0);
+  const max = Number(p.max ?? 100);
+  const step = Number(p.step ?? 1);
+  const range = max - min || 1;
+  const pct = Math.max(0, Math.min(100, (value - min) / range * 100));
+  const labelHTML = p.label ? `  <label class="${prefix}slider-label">${escapeHtml(p.label)} <span class="${prefix}slider-value">${value}</span></label>
+` : "";
+  return `<div class="${prefix}slider">
+${labelHTML}  <div class="${prefix}slider-track" role="slider" aria-valuenow="${value}" aria-valuemin="${min}" aria-valuemax="${max}" aria-step="${step}">
+    <div class="${prefix}slider-fill" style="width:${pct}%"></div>
+    <div class="${prefix}slider-thumb" style="left:${pct}%"></div>
+  </div>
+</div>`;
+}
+function renderToggle(node, context) {
+  var _a;
+  const { classPrefix: prefix } = context;
+  const pressed = !!node.pressed;
+  const label = (_a = node.props) == null ? void 0 : _a.label;
+  const btnCls = `${prefix}toggle${pressed ? ` ${prefix}toggle-pressed` : ""}`;
+  const pressedAttr = pressed ? ' aria-pressed="true"' : ' aria-pressed="false"';
+  const text = label ?? "";
+  return `<button type="button" class="${btnCls}"${pressedAttr}>${escapeHtml(text)}</button>`;
+}
+function renderAvatar(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const size = ((_a = node.props) == null ? void 0 : _a.size) ?? "md";
+  const sizeCls = `${prefix}avatar ${prefix}avatar-${size}`;
+  const name = (_b = node.props) == null ? void 0 : _b.name;
+  const initials = name ? name.split(/\s+/).map((p) => p[0]).filter(Boolean).slice(0, 2).join("").toUpperCase() : "?";
+  return `<div class="${sizeCls}" role="img" aria-label="${escapeHtml(name ?? "avatar")}">
+  <span class="${prefix}avatar-fallback">${escapeHtml(initials)}</span>
+</div>`;
+}
+function renderFrame(node, context) {
+  const { classPrefix: prefix } = context;
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${prefix}frame">
+  ${childrenHTML}
+</div>`;
+}
+function renderGroup(node, context) {
+  const { classPrefix: prefix } = context;
+  const orientation = (node.orientation || "horizontal") === "vertical" ? "vertical" : "horizontal";
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${prefix}group ${prefix}group-${orientation}" role="group" data-orientation="${orientation}">
+  ${childrenHTML}
+</div>`;
+}
+function renderEmpty(node, context) {
+  const { classPrefix: prefix } = context;
+  const childrenHTML = (node.children || []).map((c) => renderPreviewNode(c, context)).join("\n  ");
+  return `<div class="${prefix}empty" data-slot="empty">
+  ${childrenHTML}
+</div>`;
+}
+const MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const WEEKDAY_NAMES = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
+function renderCalendar(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const year = Number(((_a = node.props) == null ? void 0 : _a.year) ?? (/* @__PURE__ */ new Date()).getFullYear());
+  const monthName = ((_b = node.props) == null ? void 0 : _b.month) ?? MONTH_NAMES[(/* @__PURE__ */ new Date()).getMonth()];
+  const monthIdx = MONTH_NAMES.findIndex((m) => m.toLowerCase() === String(monthName).toLowerCase());
+  const safeIdx = monthIdx >= 0 ? monthIdx : (/* @__PURE__ */ new Date()).getMonth();
+  const first = new Date(year, safeIdx, 1);
+  const last = new Date(year, safeIdx + 1, 0);
+  const startWeekday = first.getDay();
+  const daysInMonth = last.getDate();
+  const cells = [];
+  for (let i = 0; i < startWeekday; i++) cells.push(`<div class="${prefix}calendar-day ${prefix}calendar-day-outside"></div>`);
+  for (let d = 1; d <= daysInMonth; d++) cells.push(`<button type="button" class="${prefix}calendar-day">${d}</button>`);
+  while (cells.length % 7 !== 0) cells.push(`<div class="${prefix}calendar-day ${prefix}calendar-day-outside"></div>`);
+  const weekdays = WEEKDAY_NAMES.map((w) => `<div class="${prefix}calendar-weekday">${w}</div>`).join("");
+  return `<div class="${prefix}calendar" data-slot="calendar">
+  <div class="${prefix}calendar-header">
+    <button type="button" class="${prefix}calendar-nav" aria-label="Previous month">&larr;</button>
+    <div class="${prefix}calendar-caption">${escapeHtml(MONTH_NAMES[safeIdx])} ${year}</div>
+    <button type="button" class="${prefix}calendar-nav" aria-label="Next month">&rarr;</button>
+  </div>
+  <div class="${prefix}calendar-grid">
+    ${weekdays}
+    ${cells.join("\n    ")}
+  </div>
+</div>`;
+}
+function renderDatePicker(node, context) {
+  var _a, _b;
+  const { classPrefix: prefix } = context;
+  const placeholder = ((_a = node.props) == null ? void 0 : _a.placeholder) ?? "Pick a date";
+  const value = (_b = node.props) == null ? void 0 : _b.value;
+  return `<div class="${prefix}date-picker" data-slot="date-picker">
+  <button type="button" class="${prefix}date-picker-trigger" aria-haspopup="dialog">
+    <span class="${prefix}date-picker-value${value ? "" : ` ${prefix}date-picker-placeholder`}">${escapeHtml(value ?? placeholder)}</span>
+    <span class="${prefix}date-picker-caret" aria-hidden="true">&#9662;</span>
+  </button>
+</div>`;
+}
 function compileWiremd(source, options = {}) {
   const diagnostics = [];
   const emit = (diagnostic) => {
@@ -722,13 +1357,13 @@ function compileWiremd(source, options = {}) {
   }
   let style;
   if (options.style !== void 0) {
-    if (WIREMD_STYLES.includes(options.style)) {
+    if (types.WIREMD_STYLES.includes(options.style)) {
       style = options.style;
     } else {
       emit({
         severity: "error",
         code: "wmd-invalid-style",
-        message: `Unknown wiremd style ${JSON.stringify(options.style)}. Valid styles: ${WIREMD_STYLES.join(", ")}.`,
+        message: `Unknown wiremd style ${JSON.stringify(options.style)}. Valid styles: ${types.WIREMD_STYLES.join(", ")}.`,
         source: "parser"
       });
     }
@@ -755,7 +1390,7 @@ function compileWiremd(source, options = {}) {
     return { document: null, diagnostics, syntaxVersion: parser.SYNTAX_VERSION, style };
   }
   if (options.validate !== false && document) {
-    const validationErrors = parser.validate(document);
+    const validationErrors = parser.validate(document, { attachNodes: true });
     for (const validationError of validationErrors) {
       emit(validationErrorToDiagnostic(validationError));
     }
@@ -818,7 +1453,6 @@ function validationErrorToDiagnostic(error) {
     ...spans
   };
 }
-exports.WIREMD_STYLES = WIREMD_STYLES;
+exports.WIREMD_STYLES = types.WIREMD_STYLES;
 exports.compileWiremd = compileWiremd;
 exports.renderToPreview = renderToPreview;
-//# sourceMappingURL=embed.cjs.map

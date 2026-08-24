@@ -5,6 +5,8 @@ export interface RenderContext {
     classPrefix: string;
     inlineStyles: boolean;
     pretty: boolean;
+    /** Code format used for coss demo panes when the raw source is not shown. */
+    codegen: 'html' | 'jsx';
 }
 /**
  * Render a wiremd AST node to HTML

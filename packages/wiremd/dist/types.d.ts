@@ -24,7 +24,7 @@ export interface DocumentMeta {
     title?: string;
     description?: string;
     viewport?: 'mobile' | 'tablet' | 'desktop' | 'auto';
-    theme?: 'sketch' | 'clean' | 'wireframe' | 'none';
+    theme?: WiremdStyle;
     version?: string;
 }
 export interface DocumentNode {
@@ -329,6 +329,298 @@ export type WiremdNode = {
     children: WiremdNode[];
     position?: Location;
 } | {
+    type: 'toast';
+    props: ComponentProps & {
+        toastType?: 'success' | 'info' | 'warning' | 'error' | 'loading';
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'skeleton';
+    props: ComponentProps & {
+        width?: number | string;
+        height?: number | string;
+    };
+    position?: Location;
+} | {
+    type: 'spinner';
+    props: ComponentProps & {
+        size?: 'small' | 'medium' | 'large';
+    };
+    position?: Location;
+} | {
+    type: 'kbd';
+    content: string;
+    props: ComponentProps;
+    position?: Location;
+} | {
+    type: 'progress';
+    value: number;
+    indeterminate: boolean;
+    props: ComponentProps & {
+        label?: string;
+    };
+    position?: Location;
+} | {
+    type: 'meter';
+    value: number;
+    min: number;
+    max: number;
+    props: ComponentProps & {
+        label?: string;
+    };
+    position?: Location;
+} | {
+    type: 'dialog';
+    props: ComponentProps & {
+        title?: string;
+        description?: string;
+        showClose?: boolean;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'alert-dialog';
+    props: ComponentProps & {
+        title?: string;
+        description?: string;
+        cancelText?: string;
+        actionText?: string;
+        actionVariant?: 'primary' | 'secondary' | 'danger';
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'sheet';
+    side: 'top' | 'right' | 'bottom' | 'left';
+    props: ComponentProps & {
+        title?: string;
+        description?: string;
+        showClose?: boolean;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'drawer';
+    side: 'top' | 'right' | 'bottom' | 'left';
+    props: ComponentProps & {
+        title?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'popover';
+    props: ComponentProps & {
+        title?: string;
+        description?: string;
+        trigger?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'tooltip';
+    props: ComponentProps & {
+        content: string;
+        side?: 'top' | 'right' | 'bottom' | 'left';
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'preview-card';
+    props: ComponentProps & {
+        href?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'pagination';
+    props: ComponentProps & {
+        label?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'segmented-control';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'scroll-area';
+    props: ComponentProps & {
+        maxHeight?: number | string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'sidebar';
+    props: ComponentProps & {
+        title?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'menubar';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'form';
+    props: ComponentProps & {
+        action?: string;
+        method?: 'get' | 'post';
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'field';
+    props: ComponentProps & {
+        label?: string;
+        description?: string;
+        error?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'fieldset';
+    props: ComponentProps & {
+        legend?: string;
+        description?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'label';
+    content: string;
+    props: ComponentProps & {
+        htmlFor?: string;
+    };
+    position?: Location;
+} | {
+    type: 'input-group';
+    props: ComponentProps & {
+        addonStart?: string;
+        addonEnd?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'otp-field';
+    props: ComponentProps & {
+        length?: number;
+        maxLength?: number;
+    };
+    position?: Location;
+} | {
+    type: 'number-field';
+    props: ComponentProps & {
+        value?: number;
+        min?: number;
+        max?: number;
+        step?: number;
+        placeholder?: string;
+    };
+    position?: Location;
+} | {
+    type: 'autocomplete';
+    props: ComponentProps & {
+        placeholder?: string;
+        suggestions?: string[];
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'combobox';
+    props: ComponentProps & {
+        placeholder?: string;
+        options?: string[];
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'command';
+    props: ComponentProps & {
+        placeholder?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'checkbox-group';
+    props: ComponentProps & {
+        label?: string;
+        description?: string;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'toggle-group';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'switch';
+    checked: boolean;
+    props: ComponentProps & {
+        label?: string;
+        description?: string;
+        disabled?: boolean;
+    };
+    position?: Location;
+} | {
+    type: 'slider';
+    value: number;
+    props: ComponentProps & {
+        min?: number;
+        max?: number;
+        step?: number;
+        label?: string;
+    };
+    position?: Location;
+} | {
+    type: 'toggle';
+    pressed: boolean;
+    props: ComponentProps & {
+        label?: string;
+    };
+    position?: Location;
+} | {
+    type: 'avatar';
+    props: ComponentProps & {
+        size?: 'sm' | 'md' | 'lg' | 'xl';
+        name?: string;
+    };
+    position?: Location;
+} | {
+    type: 'frame';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'group';
+    orientation: 'horizontal' | 'vertical';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'empty';
+    props: ComponentProps;
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'calendar';
+    props: ComponentProps & {
+        month?: string;
+        year?: number;
+    };
+    children: WiremdNode[];
+    position?: Location;
+} | {
+    type: 'date-picker';
+    props: ComponentProps & {
+        placeholder?: string;
+        value?: string;
+    };
+    position?: Location;
+} | {
     type: 'demo';
     raw: string;
     props: ComponentProps;
@@ -368,14 +660,18 @@ export interface ParseOptions {
     strict?: boolean;
     icons?: Record<string, string>;
 }
+/** Ordered style identifiers accepted across renderers, CLI, and embed API. */
+export declare const WIREMD_STYLES: readonly ["coss", "sketch", "clean", "wireframe", "none", "tailwind", "material", "brutal"];
+export type WiremdStyle = (typeof WIREMD_STYLES)[number];
 export interface RenderOptions {
     format?: 'html' | 'json' | 'react' | 'tailwind';
-    style?: 'sketch' | 'clean' | 'wireframe' | 'none' | 'tailwind' | 'material' | 'brutal';
+    style?: WiremdStyle;
     inlineStyles?: boolean;
     pretty?: boolean;
     classPrefix?: string;
     typescript?: boolean;
     componentName?: string;
+    codegen?: 'html' | 'jsx';
 }
 export interface ParseError extends Error {
     position?: Location;
