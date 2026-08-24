@@ -1504,15 +1504,16 @@ export const builtInComponents: JsxComponentMeta[] = [
     // Fence-only serialize: emits a `code` mdast node with `lang: 'wiremd'`
     // so remark-stringify produces ` ```wiremd …``` ` on dirty save. The
     // parse-side `wiremd-promoter` walks `code{lang:'wiremd'}` mdast →
-    // `mdxJsxFlowElement(WiremdFence, {source})`, so the round-trip is
-    // fence → JSX (in-memory) → fence (on disk). Pristine bytes are
-    // preserved by the position-slice walker.
+    // `mdxJsxFlowElement(WiremdFence, {source, style?})`, so the round-trip
+    // is fence → JSX (in-memory) → fence (on disk). A `style=<token>` prop
+    // re-emits as the same meta token; pristine bytes are preserved by the
+    // position-slice walker.
     serialize: (node) => {
-      const p = node.attrs.props as { source?: string } | undefined;
+      const p = node.attrs.props as { source?: string; style?: string } | undefined;
       return {
         type: 'code' as const,
         lang: 'wiremd',
-        meta: null,
+        meta: p?.style ? `style=${p.style}` : null,
         value: p?.source ?? '',
       };
     },

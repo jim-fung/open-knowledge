@@ -49,16 +49,6 @@ interface RenderState {
   warnings: string[];
 }
 
-const VALID_STYLES = new Set([
-  'sketch',
-  'clean',
-  'wireframe',
-  'none',
-  'tailwind',
-  'material',
-  'brutal',
-]);
-
 /** Debounce window for compile-on-type (VS Code extension's proven value). */
 const COMPILE_DEBOUNCE_MS = 300;
 
@@ -151,7 +141,14 @@ export function WiremdView({ source = '', style, className }: WiremdProps) {
       void loadEmbed()
         .then((embed) => {
           if (cancelled || capturedRevision !== revisionRef.current) return;
-          const compiled = embed.compileWiremd(source);
+          // The requested style prop is forwarded to the embed, which owns
+          // style validation — an unknown token comes back as a
+          // `wmd-invalid-style` error diagnostic and hits the fatal path
+          // below instead of silently rendering a different theme.
+          const compiled = embed.compileWiremd(
+            source,
+            style ? { style: style as never } : undefined,
+          );
           // Fatal = no document at all, OR any error-severity diagnostic.
           // The embed contract permits a non-null document beside validator
           // errors (partial validity); rendering that as a confident,
@@ -170,7 +167,7 @@ export function WiremdView({ source = '', style, className }: WiremdProps) {
           }
           const preview = embed.renderToPreview(compiled.document, {
             classPrefix: 'ok-wiremd-',
-            style: VALID_STYLES.has(style ?? '') ? (style as never) : (compiled.style ?? 'sketch'),
+            style: compiled.style ?? 'sketch',
           });
           if (capturedRevision !== revisionRef.current) return;
           const previewError = preview.diagnostics.find((d) => d.severity === 'error');
