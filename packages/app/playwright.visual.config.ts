@@ -52,5 +52,8 @@ export default defineConfig({
     // `tests/stress/_helpers/fixtures.ts`. Leave unset so the fixture's
     // override takes effect per worker.
     headless: true,
+    // Record EVERY test — passing and failing alike (same policy as the
+    // stress/a11y configs); test-results/ is wiped per run.
+    video: { mode: 'on', size: { width: 1280, height: 720 } },
   },
 });

@@ -118,9 +118,11 @@ export default defineConfig({
     // fixture's override takes effect cleanly per worker.
     headless: true,
     // 1280×720 matches the most common default viewport; the default 800×450
-    // crops the sidebar in narrow-viewport tests. Retained only on failure to
-    // bound storage growth.
-    video: { mode: 'retain-on-failure', size: { width: 1280, height: 720 } },
+    // crops the sidebar in narrow-viewport tests. Record EVERY test — passing
+    // and failing alike (policy: a green run's recording is as valuable as a
+    // red one); test-results/ is still wiped per run, and machine-local
+    // timestamped outputDirs preserve run history.
+    video: { mode: 'on', size: { width: 1280, height: 720 } },
     // 'on-first-retry' captures trace on retry 1 only; subsequent retries skip
     // to stay under the CI runtime envelope.
     trace: 'on-first-retry',
