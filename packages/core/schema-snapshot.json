@@ -975,6 +975,11 @@
       "hasOptions": false
     },
     {
+      "name": "plot-promoter",
+      "version": null,
+      "hasOptions": false
+    },
+    {
       "name": "comment-promoter",
       "version": null,
       "hasOptions": false

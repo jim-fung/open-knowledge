@@ -269,6 +269,42 @@ const PREVIEW_CONFIG: Record<string, PreviewConfig> = {
       </svg>
     ),
   },
+  PlotFence: {
+    description: msg`Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot.`,
+    // Hand-built bar-chart mockup. A live render would async-load the
+    // @observablehq/plot chunk + parse the spec, blocking the menu's first
+    // paint. `currentColor` lets the SVG inherit the popover's text color.
+    render: () => (
+      <svg
+        viewBox="0 0 200 120"
+        className="h-full w-full text-foreground"
+        aria-hidden="true"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <title>Bar chart preview</title>
+        {/* Baseline + gridlines */}
+        <line x1="24" y1="96" x2="184" y2="96" stroke="currentColor" strokeOpacity="0.5" />
+        <line x1="24" y1="64" x2="184" y2="64" stroke="currentColor" strokeOpacity="0.12" />
+        <line x1="24" y1="32" x2="184" y2="32" stroke="currentColor" strokeOpacity="0.12" />
+        {/* Bars */}
+        {[38, 62, 86, 110, 134, 158].map((x, i) => {
+          const heights = [44, 68, 30, 82, 52, 24];
+          return (
+            <rect
+              key={x}
+              x={x}
+              y={96 - heights[i]}
+              width={16}
+              height={heights[i]}
+              rx={2}
+              fill="currentColor"
+              fillOpacity={i === 3 ? 0.75 : 0.25}
+            />
+          );
+        })}
+      </svg>
+    ),
+  },
   Tabs: {
     description: msg`Horizontal pill strip + active panel below; click a pill to switch panels.`,
     // Hand-built pill-strip mockup. Live `<Tabs>` reads tab labels from

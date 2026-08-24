@@ -95,6 +95,12 @@ export function sourceFallbackFormFor(node: PmNode): SourceFallbackForm | null {
       const chart = typeof props.chart === 'string' ? props.chart : '';
       return { source: `\`\`\`mermaid\n${chart}\n\`\`\`` };
     }
+    case 'PlotFence': {
+      // Fenced-code form with `plot` info string carrying the JSON spec —
+      // an ordinary code fence to every other Markdown client.
+      const spec = typeof props.spec === 'string' ? props.spec : '';
+      return { source: `\`\`\`plot\n${spec}\n\`\`\`` };
+    }
     default:
       return null;
   }

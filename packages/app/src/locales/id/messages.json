@@ -1051,6 +1051,7 @@
     "EDl9kS": ["Berlangganan"],
     "EDm3wJ": ["Memuat perender perbedaan"],
     "EEYbdt": ["Terbitkan"],
+    "EFRQMg": ["Bagan siap."],
     "EFfGAv": ["Pesan itu sudah terkirim — hasil suntinganmu tidak diterapkan."],
     "EHu0x2": ["Menyinkronkan"],
     "EJuO7B": ["Hubungkan akun GitHub untuk menelusuri dan menyinkronkan repositori Anda."],
@@ -1758,6 +1759,7 @@
     "Ni4b7h": [
       "Plugin proyek adalah standar penulisan proyek Anda — nyalakan atau matikan di sini. Setiap plugin yang aktif mendapat halamannya sendiri di bawah Plugin pada bilah sisi pengaturan."
     ],
+    "NjLjpk": ["Spesifikasi plot ini terlalu besar untuk dirender. Sumber tidak berubah."],
     "NjrIak": ["Berkas: <0>", ["fixedName"], ".md</0>"],
     "NkNfSr": ["Sunting ", ["tag"]],
     "NkXEFS": ["Gagal memulihkan — dokumen tidak berubah"],
@@ -2072,6 +2074,7 @@
     "RqSvT0": ["Mengimpor"],
     "RrAIZx": ["Apa saja yang dicakup berbagi konfigurasi"],
     "Rsdhj9": ["Peringatan konfigurasi"],
+    "RuQsTP": ["Merender bagan"],
     "Rx5ReQ": ["Ganti nama ", ["keyName"]],
     "RxF-am": ["Duplikat dibuang"],
     "RyIKxy": [
@@ -2320,6 +2323,7 @@
     "VU3Nrn": ["Hilang"],
     "VUijjF": ["Menyematkan gambar dengan teks alternatif opsional."],
     "VVRrPk": [["0"], " tidak menawarkan pengaturan untuk disesuaikan"],
+    "VVpQKO": ["Gagal merender bagan. Sumber tidak berubah."],
     "VXGFMg": ["Batalkan atau ulangi di bidang kode"],
     "VYd_YA": ["Membuka folder proyek yang sudah ada dari disk."],
     "VZGh8G": [
@@ -2774,6 +2778,7 @@
     "aXkLuE": ["Respons apply salah bentuk"],
     "a_2_uB": [["trimmed"], " tidak bisa dibuat: ", ["0"]],
     "a_u4ck": ["Memuat tag"],
+    "aa0ZC6": ["Tidak dapat merender bagan."],
     "aaE55D": ["Bersihkan ", ["keyName"]],
     "aaI6cN": [
       "Tidak bisa terhubung ke layanan agen. Pastikan server OpenKnowledge berjalan dan mutakhir (mulai ulang jika sudah berjalan), lalu coba lagi."
@@ -2840,6 +2845,9 @@
     "bUUVED": ["Aset"],
     "bV6DJA": ["Siapa Anda, agar agennya punya konteks Anda."],
     "bWLmRK": ["Cabang tidak dapat diambil. Periksa koneksi Anda."],
+    "bXw3WQ": [
+      "Bagan data dari spesifikasi plot JSON — batang, garis, area, titik, dirender dengan Observable Plot."
+    ],
     "bYUIzq": ["Bidang skema"],
     "ba3vIW": [["templateCount", "plural", { "other": ["templat"] }]],
     "bbJ-VR": ["Perkecil"],
@@ -3975,6 +3983,7 @@
     "pha01Y": ["Halaman tingkat proyek yang tidak punya sisi graf masuk."],
     "pkAft1": ["Pencarian gagal."],
     "pmUArF": ["Ruang kerja"],
+    "pnl3q2": ["Tidak dapat membangun bagan dari spesifikasi plot ini."],
     "ppDgFi": ["Mulai ulang dengan versi aplikasi ini"],
     "ppzof_": [
       "Ini menghapus ",
@@ -4269,6 +4278,7 @@
     "tqQBwN": ["Skrip apa pun ditampilkan untuk ditinjau, tidak pernah dijalankan."],
     "tsiTqO": ["Tempelkan kunci API Anda"],
     "tsyExA": ["Hubungkan alat AI Anda ke OpenKnowledge"],
+    "tuiYUT": ["Perender bagan tidak dimuat. Sumber tetap utuh."],
     "tvMvze": [
       "Tidak dapat memindahkan \\\"",
       ["targetName"],

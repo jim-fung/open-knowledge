@@ -416,24 +416,30 @@ export function JsxComponentView({ node, editor, extension, getPos, selected }: 
   /**
    * Per-descriptor "source-bearing prop" mapping for the edit
    * modal. Each entry names the prop that carries the rendered source
-   * (`MermaidFence.chart`, `WiremdFence.source`, `Math.formula`) and the
-   * CodeMirror language to surface. Descriptors not in the table don't
-   * render the edit button. Mermaid + LaTeX grammars resolve via
-   * `resolveLanguageExtension` in `CodePreviewEditModal`
+   * (`MermaidFence.chart`, `WiremdFence.source`, `PlotFence.spec`,
+   * `Math.formula`) and the CodeMirror language to surface. Descriptors not
+   * in the table don't render the edit button. Mermaid + LaTeX grammars
+   * resolve via `resolveLanguageExtension` in `CodePreviewEditModal`
    * (`codemirror-lang-mermaid` + `@codemirror/legacy-modes/mode/stex`);
    * WiremdFence reuses the existing `markdown` grammar (wiremd source is
-   * markdown-derived), so no new grammar registration was needed.
+   * markdown-derived) and PlotFence the existing `json` grammar (a plot
+   * spec is JSON), so no new grammar registration was needed.
    */
-  const editableSource: { propName: string; language: 'mermaid' | 'latex' | 'markdown' } | null =
+  const editableSource: {
+    propName: string;
+    language: 'mermaid' | 'latex' | 'markdown' | 'json';
+  } | null =
     descriptor.name === 'MermaidFence'
       ? { propName: 'chart', language: 'mermaid' }
       : descriptor.name === 'WiremdFence'
         ? { propName: 'source', language: 'markdown' }
-        : descriptor.name === 'Math' ||
-            descriptor.name === 'DollarMath' ||
-            descriptor.name === 'MathFence'
-          ? { propName: 'formula', language: 'latex' }
-          : null;
+        : descriptor.name === 'PlotFence'
+          ? { propName: 'spec', language: 'json' }
+          : descriptor.name === 'Math' ||
+              descriptor.name === 'DollarMath' ||
+              descriptor.name === 'MathFence'
+            ? { propName: 'formula', language: 'latex' }
+            : null;
   const [editModalOpen, setEditModalOpen] = useState(false);
 
   // Source-bearing self-closing leaves (today only MermaidFence) hide their

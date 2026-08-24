@@ -73,6 +73,9 @@ export interface ComponentEntryFull extends ComponentEntryLite {
 
 const PLACEHOLDER_BODY = 'Body content here.';
 const PLACEHOLDER_MERMAID_FENCE_BODY = 'graph LR\n  A --> B';
+const PLACEHOLDER_WIREMD_FENCE_BODY = '# Sign in\nEmail\n[you@example.com___]\n[Continue]*';
+const PLACEHOLDER_PLOT_FENCE_BODY =
+  '{\n  "marks": [\n    { "mark": "barY", "data": [{"month": "Jan", "high": 7}, {"month": "Jul", "high": 29}], "options": { "x": "month", "y": "high" } }\n  ],\n  "y": { "grid": true }\n}';
 
 /**
  * Broad canonical filter — every `surface: 'canonical'` descriptor except the
@@ -114,7 +117,11 @@ export function getAgentCanonicalDescriptors(): JsxComponentMeta[] {
  * to remember to set.
  */
 function resolveKind(descriptor: JsxComponentMeta): ComponentKind {
-  if (descriptor.name === 'MermaidFence' || descriptor.name === 'WiremdFence') {
+  if (
+    descriptor.name === 'MermaidFence' ||
+    descriptor.name === 'WiremdFence' ||
+    descriptor.name === 'PlotFence'
+  ) {
     return 'fence';
   }
   // html-kind: the authoring form is raw HTML (`<div align>` / `<center>`),
@@ -233,10 +240,21 @@ function synthesizeExample(descriptor: JsxComponentMeta): string {
     const body =
       descriptor.exampleBody && descriptor.exampleBody.trim().length > 0
         ? descriptor.exampleBody
-        : PLACEHOLDER_MERMAID_FENCE_BODY;
+        : // Per-descriptor placeholder bodies teach each fence language:
+          // mermaid graph syntax, wiremd wireframe markup, plot JSON spec.
+          descriptor.name === 'WiremdFence'
+          ? PLACEHOLDER_WIREMD_FENCE_BODY
+          : descriptor.name === 'PlotFence'
+            ? PLACEHOLDER_PLOT_FENCE_BODY
+            : PLACEHOLDER_MERMAID_FENCE_BODY;
     // Each fence-kind canonical serializes back to its own fence language;
     // examples must teach the language agents actually author.
-    const fenceLang = descriptor.name === 'WiremdFence' ? 'wiremd' : 'mermaid';
+    const fenceLang =
+      descriptor.name === 'WiremdFence'
+        ? 'wiremd'
+        : descriptor.name === 'PlotFence'
+          ? 'plot'
+          : 'mermaid';
     node = { type: 'code', lang: fenceLang, meta: null, value: body };
   } else {
     const attributes = buildAttributes(descriptor);
@@ -326,6 +344,6 @@ export function renderInventoryFooter(): string {
   return [
     renderInventoryList(),
     '',
-    'Fenced code blocks render naturally and don\'t need a fetch — including ` ```mermaid ` for diagrams (mermaid label text has sharp edges — `palette({ components: ["Mermaid"] })` lists them; parse failures come back as `warnings` entries on write/edit) and ` ```html preview ` for interactive HTML/JS/CSS pages (the fence info-string `preview` token renders the block as a live iframe; works for `html` / `htm` / `xml`; optional `h=` / `w=` tokens set size, e.g. ` ```html preview h=400px `). Use ` ```html preview ` whenever you want anything interactive or JS-powered (charts, demos, calculators, animations) — just author the standalone HTML page in the fence. Call `palette` for the markdown-native component forms (write `> [!NOTE]`, not `<Callout>`), copy-ready themed `html preview` starters, and the theme tokens (`var(--chart-1)`, `var(--foreground)`, …) an embed should reference so it tracks the reader\'s light/dark theme.',
+    'Fenced code blocks render naturally and don\'t need a fetch — including ` ```mermaid ` for diagrams (mermaid label text has sharp edges — `palette({ components: ["Mermaid"] })` lists them; parse failures come back as `warnings` entries on write/edit), ` ```plot ` for data charts (body is a JSON spec: `{ "marks": [{ "mark": "barY" | "lineY" | "dot" | …, "data": [...], "options": { "x": "field", "y": "field" } }], …scale/axis options }` — inline the data rows, no JS), and ` ```html preview ` for interactive HTML/JS/CSS pages (the fence info-string `preview` token renders the block as a live iframe; works for `html` / `htm` / `xml`; optional `h=` / `w=` tokens set size, e.g. ` ```html preview h=400px `). Prefer ` ```plot ` for any chart of tabular data; use ` ```html preview ` whenever you want something interactive or JS-powered (demos, calculators, animations) — just author the standalone HTML page in the fence. Call `palette` for the markdown-native component forms (write `> [!NOTE]`, not `<Callout>`), copy-ready themed `html preview` starters, and the theme tokens (`var(--chart-1)`, `var(--foreground)`, …) an embed should reference so it tracks the reader\'s light/dark theme.',
   ].join('\n');
 }

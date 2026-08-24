@@ -60,6 +60,7 @@ describe('getComponentItems (slash menu)', () => {
         'Mirror',
         'Mirror Source',
         'PDF',
+        'Plot',
         'Tabs',
         'Toggle',
         'Video',
@@ -276,7 +277,9 @@ describe('agent-surface ↔ slash-menu filter parity', () => {
     const broad = broadCanonicalSet();
     const agent = agentCanonicalSet();
     const divergence = new Set([...broad].filter((name) => !agent.has(name)));
-    expect(divergence).toEqual(new Set(['MermaidFence', 'WiremdFence', 'HtmlAlignBlock']));
+    expect(divergence).toEqual(
+      new Set(['MermaidFence', 'WiremdFence', 'PlotFence', 'HtmlAlignBlock']),
+    );
   });
 
   test('broad set minus slash-menu set === SLASH_HIDDEN_CANONICALS exactly', () => {

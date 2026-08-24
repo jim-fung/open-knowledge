@@ -216,7 +216,7 @@ describe('sourceFallbackFormFor — registry-derived non-portable coverage', () 
     // Sanity: the registry must actually carry the two math compat rows,
     // otherwise this test would vacuously pass.
     expect(descriptorNames).toEqual(
-      expect.arrayContaining(['Math', 'MermaidFence', 'DollarMath', 'MathFence']),
+      expect.arrayContaining(['Math', 'MermaidFence', 'PlotFence', 'DollarMath', 'MathFence']),
     );
 
     for (const componentName of descriptorNames) {

@@ -410,6 +410,9 @@ importers:
       '@lingui/react':
         specifier: ^6.0.1
         version: 6.5.0(react@19.2.5)
+      '@observablehq/plot':
+        specifier: ^0.6.17
+        version: 0.6.17
       '@opentelemetry/api':
         specifier: ^1.9.0
         version: 1.9.1
@@ -3773,6 +3776,10 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
+  '@observablehq/plot@0.6.17':
+    resolution: {integrity: sha512-/qaXP/7mc4MUS0s4cPPFASDRjtsWp85/TbfsciqDgU1HwYixbSbbytNuInD8AcTYC3xaxACgVX06agdfQy9W+g==}
+    engines: {node: '>=12'}
+
   '@octokit/auth-oauth-device@8.0.3':
     resolution: {integrity: sha512-zh2W0mKKMh/VWZhSqlaCzY7qFyrgd9oTWmTmHaXnHNeQRCZr/CXy2jCgHo4e4dJVTiuxP5dLa0YM5p5QVhJHbw==}
     engines: {node: '>= 20'}
@@ -6763,6 +6770,9 @@ packages:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
 
+  binary-search-bounds@2.0.5:
+    resolution: {integrity: sha512-H0ea4Fd3lS1+sTEB2TgcLoK21lLhwEJzlQv3IN47pJS976Gx4zoWe0ak3q+uYh60ppQxg9F16Ri4tS1sfD4+jA==}
+
   birpc@4.0.0:
     resolution: {integrity: sha512-LShSxJP0KTmd101b6DRyGBj57LZxSDYWKitQNW/mi8GRMvZb078Uf9+pveax1DrVL89vm7mWe+TovdI/UDOuPw==}
 
@@ -8577,6 +8587,9 @@ packages:
     resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
     engines: {node: '>=12'}
 
+  interval-tree-1d@1.0.4:
+    resolution: {integrity: sha512-wY8QJH+6wNI0uh4pDQzMvl+478Qh7Rl4qLmqiluxALlNvl+I+o5x38Pw3/z7mDPTPS1dQalZJXsmbvxx5gclhQ==}
+
   ip-address@10.2.0:
     resolution: {integrity: sha512-/+S6j4E9AHvW9SWMSEY9Xfy66O5PWvVEJ08O0y5JGyEKQpojb0K0GKpz/v5HJ/G0vi3D2sjGK78119oXZeE0qA==}
     engines: {node: '>= 12'}
@@ -8831,6 +8844,9 @@ packages:
   isexe@4.0.0:
     resolution: {integrity: sha512-FFUtZMpoZ8RqHS3XeXEmHWLA4thH+ZxCv2lOiPIn1Xc7CxrqhWzNSDzD+/chS/zbYezmiwWLdQC09JdQKmthOw==}
     engines: {node: '>=20'}
+
+  isoformat@0.2.1:
+    resolution: {integrity: sha512-tFLRAygk9NqrRPhJSnNGh7g7oaVWDwR0wKh/GM2LgmPa50Eg4UfyaCO4I8k6EqJHl1/uh2RAD6g06n5ygEnrjQ==}
 
   isomorphic.js@0.2.5:
     resolution: {integrity: sha512-PIeMbHqMt4DnUP3MA/Flc0HElYjMXArsw1qwJZcm9sqR8mq3l8NYizFMty0pWwE/tzIGH3EKK5+jes5mAr85yw==}
@@ -14492,6 +14508,12 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
+  '@observablehq/plot@0.6.17':
+    dependencies:
+      d3: 7.9.0
+      interval-tree-1d: 1.0.4
+      isoformat: 0.2.1
+
   '@octokit/auth-oauth-device@8.0.3':
     dependencies:
       '@octokit/oauth-methods': 6.0.2
@@ -17291,6 +17313,8 @@ snapshots:
 
   binary-extensions@2.3.0: {}
 
+  binary-search-bounds@2.0.5: {}
+
   birpc@4.0.0: {}
 
   bl@4.1.0:
@@ -19518,6 +19542,10 @@ snapshots:
 
   internmap@2.0.3: {}
 
+  interval-tree-1d@1.0.4:
+    dependencies:
+      binary-search-bounds: 2.0.5
+
   ip-address@10.2.0: {}
 
   ipaddr.js@1.9.1: {}
@@ -19724,6 +19752,8 @@ snapshots:
   isexe@3.1.5: {}
 
   isexe@4.0.0: {}
+
+  isoformat@0.2.1: {}
 
   isomorphic.js@0.2.5: {}
 

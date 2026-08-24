@@ -28,12 +28,12 @@ describe('canonical/compat split — registry shape', () => {
     }
   });
 
-  test('exactly 17 canonical descriptors (5-pack + Math + MermaidFence + WiremdFence + Pdf + File + Tabs + Tab + Embed + Mirror + MirrorSource + HtmlAlignBlock + Toggle)', () => {
-    expect(canonicalDescriptors.length).toBe(17);
+  test('exactly 18 canonical descriptors (5-pack + Math + MermaidFence + WiremdFence + PlotFence + Pdf + File + Tabs + Tab + Embed + Mirror + MirrorSource + HtmlAlignBlock + Toggle)', () => {
+    expect(canonicalDescriptors.length).toBe(18);
     // Media canonicals with a matching HTML primitive are lowercase
     // (img/video/audio). Non-native canonicals stay capitalized
-    // (Callout, Accordion, Math, MermaidFence, WiremdFence, Pdf, File,
-    // Tabs, Tab, Embed, Mirror, MirrorSource, Toggle). The wiremd canonical
+    // (Callout, Accordion, Math, MermaidFence, WiremdFence, PlotFence, Pdf,
+    // File, Tabs, Tab, Embed, Mirror, MirrorSource, Toggle). The wiremd canonical
     // follows MermaidFence's fence-only mechanism (`WiremdFence`, with
     // `<Wiremd />` intentionally unregistered so JSX falls to the wildcard). The Mermaid canonical is named
     // `MermaidFence` because the only authoring form is the ` ```mermaid `
@@ -41,7 +41,8 @@ describe('canonical/compat split — registry shape', () => {
     // `<Mermaid />` JSX content falls through to the wildcard. `Mirror` +
     // `MirrorSource` are the master/copy block-transclusion pair. `Toggle`
     // is Accordion's Notion-vocabulary alias — same component, distinct
-    // stored JSX name.
+    // stored JSX name. `PlotFence` follows the same fence-only mechanism for
+    // ` ```plot ` JSON-spec charts (`<Plot />` unregistered).
     expect(canonicalDescriptors.map((m) => m.name).sort()).toEqual(
       [
         'Accordion',
@@ -54,6 +55,7 @@ describe('canonical/compat split — registry shape', () => {
         'Mirror',
         'MirrorSource',
         'Pdf',
+        'PlotFence',
         'Tab',
         'Tabs',
         'Toggle',

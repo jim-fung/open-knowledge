@@ -1,10 +1,11 @@
 /**
  * Built-ins manifest — canonical pack (Callout + Image + Video + Audio +
- * Accordion + Math + Mermaid + PDF + File + Tabs + Tab).
+ * Accordion + Math + Mermaid + WireMD + Plot + PDF + File + Tabs + Tab).
  *
  * KaTeX-lazy renderer for Math with γ-preserved source forms across
  * `<Math>`, `$$…$$`, ` ```math ` fence; mermaid-js renderer for
- * ` ```mermaid ` fences. The Mermaid canonical is named `MermaidFence`
+ * ` ```mermaid ` fences; Observable Plot renderer for JSON-spec
+ * ` ```plot ` fences. The Mermaid canonical is named `MermaidFence`
  * (single `chart` prop, fence-only authoring); `Mermaid` is intentionally
  * NOT a registered descriptor name so legacy `<Mermaid />` JSX content
  * falls through to the wildcard `'*'` (raw-mdx editable source block).
@@ -980,6 +981,23 @@ const wiremdProps: PropDef[] = [
   },
 ];
 
+// Fence-only authoring: `spec` carries the complete ```plot fence body — a
+// JSON plot spec rendered through @observablehq/plot marks on the app side.
+// The canonical descriptor is named `PlotFence` (not `Plot`) — same mechanism
+// as MermaidFence / WiremdFence: `<Plot />` is not registered, so direct JSX
+// authoring falls through to the wildcard and fence-only authoring stays
+// enforced.
+const plotProps: PropDef[] = [
+  {
+    name: 'spec',
+    type: 'string',
+    required: true,
+    hidden: true,
+    description:
+      'JSON plot spec ({ marks: [{ mark, data, options, transform }], …plot options }) — authored as a ```plot fenced code block',
+  },
+];
+
 // WikiEmbedFile compat — `![[archive.zip]]` / `![[handbook.docx]]` /
 // `![[doc.pdf]]` / etc. for any attachment extension. Single `alias`
 // slot for `![[file|title]]` override syntax — the canonical `File`
@@ -1496,6 +1514,59 @@ export const builtInComponents: JsxComponentMeta[] = [
         lang: 'wiremd',
         meta: null,
         value: p?.source ?? '',
+      };
+    },
+  },
+  {
+    // Fence-only authoring, mirroring MermaidFence / WiremdFence (see their
+    // comments): the descriptor name `PlotFence` keeps `<Plot />` JSX
+    // unregistered so direct JSX authoring falls through to the wildcard.
+    // Slash-menu authors see "Plot" via `displayName`; only the AST node
+    // name and componentMap key differ.
+    name: 'PlotFence',
+    surface: 'canonical',
+    hasChildren: false,
+    isSelfClosing: true,
+    props: plotProps,
+    icon: 'ChartColumnBig',
+    category: 'content',
+    displayName: 'Plot',
+    // Every prop is hidden (source is authored in the fullscreen edit
+    // modal), so — as with MermaidFence / WiremdFence — this placeholder
+    // label drives the explicit empty-state card for an empty fence
+    // instead of a zero-height stub.
+    placeholder: { label: 'Add a Plot chart' },
+    description:
+      'Data chart rendered from a JSON plot spec through Observable Plot (bar, line, area, dot, rect, …). Authored exclusively as ` ```plot ` fenced code.',
+    exampleBody:
+      '{\n  "marks": [\n    { "mark": "barY", "data": [{"month": "Jan", "high": 7}, {"month": "Jul", "high": 29}], "options": { "x": "month", "y": "high" } }\n  ],\n  "y": { "grid": true }\n}',
+    searchTerms: [
+      'plot',
+      'chart',
+      'graph',
+      'observable',
+      'observable plot',
+      'visualization',
+      'data',
+      'bar chart',
+      'line chart',
+      'area',
+      'dot',
+      'scatter',
+    ],
+    // Fence-only serialize: emits a `code` mdast node with `lang: 'plot'`
+    // so remark-stringify produces ` ```plot …``` ` on dirty save. The
+    // parse-side `plot-promoter` walks `code{lang:'plot'}` mdast →
+    // `mdxJsxFlowElement(PlotFence, {spec})`, so the round-trip is
+    // fence → JSX (in-memory) → fence (on disk). Pristine bytes are
+    // preserved by the position-slice walker.
+    serialize: (node) => {
+      const p = node.attrs.props as { spec?: string } | undefined;
+      return {
+        type: 'code' as const,
+        lang: 'plot',
+        meta: null,
+        value: p?.spec ?? '',
       };
     },
   },

@@ -10,7 +10,7 @@
  * every export entrypoint the app imports.
  */
 
-import { existsSync, cpSync, statSync } from 'node:fs';
+import { cpSync, existsSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 

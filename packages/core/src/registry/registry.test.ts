@@ -4,10 +4,10 @@ import { builtInComponents, createRegistry, wildcardMeta } from './index.ts';
 import type { JsxComponentMeta } from './types.ts';
 
 describe('createRegistry', () => {
-  test('returns the 17 canonical + 9 compat descriptors + wildcard', () => {
-    // 17 canonicals (Callout, Image, Video, Audio, Accordion, Toggle, Math,
-    // MermaidFence, WiremdFence, Pdf, File, Tabs, Tab, Embed, Mirror,
-    // MirrorSource, HtmlAlignBlock — the `<div align>` HTML form is
+  test('returns the 18 canonical + 9 compat descriptors + wildcard', () => {
+    // 18 canonicals (Callout, Image, Video, Audio, Accordion, Toggle, Math,
+    // MermaidFence, WiremdFence, PlotFence, Pdf, File, Tabs, Tab, Embed,
+    // Mirror, MirrorSource, HtmlAlignBlock — the `<div align>` HTML form is
     // canonical, per the MermaidFence fence-only precedent)
     // + 9 compats (GFMCallout, CommonMarkImage, HtmlDetailsAccordion,
     // WikiEmbedImage, WikiEmbedVideo, WikiEmbedAudio, WikiEmbedFile,
@@ -24,7 +24,7 @@ describe('createRegistry', () => {
     // through to the wildcard.
     const registry = createRegistry();
     const entries = [...registry.entries()];
-    expect(entries.length).toBe(27);
+    expect(entries.length).toBe(28);
   });
 
   test('get returns registered component by name', () => {
@@ -119,11 +119,11 @@ describe('createRegistry', () => {
 });
 
 describe('builtInComponents manifest', () => {
-  test('contains 17 canonical + 9 compat entries (5-pack + Math + MermaidFence + WiremdFence + Pdf + File + Tabs + Tab + Embed + Mirror + MirrorSource + HtmlAlignBlock + Toggle canonicals; source-form preservation + math syntax + wiki-embed compats; Mermaid + wiremd are fence-only)', () => {
-    expect(builtInComponents.length).toBe(26);
+  test('contains 18 canonical + 9 compat entries (5-pack + Math + MermaidFence + WiremdFence + PlotFence + Pdf + File + Tabs + Tab + Embed + Mirror + MirrorSource + HtmlAlignBlock + Toggle canonicals; source-form preservation + math syntax + wiki-embed compats; Mermaid + wiremd + plot are fence-only)', () => {
+    expect(builtInComponents.length).toBe(27);
     const canonical = builtInComponents.filter((m) => m.surface === 'canonical');
     const compat = builtInComponents.filter((m) => m.surface === 'compat');
-    expect(canonical.length).toBe(17);
+    expect(canonical.length).toBe(18);
     expect(compat.length).toBe(9);
   });
 

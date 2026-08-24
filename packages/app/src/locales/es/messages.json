@@ -1240,6 +1240,7 @@
     "EDl9kS": ["Suscribirse"],
     "EDm3wJ": ["Cargando el visor de diferencias"],
     "EEYbdt": ["Publicar"],
+    "EFRQMg": ["Gráfico listo."],
     "EFfGAv": ["Ese mensaje ya se envió: no se aplicó tu edición."],
     "EHu0x2": ["Sincronizando"],
     "EJuO7B": ["Conecta una cuenta de GitHub para explorar y sincronizar tus repositorios."],
@@ -2040,6 +2041,9 @@
     "Ni4b7h": [
       "Los complementos de proyecto son el estándar de autoría de tu proyecto: actívalos o desactívalos aquí. Cada complemento activado tiene su propia página bajo Complementos en la barra lateral de ajustes."
     ],
+    "NjLjpk": [
+      "Esta especificación de plot es demasiado grande para renderizar. La fuente no ha cambiado."
+    ],
     "NjrIak": ["Archivo: <0>", ["fixedName"], ".md</0>"],
     "NkNfSr": ["Editar ", ["tag"]],
     "NkXEFS": ["Falló la restauración: el documento no cambió"],
@@ -2372,6 +2376,7 @@
     "RqSvT0": ["Importando"],
     "RrAIZx": ["Qué abarca compartir la configuración"],
     "Rsdhj9": ["Advertencias de configuración"],
+    "RuQsTP": ["Renderizando el gráfico"],
     "Rx5ReQ": ["Renombrar ", ["keyName"]],
     "RxF-am": ["Duplicados descartados"],
     "RyIKxy": [
@@ -2666,6 +2671,7 @@
     "VU3Nrn": ["Ausente"],
     "VUijjF": ["Incrusta una imagen con texto alternativo opcional."],
     "VVRrPk": [["0"], " no ofrece ajustes que configurar"],
+    "VVpQKO": ["No se pudo renderizar el gráfico. La fuente no ha cambiado."],
     "VXGFMg": ["Deshacer o rehacer en el campo de código"],
     "VYd_YA": ["Abre desde el disco una carpeta de proyecto existente."],
     "VZGh8G": ["Pliega, despliega, pliega todo o despliega todos los rangos del código."],
@@ -3206,6 +3212,7 @@
     "aXkLuE": ["Respuesta de aplicación con formato incorrecto"],
     "a_2_uB": ["No se pudo crear ", ["trimmed"], ": ", ["0"]],
     "a_u4ck": ["Cargando etiquetas"],
+    "aa0ZC6": ["No se pudo renderizar el gráfico."],
     "aaE55D": ["Borrar ", ["keyName"]],
     "aaI6cN": [
       "No se pudo conectar con el servicio de agentes. Asegúrate de que el servidor de OpenKnowledge esté en marcha y actualizado (reinícialo si ya estaba en marcha) y vuelve a intentarlo."
@@ -3274,6 +3281,9 @@
     "bUUVED": ["Recurso"],
     "bV6DJA": ["Quién eres, para que el agente tenga tu contexto."],
     "bWLmRK": ["No se pudo obtener la rama. Revisa tu conexión."],
+    "bXw3WQ": [
+      "Gráfico de datos a partir de una especificación JSON de plot: barras, líneas, áreas, puntos, renderizado con Observable Plot."
+    ],
     "bYUIzq": ["Campos del esquema"],
     "ba3vIW": [
       [
@@ -4560,6 +4570,7 @@
     "pha01Y": ["Páginas de todo el proyecto sin aristas entrantes en el grafo."],
     "pkAft1": ["Falló la búsqueda."],
     "pmUArF": ["Espacio de trabajo"],
+    "pnl3q2": ["No se pudo construir el gráfico a partir de esta especificación de plot."],
     "ppDgFi": ["Reiniciar con la versión de esta aplicación"],
     "ppzof_": [
       "Esto elimina permanentemente ",
@@ -4896,6 +4907,7 @@
     "tqQBwN": ["Los scripts se muestran para que los revises; nunca se ejecutan."],
     "tsiTqO": ["Pega tu clave de API"],
     "tsyExA": ["Conecta tus herramientas de IA con OpenKnowledge"],
+    "tuiYUT": ["El renderizador de gráficos no se cargó. La fuente está intacta."],
     "tvMvze": [
       "No se pudo mover \\\"",
       ["targetName"],

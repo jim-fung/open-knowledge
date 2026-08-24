@@ -1268,6 +1268,7 @@
     "EDl9kS": ["S'abonner"],
     "EDm3wJ": ["Chargement du moteur de rendu des différences"],
     "EEYbdt": ["Publier"],
+    "EFRQMg": ["Graphique prêt."],
     "EFfGAv": ["Ce message est déjà parti : votre modification n’a pas été appliquée."],
     "EHu0x2": ["Synchronisation en cours"],
     "EJuO7B": ["Connectez un compte GitHub pour parcourir et synchroniser vos dépôts."],
@@ -2065,6 +2066,9 @@
     "Ni4b7h": [
       "Les plugins de projet constituent la norme de rédaction de votre projet — activez-les ou désactivez-les ici. Chaque plugin activé obtient sa propre page sous Plugins dans la barre latérale des paramètres."
     ],
+    "NjLjpk": [
+      "Cette spécification plot est trop volumineuse pour être rendue. La source reste inchangée."
+    ],
     "NjrIak": ["Fichier : <0>", ["fixedName"], ".md</0>"],
     "NkNfSr": ["Modifier ", ["tag"]],
     "NkXEFS": ["Échec de la restauration — document inchangé"],
@@ -2399,6 +2403,7 @@
     "RqSvT0": ["Importation"],
     "RrAIZx": ["Ce que couvre le partage de la configuration"],
     "Rsdhj9": ["Avertissements de configuration"],
+    "RuQsTP": ["Rendu du graphique en cours"],
     "Rx5ReQ": ["Renommer ", ["keyName"]],
     "RxF-am": ["Doublons écartés"],
     "RyIKxy": [
@@ -2697,6 +2702,7 @@
     "VU3Nrn": ["Manquant"],
     "VUijjF": ["Intègre une image avec un texte alternatif facultatif."],
     "VVRrPk": [["0"], " ne propose aucun paramètre à ajuster"],
+    "VVpQKO": ["Échec du rendu du graphique. La source reste inchangée."],
     "VXGFMg": ["Annuler ou rétablir dans un champ de code"],
     "VYd_YA": ["Ouvrez un dossier de projet existant depuis le disque."],
     "VZGh8G": ["Replier, déplier, tout replier ou tout déplier les plages de la source."],
@@ -3236,6 +3242,7 @@
     "aXkLuE": ["Réponse d'application mal formée"],
     "a_2_uB": ["Impossible de créer ", ["trimmed"], " : ", ["0"]],
     "a_u4ck": ["Chargement des étiquettes"],
+    "aa0ZC6": ["Impossible de rendre le graphique."],
     "aaE55D": ["Effacer ", ["keyName"]],
     "aaI6cN": [
       "Impossible de joindre le service d'agents. Vérifiez que le serveur OpenKnowledge est en cours d'exécution et à jour (redémarrez-le s'il tournait déjà), puis réessayez."
@@ -3304,6 +3311,9 @@
     "bUUVED": ["Ressource"],
     "bV6DJA": ["Qui vous êtes, pour que l'agent connaisse votre contexte."],
     "bWLmRK": ["Impossible de récupérer la branche. Vérifiez votre connexion."],
+    "bXw3WQ": [
+      "Graphique de données issu d'une spécification JSON plot — barres, lignes, aires, points, rendu avec Observable Plot."
+    ],
     "bYUIzq": ["Champs du schéma"],
     "ba3vIW": [
       ["templateCount", "plural", { "one": ["modèle"], "many": ["modèles"], "other": ["modèles"] }]
@@ -4607,6 +4617,7 @@
     "pha01Y": ["Pages du projet sans arête entrante dans le graphe."],
     "pkAft1": ["La recherche a échoué."],
     "pmUArF": ["Espace de travail"],
+    "pnl3q2": ["Impossible de construire le graphique à partir de cette spécification plot."],
     "ppDgFi": ["Redémarrer avec la version de cette application"],
     "ppzof_": [
       "Cette action supprime définitivement ",
@@ -4950,6 +4961,7 @@
     "tqQBwN": ["Les scripts sont affichés pour relecture, jamais exécutés."],
     "tsiTqO": ["Collez votre clé API"],
     "tsyExA": ["Connectez vos outils IA à OpenKnowledge"],
+    "tuiYUT": ["Le moteur de rendu du graphique ne s'est pas chargé. La source est intacte."],
     "tvMvze": [
       "Impossible de mettre \\\"",
       ["targetName"],

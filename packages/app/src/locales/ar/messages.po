@@ -2364,6 +2364,14 @@ msgstr "تُحفظ التغييرات تلقائيًا."
 msgid "Changes saved automatically."
 msgstr "حُفظت التغييرات تلقائيًا."
 
+#: src/editor/components/Plot.tsx
+msgid "Chart failed to render. Source is unchanged."
+msgstr "فشل عرض الرسم البياني. المصدر بدون تغيير."
+
+#: src/editor/components/Plot.tsx
+msgid "Chart ready."
+msgstr "الرسم البياني جاهز."
+
 #: src/components/command-palette-commands.ts
 msgid "Check for updates"
 msgstr "التحقق من التحديثات"
@@ -3325,6 +3333,10 @@ msgstr "يجري النسخ"
 msgid "Copying..."
 msgstr "يجري النسخ..."
 
+#: src/editor/components/Plot.tsx
+msgid "Could not build the chart from this plot spec."
+msgstr "تعذر بناء الرسم البياني من مواصفات plot هذه."
+
 #: src/components/settings/SkillTargetsPicker.tsx
 msgid "Could not classify the merge — try again."
 msgstr "تعذّر تصنيف الدمج — حاول مرة أخرى."
@@ -3805,6 +3817,10 @@ msgstr "تعذّرت إعادة تسمية «{0}»: {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "تعذّرت إعادة تسمية القالب: {0}"
 
+#: src/editor/components/Plot.tsx
+msgid "Couldn't render chart."
+msgstr "تعذر عرض الرسم البياني."
+
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
 msgstr "تعذّر عرض الإطار السلكي."
@@ -4212,6 +4228,10 @@ msgstr "داكن"
 #: src/components/ExploreSkills.tsx
 msgid "Data"
 msgstr "البيانات"
+
+#: src/editor/slash-command/component-items.tsx
+msgid "Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot."
+msgstr "مخطط بيانات من مواصفات JSON لـ plot — أعمدة، خطوط، مساحات، نقاط، يُعرض باستخدام Observable Plot."
 
 #: src/components/PropertyWidgets.tsx
 msgid "Date"
@@ -9806,6 +9826,7 @@ msgstr "تبويبات المعاينة"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "المعاينة غير متاحة: {errorDetail}"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
 msgstr "المعاينة غير متاحة."
@@ -10437,6 +10458,10 @@ msgstr "خطأ في العرض"
 msgid "Rendered"
 msgstr "معروض"
 
+#: src/editor/components/Plot.tsx
+msgid "Rendering chart"
+msgstr "جارٍ عرض الرسم البياني"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
 msgstr "جارٍ عرض الإطار السلكي"
@@ -10753,6 +10778,7 @@ msgstr "يجري الاسترجاع…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "إعادة المحاولة"
@@ -12002,6 +12028,7 @@ msgstr "لوحة بحث محرر المصدر"
 msgid "Source find results"
 msgstr "نتائج بحث المصدر"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
 msgstr "المصدر دون تغيير."
@@ -12676,6 +12703,10 @@ msgstr "عقد الحساب المصدق. ينطبق فقط على المستن�
 msgid "The audit could not be completed. Try again."
 msgstr "تعذّر إتمام المراجعة. أعد المحاولة."
 
+#: src/editor/components/Plot.tsx
+msgid "The chart renderer didn't load. Source is intact."
+msgstr "لم يُحمَّل عارض الرسوم البيانية. المصدر سليم."
+
 #: src/components/InstallInClaudeDesktopDialog.tsx
 msgid "The Claude Desktop App didn't open the file. Is it installed? ({msg})"
 msgstr "لم يفتح تطبيق Claude Desktop الملف. هل هو مثبَّت؟ ({msg})"
@@ -13223,6 +13254,10 @@ msgstr "يؤدي هذا إلى إزالة {0}/{1} نهائيًا من المها
 #: src/components/TemplateDeleteDialog.tsx
 msgid "This permanently removes {path}. Agents that reference this template by name will fail until it's recreated or replaced by one in a parent folder."
 msgstr "يزيل هذا {path} نهائيًا. ستفشل الوكلاء التي تشير إلى هذا القالب بالاسم حتى يُنشأ من جديد أو يحل محله قالب في مجلد أب."
+
+#: src/editor/components/Plot.tsx
+msgid "This plot spec is too large to render. Source is unchanged."
+msgstr "مواصفات plot هذه كبيرة جداً بحيث لا يمكن عرضها. المصدر بدون تغيير."
 
 #: src/components/PanelScopeHeader.tsx
 #: src/components/settings/SettingsDialogShell.tsx

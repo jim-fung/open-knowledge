@@ -48,20 +48,22 @@ describe('PALETTE_DESCRIPTOR_NAMES — registry coverage', () => {
     );
   });
 
-  test('covers non-portable-render descriptors (Math + MermaidFence)', () => {
-    // Math + MermaidFence emit KaTeX HTML / SVG live-render output that
-    // doesn't paste cleanly cross-app. Both walker primary path AND
-    // Activity-hidden palette use the shared
-    // `nonPortableRenderSourceFallback` helper to emit the same
+  test('covers non-portable-render descriptors (Math + MermaidFence + PlotFence)', () => {
+    // Math + MermaidFence + PlotFence emit KaTeX HTML / mermaid SVG /
+    // plot SVG live-render output that doesn't paste cleanly cross-app.
+    // All three walker primary path AND Activity-hidden palette use the
+    // shared `nonPortableRenderSourceFallback` helper to emit the same
     // `<pre class="mdx-component"><code>{markdown}</code></pre>` shape.
-    expect([...PALETTE_DESCRIPTOR_NAMES]).toEqual(expect.arrayContaining(['Math', 'MermaidFence']));
+    expect([...PALETTE_DESCRIPTOR_NAMES]).toEqual(
+      expect.arrayContaining(['Math', 'MermaidFence', 'PlotFence']),
+    );
   });
 
   test('exact size — adding a name requires intentional update of this list', () => {
     // Hard count anchor. If a descriptor is added or removed, this
     // failing test becomes the prompt to also update the palette switch
     // and PALETTE_DESCRIPTOR_NAMES together.
-    expect(PALETTE_DESCRIPTOR_NAMES.length).toBe(12);
+    expect(PALETTE_DESCRIPTOR_NAMES.length).toBe(13);
   });
 });
 
@@ -85,7 +87,7 @@ describe('PALETTE_DESCRIPTOR_NAMES — registry-derived non-portable coverage', 
     // Sanity: the registry must actually carry the two math compat rows,
     // otherwise this test would vacuously pass.
     expect(descriptorNames).toEqual(
-      expect.arrayContaining(['Math', 'MermaidFence', 'DollarMath', 'MathFence']),
+      expect.arrayContaining(['Math', 'MermaidFence', 'PlotFence', 'DollarMath', 'MathFence']),
     );
 
     for (const name of descriptorNames) {

@@ -2778,6 +2778,11 @@ Homepage: https://github.com/sindresorhus/binary-extensions
 
 Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (https://sindresorhus.com) Copyright (c) Paul Miller (https://paulmillr.com)
 
+### `binary-search-bounds@2.0.5`
+Homepage: https://github.com/mikolalysenko/binary-search-bounds
+
+Copyright (c) 2013-2015 Mikola Lysenko
+
 ### `bl@4.1.0`
 Homepage: https://github.com/rvagg/bl
 
@@ -3776,6 +3781,11 @@ Copyright (c) 2018 Vasco Asturiano
 Homepage: https://github.com/remarkablemark/inline-style-parser
 
 Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
+
+### `interval-tree-1d@1.0.4`
+Homepage: https://github.com/mikolalysenko/interval-tree-1d
+
+Copyright (c) 2013 Mikola Lysenko
 
 ### `ip-address@10.2.0`
 Homepage: https://github.com/beaugunderson/ip-address
@@ -5890,6 +5900,10 @@ Homepage: https://github.com/jsdom/whatwg-mimetype
 
 _(LICENSE file present but no auto-extractable copyright line; refer to the package source for canonical attribution.)_
 
+### `wiremd@0.1.7`
+
+_(No LICENSE file in package; SPDX identifier in `package.json` is the sole declared grant.)_
+
 ### `ws@8.21.0`
 Homepage: https://github.com/websockets/ws
 
@@ -5986,6 +6000,11 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ```
+
+### `@observablehq/plot@0.6.17`
+Homepage: https://github.com/observablehq/plot
+
+Copyright 2020-2025 Observable, Inc.
 
 ### `@ungap/structured-clone@1.3.3`
 Homepage: https://github.com/ungap/structured-clone#readme
@@ -6213,6 +6232,11 @@ Copyright 2021 Mike Bostock
 Homepage: https://github.com/isaacs/isexe#readme
 
 Copyright (c) Isaac Z. Schlueter and Contributors
+
+### `isoformat@0.2.1`
+Homepage: https://github.com/mbostock/isoformat/
+
+Copyright 2021 Mike Bostock
 
 ### `lru-cache@5.1.1`
 Homepage: https://github.com/isaacs/node-lru-cache

@@ -12,13 +12,13 @@
 import { builtInComponents } from '@inkeep/open-knowledge-core';
 
 /**
- * Canonicals whose live React render is KaTeX / mermaid SVG — the renders the
- * clipboard source fallback canonicalizes because they paste as garbage
- * cross-app. Extend this set when a new non-portable canonical is added to
- * the switch in `sourceFallbackFormFor` — the registry-derived guards depend
- * on this set being complete.
+ * Canonicals whose live React render is KaTeX / mermaid SVG / plot SVG — the
+ * renders the clipboard source fallback canonicalizes because they paste as
+ * garbage cross-app. Extend this set when a new non-portable canonical is
+ * added to the switch in `sourceFallbackFormFor` — the registry-derived
+ * guards depend on this set being complete.
  */
-const NON_PORTABLE_CANONICALS: ReadonlySet<string> = new Set(['Math', 'MermaidFence']);
+const NON_PORTABLE_CANONICALS: ReadonlySet<string> = new Set(['Math', 'MermaidFence', 'PlotFence']);
 
 /**
  * Every registry descriptor name whose render identity is a non-portable

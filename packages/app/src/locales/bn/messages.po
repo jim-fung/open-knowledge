@@ -2360,6 +2360,14 @@ msgstr "পরিবর্তনগুলি স্বয়ংক্রিয�
 msgid "Changes saved automatically."
 msgstr "পরিবর্তনগুলি স্বয়ংক্রিয়ভাবে সংরক্ষিত হয়েছে।"
 
+#: src/editor/components/Plot.tsx
+msgid "Chart failed to render. Source is unchanged."
+msgstr "চার্ট রেন্ডার করতে ব্যর্থ। সোর্স অপরিবর্তিত।"
+
+#: src/editor/components/Plot.tsx
+msgid "Chart ready."
+msgstr "চার্ট প্রস্তুত।"
+
 #: src/components/command-palette-commands.ts
 msgid "Check for updates"
 msgstr "হালনাগাদ দেখুন"
@@ -3321,6 +3329,10 @@ msgstr "কপি করা হচ্ছে"
 msgid "Copying..."
 msgstr "কপি করা হচ্ছে…"
 
+#: src/editor/components/Plot.tsx
+msgid "Could not build the chart from this plot spec."
+msgstr "এই প্লট স্পেক থেকে চার্ট তৈরি করা যায়নি।"
+
 #: src/components/settings/SkillTargetsPicker.tsx
 msgid "Could not classify the merge — try again."
 msgstr "মার্জটি শ্রেণিবদ্ধ করা যায়নি — আবার চেষ্টা করুন।"
@@ -3801,6 +3813,10 @@ msgstr "\"{0}\"-এর নাম বদলানো যায়নি: {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "টেমপ্লেটের নাম বদলানো যায়নি: {0}"
 
+#: src/editor/components/Plot.tsx
+msgid "Couldn't render chart."
+msgstr "চার্ট রেন্ডার করা যায়নি।"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
 msgstr "ওয়্যারফ্রেম রেন্ডার করা যায়নি।"
@@ -4208,6 +4224,10 @@ msgstr "গাঢ়"
 #: src/components/ExploreSkills.tsx
 msgid "Data"
 msgstr "তথ্য"
+
+#: src/editor/slash-command/component-items.tsx
+msgid "Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot."
+msgstr "JSON প্লট স্পেক থেকে ডেটা চার্ট — বার, লাইন, এরিয়া, ডট, Observable Plot দিয়ে রেন্ডার।"
 
 #: src/components/PropertyWidgets.tsx
 msgid "Date"
@@ -9802,6 +9822,7 @@ msgstr "প্রাকদর্শন ট্যাব"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "প্রাকদর্শন অনুপলব্ধ: {errorDetail}"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
 msgstr "প্রাকদর্শন অনুপলব্ধ।"
@@ -10433,6 +10454,10 @@ msgstr "রেন্ডার ত্রুটি"
 msgid "Rendered"
 msgstr "রেন্ডার করা"
 
+#: src/editor/components/Plot.tsx
+msgid "Rendering chart"
+msgstr "চার্ট রেন্ডার হচ্ছে"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
 msgstr "ওয়্যারফ্রেম রেন্ডার হচ্ছে"
@@ -10749,6 +10774,7 @@ msgstr "আনা হচ্ছে…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "আবার চেষ্টা করুন"
@@ -11998,6 +12024,7 @@ msgstr "সোর্স সম্পাদকের অনুসন্ধান 
 msgid "Source find results"
 msgstr "সোর্স খোঁজার ফলাফল"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
 msgstr "সোর্স অপরিবর্তিত।"
@@ -12672,6 +12699,10 @@ msgstr "প্রত্যয়িত-গণনা চুক্তি। শু
 msgid "The audit could not be completed. Try again."
 msgstr "নিরীক্ষা সম্পূর্ণ করা যায়নি। আবার চেষ্টা করুন।"
 
+#: src/editor/components/Plot.tsx
+msgid "The chart renderer didn't load. Source is intact."
+msgstr "চার্ট রেন্ডারার লোড হয়নি। সোর্স অক্ষত।"
+
 #: src/components/InstallInClaudeDesktopDialog.tsx
 msgid "The Claude Desktop App didn't open the file. Is it installed? ({msg})"
 msgstr "Claude Desktop App ফাইলটি খোলেনি। সেটি কি ইনস্টল করা আছে? ({msg})"
@@ -13219,6 +13250,10 @@ msgstr "এটি “{2}” স্কিল থেকে {0}/{1} স্থায
 #: src/components/TemplateDeleteDialog.tsx
 msgid "This permanently removes {path}. Agents that reference this template by name will fail until it's recreated or replaced by one in a parent folder."
 msgstr "এটি {path}-কে স্থায়ীভাবে সরিয়ে দেয়। যেসব এজেন্ট এই টেমপ্লেটটি নাম ধরে উল্লেখ করে সেগুলো এটি আবার তৈরি না হওয়া বা কোনো মূল ফোল্ডারের টেমপ্লেট এর জায়গা না নেওয়া পর্যন্ত ব্যর্থ হবে।"
+
+#: src/editor/components/Plot.tsx
+msgid "This plot spec is too large to render. Source is unchanged."
+msgstr "এই প্লট স্পেক রেন্ডার করার জন্য অত্যধিক বড়। সোর্স অপরিবর্তিত।"
 
 #: src/components/PanelScopeHeader.tsx
 #: src/components/settings/SettingsDialogShell.tsx

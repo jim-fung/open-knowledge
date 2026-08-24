@@ -1059,6 +1059,7 @@
     "EDl9kS": ["Subscribe"],
     "EDm3wJ": ["Loading diff renderer"],
     "EEYbdt": ["Publish"],
+    "EFRQMg": ["Chart ready."],
     "EFfGAv": ["That message already went out — your edit wasn't applied."],
     "EHu0x2": ["Syncing"],
     "EJuO7B": ["Connect a GitHub account to browse and sync your repositories."],
@@ -1750,6 +1751,7 @@
     "Ni4b7h": [
       "Project plugins are your project's authoring standard — turn them on or off here. Each enabled plugin gets its own page under Plugins in the settings sidebar."
     ],
+    "NjLjpk": ["This plot spec is too large to render. Source is unchanged."],
     "NjrIak": ["File: <0>", ["fixedName"], ".md</0>"],
     "NkNfSr": ["Edit ", ["tag"]],
     "NkXEFS": ["Restore failed — document unchanged"],
@@ -2059,6 +2061,7 @@
     "RqSvT0": ["Importing"],
     "RrAIZx": ["What config sharing covers"],
     "Rsdhj9": ["Configuration warnings"],
+    "RuQsTP": ["Rendering chart"],
     "Rx5ReQ": ["Rename ", ["keyName"]],
     "RxF-am": ["Duplicates dropped"],
     "RyIKxy": [
@@ -2307,6 +2310,7 @@
     "VU3Nrn": ["Missing"],
     "VUijjF": ["Embed an image with optional alt text."],
     "VVRrPk": [["0"], " doesn't offer any settings to adjust"],
+    "VVpQKO": ["Chart failed to render. Source is unchanged."],
     "VXGFMg": ["Code field undo or redo"],
     "VYd_YA": ["Open an existing project folder from disk."],
     "VZGh8G": ["Fold, unfold, fold all, or unfold all source ranges."],
@@ -2760,6 +2764,7 @@
     "aXkLuE": ["Malformed apply response"],
     "a_2_uB": ["Couldn't create ", ["trimmed"], ": ", ["0"]],
     "a_u4ck": ["Loading tags"],
+    "aa0ZC6": ["Couldn't render chart."],
     "aaE55D": ["Clear ", ["keyName"]],
     "aaI6cN": [
       "Couldn't connect to the agent service. Make sure the OpenKnowledge server is running and up to date (restart it if it was already running), then try again."
@@ -2817,6 +2822,9 @@
     "bUUVED": ["Asset"],
     "bV6DJA": ["Who you are, so the agent has your context."],
     "bWLmRK": ["Could not fetch branch. Check your connection."],
+    "bXw3WQ": [
+      "Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot."
+    ],
     "bYUIzq": ["Schema fields"],
     "ba3vIW": [["templateCount", "plural", { "one": ["template"], "other": ["templates"] }]],
     "bbJ-VR": ["Zoom Out"],
@@ -3936,6 +3944,7 @@
     "pha01Y": ["Project-level pages with no incoming graph edges."],
     "pkAft1": ["Search failed."],
     "pmUArF": ["Workspace"],
+    "pnl3q2": ["Could not build the chart from this plot spec."],
     "ppDgFi": ["Restart with this app's version"],
     "ppzof_": [
       "This permanently removes ",
@@ -4241,6 +4250,7 @@
     "tqQBwN": ["Any scripts are shown for review, never run."],
     "tsiTqO": ["Paste your API key"],
     "tsyExA": ["Connect your AI tools to OpenKnowledge"],
+    "tuiYUT": ["The chart renderer didn't load. Source is intact."],
     "tvMvze": [
       "Could not move \"",
       ["targetName"],

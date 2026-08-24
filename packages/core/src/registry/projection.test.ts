@@ -24,9 +24,9 @@ const PARSE_EXTENSIONS = [mdx()];
 const PARSE_MDAST_EXTENSIONS = [mdxFromMarkdown()];
 
 describe('getCanonicalDescriptors (broad filter)', () => {
-  test('returns 17 canonicals (matches built-ins snapshot)', () => {
+  test('returns 18 canonicals (matches built-ins snapshot)', () => {
     const canonicals = getCanonicalDescriptors();
-    expect(canonicals.length).toBe(17);
+    expect(canonicals.length).toBe(18);
   });
 
   test('excludes compat surfaces', () => {
@@ -50,6 +50,11 @@ describe('getCanonicalDescriptors (broad filter)', () => {
     const names = new Set(getCanonicalDescriptors().map((d) => d.name));
     expect(names.has('WiremdFence')).toBe(true);
   });
+
+  test('PlotFence is in the broad set (it is canonical for the parse pipeline)', () => {
+    const names = new Set(getCanonicalDescriptors().map((d) => d.name));
+    expect(names.has('PlotFence')).toBe(true);
+  });
 });
 
 describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
@@ -67,6 +72,11 @@ describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
     expect(names.has('WiremdFence')).toBe(false);
   });
 
+  test('excludes PlotFence (no JSX form exists; agents author the fence directly)', () => {
+    const names = new Set(getAgentCanonicalDescriptors().map((d) => d.name));
+    expect(names.has('PlotFence')).toBe(false);
+  });
+
   test('every entry is jsx-block or jsx-void — no fence-kind leaks through', () => {
     for (const d of getAgentCanonicalDescriptors()) {
       const lite = projectLite(d);
@@ -78,7 +88,9 @@ describe('getAgentCanonicalDescriptors (JSX-only agent surface)', () => {
     const broad = new Set(getCanonicalDescriptors().map((d) => d.name));
     const agent = new Set(getAgentCanonicalDescriptors().map((d) => d.name));
     const divergence = new Set([...broad].filter((name) => !agent.has(name)));
-    expect(divergence).toEqual(new Set(['MermaidFence', 'WiremdFence', 'HtmlAlignBlock']));
+    expect(divergence).toEqual(
+      new Set(['MermaidFence', 'WiremdFence', 'PlotFence', 'HtmlAlignBlock']),
+    );
   });
 });
 
@@ -93,10 +105,10 @@ describe('projectLite — 4 fields per entry', () => {
     }
   });
 
-  test('fence-kind canonicals are exactly MermaidFence and WiremdFence (both excluded from the agent surface)', () => {
+  test('fence-kind canonicals are exactly MermaidFence, WiremdFence, and PlotFence (all excluded from the agent surface)', () => {
     const lite = getCanonicalDescriptors().map(projectLite);
     const fences = lite.filter((entry) => entry.kind === 'fence').map((entry) => entry.id);
-    expect(fences.sort()).toEqual(['MermaidFence', 'WiremdFence']);
+    expect(fences.sort()).toEqual(['MermaidFence', 'PlotFence', 'WiremdFence']);
   });
 });
 
@@ -121,7 +133,9 @@ describe('projectFull — example + form-aware params (FR-11)', () => {
         expect(first.type).toBe('code');
         const lang = (first as { lang?: string }).lang;
         // Each fence-kind canonical round-trips to its own fence language.
-        expect(lang).toBe(d.name === 'MermaidFence' ? 'mermaid' : 'wiremd');
+        const expectedLang =
+          d.name === 'MermaidFence' ? 'mermaid' : d.name === 'PlotFence' ? 'plot' : 'wiremd';
+        expect(lang).toBe(expectedLang);
       } else {
         expect(first.type).toBe('mdxJsxFlowElement');
         expect((first as { name?: string }).name).toBe(d.name);

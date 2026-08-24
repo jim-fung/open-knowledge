@@ -53,7 +53,16 @@ export default defineConfig({
   // excluded from PR review and from the public mirror, and biome likewise
   // excludes them via `!reports` in biome.jsonc. They trip unused-vars /
   // unicorn style rules that don't apply to one-shot evidence scripts.
-  ignorePatterns: ['.agents/skills/**', '.codex/skills/**', '/reports/**'],
+  // `packages/wiremd/dist/**` is the vendored wiremd build output committed
+  // for clean standalone clones (see packages/wiremd/README.md). Its contents
+  // are owned by the upstream wiremd build toolchain — same rationale as
+  // biome's global `!**/dist` exclusion.
+  ignorePatterns: [
+    '.agents/skills/**',
+    '.codex/skills/**',
+    '/reports/**',
+    'packages/wiremd/dist/**',
+  ],
   options: {
     typeAware: true,
   },

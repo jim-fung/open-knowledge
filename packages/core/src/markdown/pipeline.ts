@@ -36,6 +36,7 @@ import type { SourceDocBoundary } from './mdast-augmentation.ts';
 import { mergedPostParseWalkerPlugin } from './merged-walker.ts';
 import { mermaidPromoterPlugin } from './mermaid-promoter.ts';
 import { nonRenderingContextDemotePlugin } from './non-rendering-context-demote.ts';
+import { plotPromoterPlugin } from './plot-promoter.ts';
 import { positionAwareBlankLineJoin } from './position-aware-join.ts';
 import { remarkMdxAgnostic } from './remark-mdx-agnostic.ts';
 import { singleDollarMathPromoterPlugin } from './single-dollar-math-promoter.ts';
@@ -102,6 +103,7 @@ export const ACTIVE_MDAST_PLUGINS = [
   { name: 'underline-promoter', plugin: underlinePromoterPlugin },
   { name: 'mermaid-promoter', plugin: mermaidPromoterPlugin },
   { name: 'wiremd-promoter', plugin: wiremdPromoterPlugin },
+  { name: 'plot-promoter', plugin: plotPromoterPlugin },
   { name: 'comment-promoter', plugin: commentPromoterPlugin },
   { name: 'merged-post-parse-walker', plugin: mergedPostParseWalkerPlugin },
   { name: 'empty-task-item-unmint', plugin: emptyTaskItemUnmintPlugin },

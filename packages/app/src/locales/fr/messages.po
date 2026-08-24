@@ -2364,6 +2364,14 @@ msgstr "Les modifications sont enregistrées automatiquement."
 msgid "Changes saved automatically."
 msgstr "Modifications enregistrées automatiquement."
 
+#: src/editor/components/Plot.tsx
+msgid "Chart failed to render. Source is unchanged."
+msgstr "Échec du rendu du graphique. La source reste inchangée."
+
+#: src/editor/components/Plot.tsx
+msgid "Chart ready."
+msgstr "Graphique prêt."
+
 #: src/components/command-palette-commands.ts
 msgid "Check for updates"
 msgstr "Rechercher les mises à jour"
@@ -3325,6 +3333,10 @@ msgstr "Copie en cours"
 msgid "Copying..."
 msgstr "Copie en cours…"
 
+#: src/editor/components/Plot.tsx
+msgid "Could not build the chart from this plot spec."
+msgstr "Impossible de construire le graphique à partir de cette spécification plot."
+
 #: src/components/settings/SkillTargetsPicker.tsx
 msgid "Could not classify the merge — try again."
 msgstr "Impossible de classer la fusion. Réessayez."
@@ -3805,6 +3817,10 @@ msgstr "Impossible de renommer « {0} » : {1}"
 msgid "Couldn't rename template: {0}"
 msgstr "Impossible de renommer le modèle : {0}"
 
+#: src/editor/components/Plot.tsx
+msgid "Couldn't render chart."
+msgstr "Impossible de rendre le graphique."
+
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
 msgstr "Impossible de rendre le wireframe."
@@ -4212,6 +4228,10 @@ msgstr "Sombre"
 #: src/components/ExploreSkills.tsx
 msgid "Data"
 msgstr "Données"
+
+#: src/editor/slash-command/component-items.tsx
+msgid "Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot."
+msgstr "Graphique de données issu d'une spécification JSON plot — barres, lignes, aires, points, rendu avec Observable Plot."
 
 #: src/components/PropertyWidgets.tsx
 msgid "Date"
@@ -9806,6 +9826,7 @@ msgstr "Onglets d'aperçu"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "Aperçu indisponible : {errorDetail}"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
 msgstr "Aperçu indisponible."
@@ -10437,6 +10458,10 @@ msgstr "erreur de rendu"
 msgid "Rendered"
 msgstr "Rendu"
 
+#: src/editor/components/Plot.tsx
+msgid "Rendering chart"
+msgstr "Rendu du graphique en cours"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
 msgstr "Rendu du wireframe en cours"
@@ -10753,6 +10778,7 @@ msgstr "Récupération…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "Réessayer"
@@ -12002,6 +12028,7 @@ msgstr "Panneau de recherche de l'éditeur de source"
 msgid "Source find results"
 msgstr "Résultats de recherche dans la source"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
 msgstr "La source reste inchangée."
@@ -12676,6 +12703,10 @@ msgstr "Le contrat de calcul attesté. S'applique uniquement aux documents tapé
 msgid "The audit could not be completed. Try again."
 msgstr "L'audit n'a pas pu être terminé. Réessayez."
 
+#: src/editor/components/Plot.tsx
+msgid "The chart renderer didn't load. Source is intact."
+msgstr "Le moteur de rendu du graphique ne s'est pas chargé. La source est intacte."
+
 #: src/components/InstallInClaudeDesktopDialog.tsx
 msgid "The Claude Desktop App didn't open the file. Is it installed? ({msg})"
 msgstr "L'application Claude Desktop n'a pas ouvert le fichier. Est-elle installée ? ({msg})"
@@ -13223,6 +13254,10 @@ msgstr "Cette action supprime définitivement {0}/{1} de la compétence « {2} �
 #: src/components/TemplateDeleteDialog.tsx
 msgid "This permanently removes {path}. Agents that reference this template by name will fail until it's recreated or replaced by one in a parent folder."
 msgstr "Ceci retire définitivement {path}. Les agents qui référencent ce modèle par son nom échoueront jusqu'à ce qu'il soit recréé ou remplacé par un modèle d'un dossier parent."
+
+#: src/editor/components/Plot.tsx
+msgid "This plot spec is too large to render. Source is unchanged."
+msgstr "Cette spécification plot est trop volumineuse pour être rendue. La source reste inchangée."
 
 #: src/components/PanelScopeHeader.tsx
 #: src/components/settings/SettingsDialogShell.tsx

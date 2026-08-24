@@ -1,7 +1,7 @@
 /**
  * Maps component name → React component for the descriptor registry.
  *
- * Canonical pack: Callout + Image + Video + Audio + Accordion + Math + MermaidFence + Pdf + File + Tabs + Tab.
+ * Canonical pack: Callout + Image + Video + Audio + Accordion + Math + MermaidFence + WiremdFence + PlotFence + Pdf + File + Tabs + Tab.
  * Each canonical entry is a DIY renderer — Callout is a 7-prop GFM shape
  * at `./Callout`, Image wraps `react-medium-image-zoom` (8-prop at
  * `./Image`), Video is a pure HTML5 `<video>` wrapper (9-prop at `./Video`
@@ -53,6 +53,7 @@ import { MermaidView } from './Mermaid.tsx';
 import { Mirror } from './Mirror.tsx';
 import { MirrorSource } from './MirrorSource.tsx';
 import { Pdf } from './Pdf.tsx';
+import { PlotView } from './Plot.tsx';
 import { Tab } from './Tab.tsx';
 import { Tabs } from './Tabs.tsx';
 import { Video } from './Video.tsx';
@@ -110,6 +111,11 @@ export const componentMap: Record<string, React.ComponentType<any>> = {
   // unregistered `Wiremd` name keeps direct JSX authoring on the wildcard.
   // Renders via the browser-safe `wiremd/embed` boundary (lazy chunk).
   WiremdFence: WiremdView,
+  // Same fence-only mechanism: `PlotFence` is promoted from ` ```plot ` code
+  // fences by the core `plot-promoter`, and the unregistered `Plot` name
+  // keeps direct JSX authoring on the wildcard. Renders the JSON plot spec
+  // through @observablehq/plot marks on the main thread (lazy chunk).
+  PlotFence: PlotView,
   // Master/copy block transclusion. `MirrorSource` is the editable
   // source-of-truth wrapper; `Mirror` is the read-only consumer that
   // resolves a `<MirrorSource id="…">` from another doc via the shared

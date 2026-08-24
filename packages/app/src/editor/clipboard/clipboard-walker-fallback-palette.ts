@@ -83,9 +83,10 @@ export const PALETTE_DESCRIPTOR_NAMES = [
   // Compat block-math descriptors that render as `<Math>`.
   'DollarMath',
   'MathFence',
-  // MermaidFence: separate non-portable canonical (mermaid SVG), not a
-  // Math compat.
+  // MermaidFence + PlotFence: separate non-portable canonicals (mermaid
+  // SVG / plot SVG), not Math compats.
   'MermaidFence',
+  'PlotFence',
 ] as const;
 
 function calloutPalette(props: Record<string, unknown>): Element {
@@ -309,6 +310,7 @@ export function paletteFor(node: PmNode): Element | null {
     case 'DollarMath':
     case 'MathFence':
     case 'MermaidFence':
+    case 'PlotFence':
       return nonPortableRenderSourceFallback(node, document);
     default:
       return null;

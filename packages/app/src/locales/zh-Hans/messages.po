@@ -2364,6 +2364,14 @@ msgstr "更改会自动保存。"
 msgid "Changes saved automatically."
 msgstr "更改已自动保存。"
 
+#: src/editor/components/Plot.tsx
+msgid "Chart failed to render. Source is unchanged."
+msgstr "图表渲染失败。源码保持不变。"
+
+#: src/editor/components/Plot.tsx
+msgid "Chart ready."
+msgstr "图表已就绪。"
+
 #: src/components/command-palette-commands.ts
 msgid "Check for updates"
 msgstr "检查更新"
@@ -3325,6 +3333,10 @@ msgstr "正在复制"
 msgid "Copying..."
 msgstr "正在复制…"
 
+#: src/editor/components/Plot.tsx
+msgid "Could not build the chart from this plot spec."
+msgstr "无法根据此 plot 规范构建图表。"
+
 #: src/components/settings/SkillTargetsPicker.tsx
 msgid "Could not classify the merge — try again."
 msgstr "无法对合并进行分类，请重试。"
@@ -3805,6 +3817,10 @@ msgstr "无法重命名 \"{0}\"：{1}"
 msgid "Couldn't rename template: {0}"
 msgstr "无法重命名模板：{0}"
 
+#: src/editor/components/Plot.tsx
+msgid "Couldn't render chart."
+msgstr "无法渲染图表。"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Couldn't render wireframe."
 msgstr "无法渲染线框图。"
@@ -4212,6 +4228,10 @@ msgstr "深色"
 #: src/components/ExploreSkills.tsx
 msgid "Data"
 msgstr "数据"
+
+#: src/editor/slash-command/component-items.tsx
+msgid "Data chart from a JSON plot spec — bar, line, area, dot, rendered with Observable Plot."
+msgstr "由 JSON plot 规范生成的数据图表——条形图、折线图、面积图、散点图，使用 Observable Plot 渲染。"
 
 #: src/components/PropertyWidgets.tsx
 msgid "Date"
@@ -9806,6 +9826,7 @@ msgstr "预览标签页"
 msgid "Preview unavailable: {errorDetail}"
 msgstr "无法预览：{errorDetail}"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Preview unavailable."
 msgstr "无法预览。"
@@ -10437,6 +10458,10 @@ msgstr "渲染错误"
 msgid "Rendered"
 msgstr "已渲染"
 
+#: src/editor/components/Plot.tsx
+msgid "Rendering chart"
+msgstr "正在渲染图表"
+
 #: src/editor/components/Wiremd.tsx
 msgid "Rendering wireframe"
 msgstr "正在渲染线框图"
@@ -10753,6 +10778,7 @@ msgstr "正在检索…"
 #: src/components/PublishToGitHubDialog.tsx
 #: src/components/settings/ConfigureAgentsSection.tsx
 #: src/components/TrashFailureModal.tsx
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Retry"
 msgstr "重试"
@@ -12002,6 +12028,7 @@ msgstr "源码编辑器搜索面板"
 msgid "Source find results"
 msgstr "源码查找结果"
 
+#: src/editor/components/Plot.tsx
 #: src/editor/components/Wiremd.tsx
 msgid "Source is unchanged."
 msgstr "源码保持不变。"
@@ -12676,6 +12703,10 @@ msgstr "经证明的计算合约。仅适用于类型为 Attested Computation �
 msgid "The audit could not be completed. Try again."
 msgstr "审查未能完成。请重试。"
 
+#: src/editor/components/Plot.tsx
+msgid "The chart renderer didn't load. Source is intact."
+msgstr "图表渲染器未加载。源码完好无损。"
+
 #: src/components/InstallInClaudeDesktopDialog.tsx
 msgid "The Claude Desktop App didn't open the file. Is it installed? ({msg})"
 msgstr "Claude 桌面应用没有打开这个文件。它安装了吗？（{msg}）"
@@ -13223,6 +13254,10 @@ msgstr "此操作会从“{2}”技能中永久删除 {0}/{1}。SKILL.md 中指�
 #: src/components/TemplateDeleteDialog.tsx
 msgid "This permanently removes {path}. Agents that reference this template by name will fail until it's recreated or replaced by one in a parent folder."
 msgstr "这会永久移除 {path}。在重新创建它，或者由上级文件夹中的同名模板取代之前，按名称引用这个模板的智能体都会失败。"
+
+#: src/editor/components/Plot.tsx
+msgid "This plot spec is too large to render. Source is unchanged."
+msgstr "此 plot 规范过大，无法渲染。源码保持不变。"
 
 #: src/components/PanelScopeHeader.tsx
 #: src/components/settings/SettingsDialogShell.tsx
